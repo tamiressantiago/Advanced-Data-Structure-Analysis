@@ -1,23 +1,25 @@
 # Advanced-Data-Structure-Analysis
 .
 
-# Metodologia Geral
+## Metodologia Geral
 .
 .
 .
 
-# BTree
+## Estruturas Analisadas
+
+### BTree
 .
 .
 .
 
-# SplayTree
+### SplayTree
 .
 .
 .
 
 
-# TreeMap
+### TreeMap
 .
 .
 .
