@@ -1,8 +1,27 @@
 # Advanced-Data-Structure-Analysis
 .
 
-Hello World
-Teste
+# Metodologia Geral
+.
+.
+.
+
+# BTree
+.
+.
+.
+
+# SplayTree
+.
+.
+.
+
+
+# TreeMap
+.
+.
+.
+
 
 ## Créditos
 
