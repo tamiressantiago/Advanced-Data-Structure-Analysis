@@ -46,3 +46,7 @@ Os testes de estresse da máquina foram feitos no ambiente do _IntelliJ_ instala
 A implementação da SplayTree utilizada neste projeto foi baseada no repositório desenvolvido por Pedro Oliveira "cpdomina":
 
 https://github.com/cpdomina/SplayTree/tree/master
+
+A implementação da BTree utilizada neste projeto foi baseada em:
+
+https://www.geeksforgeeks.org/b-tree-in-java/
