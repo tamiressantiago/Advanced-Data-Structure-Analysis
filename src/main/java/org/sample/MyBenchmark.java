@@ -47,6 +47,7 @@ import org.openjdk.jmh.annotations.Warmup;
 import org.openjdk.jmh.infra.Blackhole;
 
 import reader.GeneralFileReader;
+import structure.BTree;
 import structure.SplayTree;
 
 @State(Scope.Benchmark)
@@ -57,16 +58,25 @@ import structure.SplayTree;
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 public class MyBenchmark {
 
-	private SplayTree<Integer> tree;
     private List<Integer> values;
+	private SplayTree<Integer> splayTree;
+    private SplayTree<Integer> splayTreeCheia;
+    private BTree bTree;
+    private BTree bTreeCheia;
 
     @Setup // Executa antes de cada conjunto de execuções do benchmark
     public void setup() {
         values = GeneralFileReader.readValues("data/dados_com_repeticoes_desordenados.csv");
         splayTree = new SplayTree<>();
-	splayTreeCheia = new SplayTree<>();
+	    splayTreeCheia = new SplayTree<>();
+        bTree = new BTree(256);
+
 	    for (int value : values) {
-            splayTree.insert(value);
+            splayTreeCheia.insert(value);
+        }
+
+        for (int value : values) {
+            bTreeCheia.insert(value);
         }
     }
 
@@ -76,28 +86,47 @@ public class MyBenchmark {
     }
 
     @Benchmark
-    public void benchmarkInsertAll() {
+    public void benchmarkInsertAllSplayTree() {
         for (int value : values) {
             splayTree.insert(value);
         }
     }
 
     @Benchmark
-    public void benchmarkSearchAll(Blackhole blackhole, SplayTree splayTreeCheia) {
-
+    public void benchmarkSearchAllSplayTree(Blackhole blackhole) {
         //buscar e blackhole consome o resultado
         for (int value : values) {
             blackhole.consume(splayTreeCheia.contains(value));
         }
     }
     
-    
     @Benchmark
-    public void benchmarkRemoveAll(SplayTree splayTreeCheia) {
-        SplayTree<Integer> tree = new SplayTree<>();
-        
+    public void benchmarkRemoveAllSplayTree() {        
         for (int value : values) {
             splayTreeCheia.remove(value); 
+        }
+    }
+
+
+    @Benchmark
+    public void benchmarkInsertAllBTree() {
+        for (int value : values) {
+            bTree.insert(value);
+        }
+    }
+
+    @Benchmark
+    public void benchmarkSearchAllBTree(Blackhole blackhole) {
+        //buscar e blackhole consome o resultado
+        for (int value : values) {
+            blackhole.consume(bTreeCheia.search(value));
+        }
+    }
+    
+    @Benchmark
+    public void benchmarkRemoveAllBTree() {        
+        for (int value : values) {
+            bTreeCheia.remove(value); 
         }
     }
 }

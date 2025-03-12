@@ -1,3 +1,4 @@
+package structure;
 class BTreeNode {
     int[] keys;
     int t;
