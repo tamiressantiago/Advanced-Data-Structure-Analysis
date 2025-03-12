@@ -36,6 +36,7 @@ import java.util.concurrent.TimeUnit;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Fork;
+import org.openjdk.jmh.annotations.Level;
 import org.openjdk.jmh.annotations.Measurement;
 import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
@@ -77,6 +78,20 @@ public class MyBenchmark {
         }
     }
 
+    @Benchmark
+    public void benchmarkSearchAll(Blackhole blackhole) {
+        SplayTree<Integer> tree = new SplayTree<>();
+        
+        // valores antes da busca
+        for (int value : values) {
+            tree.insert(value);
+        }
+
+        //buscar e blackhole consome o resultado
+        for (int value : values) {
+            blackhole.consume(tree.contains(value));
+        }
+    }
     
     
     @Benchmark
@@ -91,4 +106,5 @@ public class MyBenchmark {
         }
     }
 }
+
 
