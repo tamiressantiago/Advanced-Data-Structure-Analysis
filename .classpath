@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="io/" kind="src" path="src/java/advanced-data-structure"/>
+	<classpathentry kind="src" path="src/java/advanced-data-structure/io"/>
+	<classpathentry kind="src" path="src/java/main"/>
+	<classpathentry kind="src" path="test/src/main/java"/>
+	<classpathentry kind="lib" path="lib/jmh-core-1.37.jar"/>
+	<classpathentry kind="lib" path="lib/jmh-generator-annprocess-1.37.jar"/>
+	<classpathentry kind="output" path="test/target/classes"/>
+</classpath>

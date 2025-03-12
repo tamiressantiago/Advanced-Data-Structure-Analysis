@@ -1,0 +1,13 @@
+dontinline,*.*_all_jmhStub
+dontinline,*.*_avgt_jmhStub
+dontinline,*.*_sample_jmhStub
+dontinline,*.*_ss_jmhStub
+dontinline,*.*_thrpt_jmhStub
+inline,org/sample/MyBenchmark.baselineAccess
+inline,org/sample/MyBenchmark.benchmarkInsertAll
+inline,org/sample/MyBenchmark.benchmarkRemoveAll
+inline,org/sample/MyBenchmark.setup
+inline,org/sample/MyBenchmarkFullTree.benchmarkAdd
+inline,org/sample/MyBenchmarkFullTree.benchmarkRemove
+inline,org/sample/MyBenchmarkFullTree.benchmarkSearch
+inline,org/sample/MyBenchmarkFullTree.setup
