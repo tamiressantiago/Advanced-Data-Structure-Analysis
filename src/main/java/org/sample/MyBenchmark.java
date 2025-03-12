@@ -50,9 +50,9 @@ import reader.GeneralFileReader;
 import structure.SplayTree;
 
 @State(Scope.Benchmark)
-@Fork(value = 1)
-@Warmup(iterations = 3)
-@Measurement(iterations = 5)
+@Fork(value = 5)
+@Warmup(iterations = 10)
+@Measurement(iterations = 10)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 public class MyBenchmark {
