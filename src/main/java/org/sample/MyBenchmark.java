@@ -63,46 +63,41 @@ public class MyBenchmark {
     @Setup // Executa antes de cada conjunto de execuções do benchmark
     public void setup() {
         values = GeneralFileReader.readValues("data/dados_com_repeticoes_desordenados.csv");
-        tree = new SplayTree<>();
+        splayTree = new SplayTree<>();
+	splayTreeCheia = new SplayTree<>();
+	    for (int value : values) {
+            splayTree.insert(value);
+        }
     }
 
     @Benchmark
     public void baselineAccess(Blackhole blackhole) {
-        blackhole.consume(tree.isEmpty());
+        blackhole.consume(splayTree.isEmpty());
     }
 
     @Benchmark
     public void benchmarkInsertAll() {
         for (int value : values) {
-            tree.insert(value);
+            splayTree.insert(value);
         }
     }
 
     @Benchmark
-    public void benchmarkSearchAll(Blackhole blackhole) {
-        SplayTree<Integer> tree = new SplayTree<>();
-        
-        // valores antes da busca
-        for (int value : values) {
-            tree.insert(value);
-        }
+    public void benchmarkSearchAll(Blackhole blackhole, SplayTree splayTreeCheia) {
 
         //buscar e blackhole consome o resultado
         for (int value : values) {
-            blackhole.consume(tree.contains(value));
+            blackhole.consume(splayTreeCheia.contains(value));
         }
     }
     
     
     @Benchmark
-    public void benchmarkRemoveAll() {
+    public void benchmarkRemoveAll(SplayTree splayTreeCheia) {
         SplayTree<Integer> tree = new SplayTree<>();
-        for (int value : values) {
-            tree.insert(value);
-        }
         
         for (int value : values) {
-            tree.remove(value); 
+            splayTreeCheia.remove(value); 
         }
     }
 }
