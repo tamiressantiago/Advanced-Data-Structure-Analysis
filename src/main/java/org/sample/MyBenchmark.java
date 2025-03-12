@@ -32,17 +32,18 @@
 package org.sample;
 
 import java.util.List;
+import java.util.TreeMap;
 import java.util.concurrent.TimeUnit;
+
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Fork;
-import org.openjdk.jmh.annotations.Level;
 import org.openjdk.jmh.annotations.Measurement;
 import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
+import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
-import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Warmup;
 import org.openjdk.jmh.infra.Blackhole;
 
@@ -63,6 +64,8 @@ public class MyBenchmark {
     private SplayTree<Integer> splayTreeCheia;
     private BTree bTree;
     private BTree bTreeCheia;
+    private TreeMap<Integer,Integer> treeMap;
+    private TreeMap<Integer,Integer> treeMapCheia;
 
     @Setup // Executa antes de cada conjunto de execuções do benchmark
     public void setup() {
@@ -70,6 +73,9 @@ public class MyBenchmark {
         splayTree = new SplayTree<>();
 	    splayTreeCheia = new SplayTree<>();
         bTree = new BTree(256);
+        bTreeCheia = new BTree(256);
+        treeMap = new TreeMap<>();
+        treeMapCheia = new TreeMap<>();
 
 	    for (int value : values) {
             splayTreeCheia.insert(value);
@@ -77,6 +83,10 @@ public class MyBenchmark {
 
         for (int value : values) {
             bTreeCheia.insert(value);
+        }
+
+        for (int value : values) {
+            treeMapCheia.put(value,value);
         }
     }
 
@@ -129,6 +139,50 @@ public class MyBenchmark {
             bTreeCheia.remove(value); 
         }
     }
+
+    @Benchmark
+    public void benchmarkInsertAllTreeMap() {
+       for (int value : values) {
+           treeMap.put(value,value);
+       }
+    }
+
+    //Procura os valores no treemap pelo valor;
+    @Benchmark
+    public void benchmarkSearchAllValueTreeMap(Blackhole blackhole) {
+    // valores antes da busca
+        for (int value : values) {
+            blackhole.consume(treeMapCheia.containsValue(value));
+        }
+    }
+
+    //Procura os valores no TreeMap com a chave.
+    @Benchmark
+    public void benchmarkSearchAllKeyTreeMap(Blackhole blackhole) {
+   //buscar e blackhole consome o resultado
+        for (int value : values) {
+            blackhole.consume(treeMapCheia.containsKey(value));
+        }
+    }
+    //Removendo pela chave;
+    @Benchmark
+    public void benchmarkRemoveAllByKeyTreeMap() {
+        for (int value : values) {
+            treeMapCheia.remove(value);
+        }
+    }
+
+    //Removendo pelo valor;
+    @Benchmark
+    public void benchmarkTreeMapRemoveAllByValue() {
+        for (int value : values) {
+            for(int valor: treeMapCheia.keySet()){
+                if(treeMapCheia.get(valor) == value) treeMapCheia.remove(valor);
+            }
+        }
+    }
+
+
 }
 
 
