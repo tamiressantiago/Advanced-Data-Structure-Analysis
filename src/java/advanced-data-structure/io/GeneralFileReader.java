@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SplayTreeFileReader {
+public class GeneralFileReader {
     public static List<Integer> readValues(String fileName) {
         List<Integer> values = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
