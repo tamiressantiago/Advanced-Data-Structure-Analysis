@@ -83,7 +83,7 @@ public class MyBenchmark {
         }
     }
 
-    /*
+    
     @Benchmark
     public void baselineAccess(Blackhole blackhole) {
         blackhole.consume(splayTree.isEmpty());
@@ -149,7 +149,7 @@ public class MyBenchmark {
             blackhole.consume(treeMapCheia.containsValue(value));
         }
     }
-    */
+
     //Removendo pela chave;
     @Benchmark
     public void benchmarkRemoveAllByKeyTreeMap() {
