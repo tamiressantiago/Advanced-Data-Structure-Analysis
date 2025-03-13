@@ -40,6 +40,13 @@ Os testes de estresse da máquina foram feitos no ambiente do _IntelliJ_ instala
 .
 .
 
+## Como usar
+
+1. Em "/src/python" execute o script em python para gerar os dados sintéticos.
+2. Se quiser, altera as cargas no script python ou os números de testes em /src/main/java/org/sample/MyBenchmark.java
+3. Na pasta raíz, execute o comando $ mvn clean verify
+4. Na mesma pasta, execute o comando $ java -jar target/benchmarks.jar
+5. (Opcional) -prof gc ao comando acima para verificar a alocação de memória também 
 
 ## Créditos
 
