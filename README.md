@@ -1,6 +1,14 @@
 # Advanced-Data-Structure-Analysis
 **Grupo 5 - Terceira entrega do projeto de EDA/LEDA**
 
+Anthony Willy Miranda Pereira - 123210127
+
+Maria Eduarda Viana Cordeiro dos Santos - 123210087
+
+Matheus Adiel Medeiros Lima de Oliveira - 123210171
+
+Natan Hugo Carvalho Evangelista - 123210202
+
 Tamires Santiago Oliveira - 123210205
 
 ## Metodologia Geral
@@ -48,7 +56,7 @@ A _B-Tree_ é uma árvore auto-balanceada, projetada para gerenciar grandes volu
 * OPERAÇÕES:
   * Inserção:
     
-    A inserção de uma chave em uma B-Tree é feita de forma a manter a estrutura balanceada, o que pode envolver a divisão de nós e a promoção de chaves para o nó pai, se necessário.
+    A inserção de uma chave em uma _B-Tree_ é feita de forma a manter a estrutura balanceada, o que pode envolver a divisão de nós e a promoção de chaves para o nó pai, se necessário.
     * Comece com a busca pela posição adequada para a chave.
     * Se a árvore estiver vazia, aloque um nó raiz e insira a chave.
     * Se não estiver vazia, encontre o nó folha onde a chave deve ser inserida:
@@ -75,7 +83,7 @@ A _B-Tree_ é uma árvore auto-balanceada, projetada para gerenciar grandes volu
 
   * Busca:
     
-    Procurar um elemento em uma BTree é uma forma generalizada da busca em uma BST.
+    Procurar um elemento em uma _BTree_ é uma forma generalizada da busca em uma BST.
      * A busca começa no nó raiz da árvore percorrendo as chaves ordenadas do nó. Se a chave procurada for encontrada no nó atual, a busca termina com sucesso. Se a chave não for encontrada, determinar qual dos filhos deve ser explorado:
         *  Se a chave for menor que uma chave existente, a busca segue para o filho esquerdo correspondente.
         *  Se for maior, a busca segue para o filho direito apropriado.
@@ -83,7 +91,7 @@ A _B-Tree_ é uma árvore auto-balanceada, projetada para gerenciar grandes volu
 
 
 
-* **Tabela de custo da BTree**
+* **Tabela de custo da _BTree_**
 
 | Algoritmo   | Caso Médio | Pior Caso |
 |------------|----------------|--------------|
