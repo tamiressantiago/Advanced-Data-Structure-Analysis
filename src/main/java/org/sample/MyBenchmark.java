@@ -58,6 +58,7 @@ import structure.SplayTree;
 @Measurement(iterations = 3)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
+public class MyBenchmark{
 
     private List<Integer> values;
     private SplayTree<Integer> splayTree;
