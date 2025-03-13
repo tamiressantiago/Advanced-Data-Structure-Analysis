@@ -108,6 +108,7 @@ public class SplayTree<T extends Comparable<T>> implements Iterable<T> {
 	 * @return False if element not present, true otherwise
 	 */
 	public boolean remove(T element) {
+		if (root == null) return false; //alteração de tony
 		splay(element);
 
 		if (element.compareTo(root.key) != 0) {
@@ -193,6 +194,7 @@ public class SplayTree<T extends Comparable<T>> implements Iterable<T> {
 	 * @param element
 	 */
 	private void splay(T element) {
+		if (root == null) return; //alteração do grupo
 		BinaryNode l, r, t, y;
 		l = r = aux;
 		t = root;
