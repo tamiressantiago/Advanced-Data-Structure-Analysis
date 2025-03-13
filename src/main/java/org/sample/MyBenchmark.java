@@ -28,7 +28,6 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
-
 package org.sample;
 
 import java.util.List;
@@ -45,28 +44,30 @@ import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
+import org.openjdk.jmh.infra.Blackhole;
+import org.openjdk.jmh.annotations.*;
 
 import reader.GeneralFileReader;
 import structure.BTree;
 import structure.SplayTree;
+import java.util.Random;
 
-@State(Scope.Benchmark)
-@Fork(value = 5)
-@Warmup(iterations = 10)
-@Measurement(iterations = 10)
+@State(Scope.Thread)
+@Fork(value = 1)
+@Warmup(iterations = 1)
+@Measurement(iterations = 3)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-public class MyBenchmark {
 
     private List<Integer> values;
-	private SplayTree<Integer> splayTree;
+    private SplayTree<Integer> splayTree;
     private SplayTree<Integer> splayTreeCheia;
     private BTree bTree;
     private BTree bTreeCheia;
     private TreeMap<Integer,Integer> treeMap;
     private TreeMap<Integer,Integer> treeMapCheia;
 
-    @Setup // Executa antes de cada conjunto de execuções do benchmark
+    @Setup(Level.Iteration) //Feito a cada iteração
     public void setup() {
         values = GeneralFileReader.readValues("data/dados_com_repeticoes_desordenados.csv");
         splayTree = new SplayTree<>();
@@ -90,14 +91,14 @@ public class MyBenchmark {
     }
 
     @Benchmark
-    public void benchmarkInsertAllSplayTree() {
+    public void benchmarkSplayTreeInsertAll() {
         for (int value : values) {
             splayTree.insert(value);
         }
     }
 
     @Benchmark
-    public void benchmarkSearchAllSplayTree(Blackhole blackhole) {
+    public void benchmarkSplayTreeSearchAll(Blackhole blackhole) {
         //buscar e blackhole consome o resultado
         for (int value : values) {
             blackhole.consume(splayTreeCheia.contains(value));
@@ -105,7 +106,7 @@ public class MyBenchmark {
     }
     
     @Benchmark
-    public void benchmarkRemoveAllSplayTree() {        
+    public void benchmarkSplayTreeRemoveAll() {        
         for (int value : values) {
             splayTreeCheia.remove(value); 
         }
@@ -113,14 +114,14 @@ public class MyBenchmark {
 
 
     @Benchmark
-    public void benchmarkInsertAllBTree() {
+    public void benchmarkBTreeInsertAll() {
         for (int value : values) {
             bTree.insert(value);
         }
     }
 
     @Benchmark
-    public void benchmarkSearchAllBTree(Blackhole blackhole) {
+    public void benchmarkBTreeSearchAll(Blackhole blackhole) {
         //buscar e blackhole consome o resultado
         for (int value : values) {
             blackhole.consume(bTreeCheia.search(value));
@@ -128,14 +129,14 @@ public class MyBenchmark {
     }
     
     @Benchmark
-    public void benchmarkRemoveAllBTree() {        
+    public void benchmarkBTreeRemoveAll() {        
         for (int value : values) {
             bTreeCheia.remove(value); 
         }
     }
 
     @Benchmark
-    public void benchmarkInsertAllTreeMap() {
+    public void benchmarkTreeMapInsertAll() {
        for (int value : values) {
            treeMap.put(value,value);
        }
@@ -143,7 +144,7 @@ public class MyBenchmark {
 
     //Procura os valores no treemap pelo valor;
     @Benchmark
-    public void benchmarkSearchAllValueTreeMap(Blackhole blackhole) {
+    public void benchmarkTreeMapSearchAllValue(Blackhole blackhole) {
     // valores antes da busca
         for (int value : values) {
             blackhole.consume(treeMapCheia.containsValue(value));
@@ -152,7 +153,7 @@ public class MyBenchmark {
 
     //Removendo pela chave;
     @Benchmark
-    public void benchmarkRemoveAllByKeyTreeMap() {
+    public void benchmarkTreeMapRemoveAllByKey() {
         for (int value : values) {
             treeMapCheia.remove(value);
         }
