@@ -58,8 +58,8 @@ import structure.SplayTree;
 @Measurement(iterations = 3)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-public class MyBenchmark{
 
+public class MyBenchmark{
     private List<Integer> values;
     private SplayTree<Integer> splayTree;
     private SplayTree<Integer> splayTreeCheia;
@@ -81,11 +81,10 @@ public class MyBenchmark{
 	    for (int value : values) {
             splayTreeCheia.insert(value);
             treeMapCheia.put(value,value);
-            bTreeCheia.insert(value);
+            bTreeCheia.Insert(value);
         }
     }
 
-    
     @Benchmark
     public void baselineAccess(Blackhole blackhole) {
         blackhole.consume(splayTree.isEmpty());
@@ -117,7 +116,7 @@ public class MyBenchmark{
     @Benchmark
     public void benchmarkBTreeInsertAll() {
         for (int value : values) {
-            bTree.insert(value);
+            bTree.Insert(value);
         }
     }
 
@@ -125,14 +124,14 @@ public class MyBenchmark{
     public void benchmarkBTreeSearchAll(Blackhole blackhole) {
         //buscar e blackhole consome o resultado
         for (int value : values) {
-            blackhole.consume(bTreeCheia.search(value));
+            blackhole.consume(bTreeCheia.Contain(value));
         }
     }
     
     @Benchmark
     public void benchmarkBTreeRemoveAll() {        
         for (int value : values) {
-            bTreeCheia.remove(value); 
+            bTreeCheia.Remove(value); 
         }
     }
 
