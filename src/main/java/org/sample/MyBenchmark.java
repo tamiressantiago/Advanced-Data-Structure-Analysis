@@ -45,7 +45,6 @@ import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
-import org.openjdk.jmh.infra.Blackhole;
 
 import reader.GeneralFileReader;
 import structure.BTree;
@@ -79,17 +78,12 @@ public class MyBenchmark {
 
 	    for (int value : values) {
             splayTreeCheia.insert(value);
-        }
-
-        for (int value : values) {
-            bTreeCheia.insert(value);
-        }
-
-        for (int value : values) {
             treeMapCheia.put(value,value);
+            bTreeCheia.insert(value);
         }
     }
 
+    /*
     @Benchmark
     public void baselineAccess(Blackhole blackhole) {
         blackhole.consume(splayTree.isEmpty());
@@ -155,15 +149,7 @@ public class MyBenchmark {
             blackhole.consume(treeMapCheia.containsValue(value));
         }
     }
-
-    //Procura os valores no TreeMap com a chave.
-    @Benchmark
-    public void benchmarkSearchAllKeyTreeMap(Blackhole blackhole) {
-   //buscar e blackhole consome o resultado
-        for (int value : values) {
-            blackhole.consume(treeMapCheia.containsKey(value));
-        }
-    }
+    */
     //Removendo pela chave;
     @Benchmark
     public void benchmarkRemoveAllByKeyTreeMap() {
@@ -171,17 +157,6 @@ public class MyBenchmark {
             treeMapCheia.remove(value);
         }
     }
-
-    //Removendo pelo valor;
-    @Benchmark
-    public void benchmarkTreeMapRemoveAllByValue() {
-        for (int value : values) {
-            for(int valor: treeMapCheia.keySet()){
-                if(treeMapCheia.get(valor) == value) treeMapCheia.remove(valor);
-            }
-        }
-    }
-
 
 }
 

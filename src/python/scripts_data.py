@@ -8,7 +8,7 @@ pasta_destino = os.path.join("..", "..", "data")
 
 os.makedirs(pasta_destino, exist_ok=True)
 
-def gerar_dados_sinteticos(num_elementos=10000000, minimo=1, maximo=100000000, repetidos=True, ordenado=False):
+def gerar_dados_sinteticos(num_elementos=10, minimo=1, maximo=100000000, repetidos=True, ordenado=False):
     tamanho_populacao = maximo - minimo + 1
 
     if not repetidos and num_elementos > tamanho_populacao:
