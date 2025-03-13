@@ -1,4 +1,7 @@
 # Advanced-Data-Structure-Analysis
+**Grupo 5 - Terceira entrega do projeto de EDA/LEDA**
+
+Tamires Santiago Oliveira - 123210205
 
 ## Metodologia Geral
 Considerando as diversas estruturas de dados avançadas que não são abordadas na disciplina de Estrutura de Dados na Universidade Federal de Campina Grande (UFCG) o objetivo deste projeto é analisar, comparar e catalogar estas estruturas em Java:
@@ -37,11 +40,76 @@ A _B-Tree_ é uma árvore auto-balanceada, projetada para gerenciar grandes volu
 * PROPRIEDADES:
 
   * A _BTree_ possui um valor t chamado de ordem da árvore, que define a quantidade mínima de chaves que um nó pode possuir, sendo esta t-1 chaves.
-  * Na _BTree_, cada nó possui um atributo booleano que verifica se ele é uma folha ou não. Caso ele seja uma folha, não possuirá filhos. Caso não seja, seu número de filhos será determinado pela ordem da árvore, onde seu número mínimo de filhos será t e o máximo t*2, com exceção da raiz que só poderá ter no mínimo 2 filhos;
+  * Na _BTree_, cada nó possui um atributo booleano que verifica se ele é uma folha ou não. Caso ele seja uma folha, não possuirá filhos. Caso não seja, seu número de filhos será determinado pela ordem da árvore, onde seu número mínimo de filhos será t e o máximo t*2, com exceção da raiz que só poderá ter no mínimo 2 filhos.
   * Se um nó excede o número máximo de chaves, ele é dividido (_split_).
   * Se um nó fica com menos chaves do que é permitido, ele pode ser fundido (_merge_) com outro.
 
-* OPERAÇÕES: 
+
+* OPERAÇÕES:
+  * Inserção:
+    
+    A inserção de uma chave em uma B-Tree é feita de forma a manter a estrutura balanceada, o que pode envolver a divisão de nós e a promoção de chaves para o nó pai, se necessário.
+    * Comece com a busca pela posição adequada para a chave.
+    * Se a árvore estiver vazia, aloque um nó raiz e insira a chave.
+    * Se não estiver vazia, encontre o nó folha onde a chave deve ser inserida:
+        * 1- Se o nó não estiver cheio, insira a chave nesse nó e a árvore permanece balanceada.
+        * 2- Se o nó estiver cheio, o nó é dividido ao meio:
+           * A chave do meio é promovida para o nó pai;
+           * O nó é dividido em dois nós filhos, cada um com metade das chaves;
+           * Se o nó pai também estiver cheio, o processo de divisão pode se propagar recursivamente até a raiz.
+           * Caso a divisão atinja a raiz, uma nova raiz é criada, aumentando a altura da árvore.
+
+  * Remoção:
+    * Comece com a busca pela posição adequada para a chave.
+    * Quando encontrar o nó onde a chave deve ser removida:
+       * 1- Se o nó for uma folha:
+           *  Se não ferir a propriedade de número mínimo de chaves, basta remover a chave.
+           *  Se violar, o nó pegará uma chave do nó irmão imediato da esquerda para a direita, para que se mantenha com a quantidade mínima de chaves.
+           * Se os nós irmãos também tiverem a quantidade mínima de chaves, os nós serão fundidos.
+       * 2-  Se o nó não for uma folha:
+           *  Se o filho à sua esquerda tiver mais que o número mínimo de chaves, a chave a ser excluída será substituída pelo seu antecessor imediato.
+           *  Se o filho à sua direita tiver mais que o número mínimo de chaves, a chave a ser excluída será substituída pelo seu sucessor imediato.
+           *  Se ambos os filhos tiverem o número mínimo de chaves, os nós filhos serão fundidos.
+           *  Caso os filhos e os irmãos estiverem com o número mínimo de chaves, fundimos o nó com o irmão e com alguma chave do pai, dessa forma a altura da árvore diminui.
+
+
+  * Busca:
+    
+    Procurar um elemento em uma BTree é uma forma generalizada da busca em uma BST.
+     * A busca começa no nó raiz da árvore percorrendo as chaves ordenadas do nó. Se a chave procurada for encontrada no nó atual, a busca termina com sucesso. Se a chave não for encontrada, determinar qual dos filhos deve ser explorado:
+        *  Se a chave for menor que uma chave existente, a busca segue para o filho esquerdo correspondente.
+        *  Se for maior, a busca segue para o filho direito apropriado.
+        *  Se não encontrar, continuamos descendo na árvore até encontrar a chave ou chegar a uma folha. Se um nó folha for alcançado sem encontrar a chave, significa que ela não está presente na árvore.
+
+
+
+* **Tabela de custo da BTree**
+
+| Algoritmo   | Caso Médio | Pior Caso |
+|------------|----------------|--------------|
+| Espaço  | O(n)           | O(n)       |
+| Busca     | O(log n)            | O(log n)     |
+| Inserção    | O(log n)           | O(log n)     |
+| Remoção    | O(log n)            | O(log n)     |
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+
+          
+
+ 
+
+
 
 ### SplayTree
 .
