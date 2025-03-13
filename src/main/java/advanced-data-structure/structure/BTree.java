@@ -147,7 +147,6 @@ public class BTree {
         if (pred.n >= T) {
           for (;;) {
             if (pred.leaf) {
-              System.out.println(pred.n);
               predKey = pred.key[pred.n - 1];
               break;
             } else {
