@@ -56,4 +56,4 @@ https://github.com/cpdomina/SplayTree/tree/master
 
 A implementação da BTree utilizada neste projeto foi baseada em:
 
-https://www.geeksforgeeks.org/b-tree-in-java/
+https://www.programiz.com/dsa/b-tree
