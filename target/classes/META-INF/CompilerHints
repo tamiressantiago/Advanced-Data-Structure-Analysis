@@ -3,5 +3,14 @@ dontinline,*.*_avgt_jmhStub
 dontinline,*.*_sample_jmhStub
 dontinline,*.*_ss_jmhStub
 dontinline,*.*_thrpt_jmhStub
-inline,org/sample/MyBenchmark.benchmarkRemoveAllByKeyTreeMap
+inline,org/sample/MyBenchmark.baselineAccess
+inline,org/sample/MyBenchmark.benchmarkBTreeInsertAll
+inline,org/sample/MyBenchmark.benchmarkBTreeRemoveAll
+inline,org/sample/MyBenchmark.benchmarkBTreeSearchAll
+inline,org/sample/MyBenchmark.benchmarkSplayTreeInsertAll
+inline,org/sample/MyBenchmark.benchmarkSplayTreeRemoveAll
+inline,org/sample/MyBenchmark.benchmarkSplayTreeSearchAll
+inline,org/sample/MyBenchmark.benchmarkTreeMapInsertAll
+inline,org/sample/MyBenchmark.benchmarkTreeMapRemoveAllByKey
+inline,org/sample/MyBenchmark.benchmarkTreeMapSearchAllValue
 inline,org/sample/MyBenchmark.setup

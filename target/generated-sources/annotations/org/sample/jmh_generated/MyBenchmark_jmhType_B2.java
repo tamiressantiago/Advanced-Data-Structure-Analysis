@@ -16,7 +16,4 @@ public class MyBenchmark_jmhType_B2 extends MyBenchmark_jmhType_B1 {
     public final static AtomicIntegerFieldUpdater<MyBenchmark_jmhType_B2> setupInvocationMutexUpdater = AtomicIntegerFieldUpdater.newUpdater(MyBenchmark_jmhType_B2.class, "setupInvocationMutex");
     public final static AtomicIntegerFieldUpdater<MyBenchmark_jmhType_B2> tearInvocationMutexUpdater = AtomicIntegerFieldUpdater.newUpdater(MyBenchmark_jmhType_B2.class, "tearInvocationMutex");
 
-    public volatile boolean readyTrial;
-    public volatile boolean readyIteration;
-    public volatile boolean readyInvocation;
 }
