@@ -1,5 +1,5 @@
 # Advanced-Data-Structure-Analysis
-**Grupo 5 - Terceira entrega do projeto de EDA/LEDA**
+**Grupo 5 - Segunda entrega do projeto de EDA/LEDA**
 
 Anthony Willy Miranda Pereira - 123210127
 
