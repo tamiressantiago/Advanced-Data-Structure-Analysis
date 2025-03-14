@@ -1,0 +1,1548 @@
+# JMH version: 1.37
+# VM version: JDK 21.0.4, OpenJDK 64-Bit Server VM, 21.0.4+7-Ubuntu-1ubuntu224.04
+# VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 10 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.sample.MyBenchmark.baselineAccess
+
+# Run progress: 0,00% complete, ETA 00:50:00
+# Fork: 1 of 5
+# Warmup Iteration   1: 0,633 ns/op
+# Warmup Iteration   2: 0,625 ns/op
+# Warmup Iteration   3: 0,647 ns/op
+# Warmup Iteration   4: 0,634 ns/op
+# Warmup Iteration   5: 0,638 ns/op
+Iteration   1: 0,626 ns/op
+                 gc.alloc.rate:      8,771 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            102,000 ms
+
+Iteration   2: 0,627 ns/op
+                 gc.alloc.rate:      8,821 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            100,000 ms
+
+Iteration   3: 0,636 ns/op
+                 gc.alloc.rate:      8,847 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            26,000 ms
+
+Iteration   4: 0,633 ns/op
+                 gc.alloc.rate:      8,820 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            44,000 ms
+
+Iteration   5: 0,632 ns/op
+                 gc.alloc.rate:      8,767 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            100,000 ms
+
+Iteration   6: 0,631 ns/op
+                 gc.alloc.rate:      8,842 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            56,000 ms
+
+Iteration   7: 0,633 ns/op
+                 gc.alloc.rate:      8,803 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            65,000 ms
+
+Iteration   8: 0,637 ns/op
+                 gc.alloc.rate:      8,829 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            65,000 ms
+
+Iteration   9: 0,644 ns/op
+                 gc.alloc.rate:      8,812 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            82,000 ms
+
+Iteration  10: 0,638 ns/op
+                 gc.alloc.rate:      8,854 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            55,000 ms
+
+
+# Run progress: 5,00% complete, ETA 00:53:55
+# Fork: 2 of 5
+# Warmup Iteration   1: 0,631 ns/op
+# Warmup Iteration   2: 0,629 ns/op
+# Warmup Iteration   3: 0,636 ns/op
+# Warmup Iteration   4: 0,626 ns/op
+# Warmup Iteration   5: 0,631 ns/op
+Iteration   1: 0,625 ns/op
+                 gc.alloc.rate:      8,855 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            36,000 ms
+
+Iteration   2: 0,626 ns/op
+                 gc.alloc.rate:      8,824 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            80,000 ms
+
+Iteration   3: 0,641 ns/op
+                 gc.alloc.rate:      8,800 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            87,000 ms
+
+Iteration   4: 0,626 ns/op
+                 gc.alloc.rate:      8,816 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            45,000 ms
+
+Iteration   5: 0,626 ns/op
+                 gc.alloc.rate:      8,789 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            100,000 ms
+
+Iteration   6: 0,629 ns/op
+                 gc.alloc.rate:      8,847 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            70,000 ms
+
+Iteration   7: 0,634 ns/op
+                 gc.alloc.rate:      8,811 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            78,000 ms
+
+Iteration   8: 0,625 ns/op
+                 gc.alloc.rate:      8,851 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            68,000 ms
+
+Iteration   9: 0,630 ns/op
+                 gc.alloc.rate:      8,799 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            85,000 ms
+
+Iteration  10: 0,627 ns/op
+                 gc.alloc.rate:      8,837 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            73,000 ms
+
+
+# Run progress: 10,00% complete, ETA 00:51:00
+# Fork: 3 of 5
+# Warmup Iteration   1: 0,633 ns/op
+# Warmup Iteration   2: 0,634 ns/op
+# Warmup Iteration   3: 0,627 ns/op
+# Warmup Iteration   4: 0,632 ns/op
+# Warmup Iteration   5: 0,627 ns/op
+Iteration   1: 0,627 ns/op
+                 gc.alloc.rate:      8,842 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            62,000 ms
+
+Iteration   2: 0,642 ns/op
+                 gc.alloc.rate:      8,797 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            78,000 ms
+
+Iteration   3: 0,628 ns/op
+                 gc.alloc.rate:      8,834 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            62,000 ms
+
+Iteration   4: 0,632 ns/op
+                 gc.alloc.rate:      8,802 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            77,000 ms
+
+Iteration   5: 0,628 ns/op
+                 gc.alloc.rate:      8,821 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            61,000 ms
+
+Iteration   6: 0,628 ns/op
+                 gc.alloc.rate:      8,772 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            96,000 ms
+
+Iteration   7: 0,633 ns/op
+                 gc.alloc.rate:      8,874 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           ≈ 0 counts
+
+Iteration   8: 0,646 ns/op
+                 gc.alloc.rate:      8,750 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           5,000 counts
+                 gc.time:            136,000 ms
+
+Iteration   9: 0,651 ns/op
+                 gc.alloc.rate:      8,731 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           ≈ 0 counts
+
+Iteration  10: 0,638 ns/op
+                 gc.alloc.rate:      8,748 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            93,000 ms
+
+
+# Run progress: 15,00% complete, ETA 00:48:11
+# Fork: 4 of 5
+# Warmup Iteration   1: 0,630 ns/op
+# Warmup Iteration   2: 0,630 ns/op
+# Warmup Iteration   3: 0,630 ns/op
+# Warmup Iteration   4: 0,629 ns/op
+# Warmup Iteration   5: 0,629 ns/op
+Iteration   1: 0,629 ns/op
+                 gc.alloc.rate:      8,858 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            63,000 ms
+
+Iteration   2: 0,629 ns/op
+                 gc.alloc.rate:      8,800 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            68,000 ms
+
+Iteration   3: 0,629 ns/op
+                 gc.alloc.rate:      8,836 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            64,000 ms
+
+Iteration   4: 0,648 ns/op
+                 gc.alloc.rate:      8,789 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            76,000 ms
+
+Iteration   5: 0,633 ns/op
+                 gc.alloc.rate:      8,713 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            64,000 ms
+
+Iteration   6: 0,632 ns/op
+                 gc.alloc.rate:      8,821 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           3,000 counts
+                 gc.time:            43,000 ms
+
+Iteration   7: 0,634 ns/op
+                 gc.alloc.rate:      8,842 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            66,000 ms
+
+Iteration   8: 0,634 ns/op
+                 gc.alloc.rate:      8,801 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            82,000 ms
+
+Iteration   9: 0,630 ns/op
+                 gc.alloc.rate:      8,811 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           2,000 counts
+                 gc.time:            111,000 ms
+
+Iteration  10: 0,633 ns/op
+                 gc.alloc.rate:      8,824 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            55,000 ms
+
+
+# Run progress: 20,00% complete, ETA 00:45:20
+# Fork: 5 of 5
+# Warmup Iteration   1: 0,630 ns/op
+# Warmup Iteration   2: 0,640 ns/op
+# Warmup Iteration   3: 0,629 ns/op
+# Warmup Iteration   4: 0,637 ns/op
+# Warmup Iteration   5: 0,635 ns/op
+Iteration   1: 0,633 ns/op
+                 gc.alloc.rate:      8,843 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            69,000 ms
+
+Iteration   2: 0,629 ns/op
+                 gc.alloc.rate:      8,815 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            73,000 ms
+
+Iteration   3: 0,629 ns/op
+                 gc.alloc.rate:      8,836 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            56,000 ms
+
+Iteration   4: 0,637 ns/op
+                 gc.alloc.rate:      8,812 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            97,000 ms
+
+Iteration   5: 0,630 ns/op
+                 gc.alloc.rate:      8,865 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            31,000 ms
+
+Iteration   6: 0,629 ns/op
+                 gc.alloc.rate:      8,804 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            71,000 ms
+
+Iteration   7: 0,630 ns/op
+                 gc.alloc.rate:      8,850 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            51,000 ms
+
+Iteration   8: 0,630 ns/op
+                 gc.alloc.rate:      8,794 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           5,000 counts
+                 gc.time:            106,000 ms
+
+Iteration   9: 0,630 ns/op
+                 gc.alloc.rate:      8,835 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            55,000 ms
+
+Iteration  10: 0,635 ns/op
+                 gc.alloc.rate:      8,799 MB/sec
+                 gc.alloc.rate.norm: 0,007 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            64,000 ms
+
+
+
+Result "org.sample.MyBenchmark.baselineAccess":
+  0,632 ±(99.9%) 0,003 ns/op [Average]
+  (min, avg, max) = (0,625, 0,632, 0,651), stdev = 0,006
+  CI (99.9%): [0,630, 0,635] (assumes normal distribution)
+
+Secondary result "org.sample.MyBenchmark.baselineAccess:gc.alloc.rate":
+  8,814 ±(99.9%) 0,017 MB/sec [Average]
+  (min, avg, max) = (8,713, 8,814, 8,874), stdev = 0,034
+  CI (99.9%): [8,797, 8,831] (assumes normal distribution)
+
+Secondary result "org.sample.MyBenchmark.baselineAccess:gc.alloc.rate.norm":
+  0,007 ±(99.9%) 0,001 B/op [Average]
+  (min, avg, max) = (0,007, 0,007, 0,007), stdev = 0,001
+  CI (99.9%): [0,007, 0,007] (assumes normal distribution)
+
+Secondary result "org.sample.MyBenchmark.baselineAccess:gc.count":
+  122,000 ±(99.9%) 0,001 counts [Sum]
+  (min, avg, max) = (≈ 0, 2,440, 5,000), stdev = 1,593
+  CI (99.9%): [122,000, 122,000] (assumes normal distribution)
+
+Secondary result "org.sample.MyBenchmark.baselineAccess:gc.time":
+  3447,000 ±(99.9%) 0,001 ms [Sum]
+  (min, avg, max) = (≈ 0, 68,940, 136,000), stdev = 25,707
+  CI (99.9%): [3447,000, 3447,000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.4, OpenJDK 64-Bit Server VM, 21.0.4+7-Ubuntu-1ubuntu224.04
+# VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 10 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.sample.MyBenchmark.benchmarkTreeMapInsertAll
+
+# Run progress: 25,00% complete, ETA 00:42:29
+# Fork: 1 of 5
+# Warmup Iteration   1: 247964055,220 ns/op
+# Warmup Iteration   2: 238884827,167 ns/op
+# Warmup Iteration   3: 231951535,955 ns/op
+# Warmup Iteration   4: 240076004,048 ns/op
+# Warmup Iteration   5: 236894347,558 ns/op
+Iteration   1: 247833724,171 ns/op
+                 gc.alloc.rate:      65,426 MB/sec
+                 gc.alloc.rate.norm: 19026640,585 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            171,000 ms
+
+Iteration   2: 258940711,769 ns/op
+                 gc.alloc.rate:      62,844 MB/sec
+                 gc.alloc.rate.norm: 19181846,154 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            181,000 ms
+
+Iteration   3: 238856348,476 ns/op
+                 gc.alloc.rate:      67,504 MB/sec
+                 gc.alloc.rate.norm: 18954571,429 B/op
+                 gc.count:           7,000 counts
+                 gc.time:            182,000 ms
+
+Iteration   4: 238982183,810 ns/op
+                 gc.alloc.rate:      67,589 MB/sec
+                 gc.alloc.rate.norm: 18954574,286 B/op
+                 gc.count:           5,000 counts
+                 gc.time:            149,000 ms
+
+Iteration   5: 239983173,190 ns/op
+                 gc.alloc.rate:      67,325 MB/sec
+                 gc.alloc.rate.norm: 18954571,429 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            175,000 ms
+
+Iteration   6: 235232127,465 ns/op
+                 gc.alloc.rate:      68,348 MB/sec
+                 gc.alloc.rate.norm: 18885861,209 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            166,000 ms
+
+Iteration   7: 238470137,762 ns/op
+                 gc.alloc.rate:      67,631 MB/sec
+                 gc.alloc.rate.norm: 18954571,429 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            176,000 ms
+
+Iteration   8: 237266305,256 ns/op
+                 gc.alloc.rate:      67,902 MB/sec
+                 gc.alloc.rate.norm: 18885860,465 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            177,000 ms
+
+Iteration   9: 240616249,024 ns/op
+                 gc.alloc.rate:      66,753 MB/sec
+                 gc.alloc.rate.norm: 18954571,429 B/op
+                 gc.count:           11,000 counts
+                 gc.time:            208,000 ms
+
+Iteration  10: 259110656,974 ns/op
+                 gc.alloc.rate:      63,264 MB/sec
+                 gc.alloc.rate.norm: 19181846,154 B/op
+                 gc.count:           9,000 counts
+                 gc.time:            187,000 ms
+
+
+# Run progress: 30,00% complete, ETA 00:39:41
+# Fork: 2 of 5
+# Warmup Iteration   1: 246148915,439 ns/op
+# Warmup Iteration   2: 238663890,262 ns/op
+# Warmup Iteration   3: 238576775,071 ns/op
+# Warmup Iteration   4: 236862242,837 ns/op
+# Warmup Iteration   5: 237719049,256 ns/op
+Iteration   1: 237761044,302 ns/op
+                 gc.alloc.rate:      67,663 MB/sec
+                 gc.alloc.rate.norm: 18885866,605 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            169,000 ms
+
+Iteration   2: 237560222,070 ns/op
+                 gc.alloc.rate:      67,733 MB/sec
+                 gc.alloc.rate.norm: 18885861,209 B/op
+                 gc.count:           7,000 counts
+                 gc.time:            182,000 ms
+
+Iteration   3: 235993760,349 ns/op
+                 gc.alloc.rate:      68,145 MB/sec
+                 gc.alloc.rate.norm: 18885860,465 B/op
+                 gc.count:           7,000 counts
+                 gc.time:            187,000 ms
+
+Iteration   4: 232804546,419 ns/op
+                 gc.alloc.rate:      68,717 MB/sec
+                 gc.alloc.rate.norm: 18885860,465 B/op
+                 gc.count:           7,000 counts
+                 gc.time:            184,000 ms
+
+Iteration   5: 244885975,854 ns/op
+                 gc.alloc.rate:      66,070 MB/sec
+                 gc.alloc.rate.norm: 19026637,073 B/op
+                 gc.count:           7,000 counts
+                 gc.time:            179,000 ms
+
+Iteration   6: 265752049,105 ns/op
+                 gc.alloc.rate:      60,909 MB/sec
+                 gc.alloc.rate.norm: 19265579,789 B/op
+                 gc.count:           8,000 counts
+                 gc.time:            176,000 ms
+
+Iteration   7: 246709508,902 ns/op
+                 gc.alloc.rate:      65,052 MB/sec
+                 gc.alloc.rate.norm: 19026634,146 B/op
+                 gc.count:           7,000 counts
+                 gc.time:            193,000 ms
+
+Iteration   8: 236456307,233 ns/op
+                 gc.alloc.rate:      68,027 MB/sec
+                 gc.alloc.rate.norm: 18885860,465 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            171,000 ms
+
+Iteration   9: 238887218,619 ns/op
+                 gc.alloc.rate:      67,219 MB/sec
+                 gc.alloc.rate.norm: 18954571,429 B/op
+                 gc.count:           10,000 counts
+                 gc.time:            189,000 ms
+
+Iteration  10: 233905338,628 ns/op
+                 gc.alloc.rate:      68,881 MB/sec
+                 gc.alloc.rate.norm: 18885860,465 B/op
+                 gc.count:           8,000 counts
+                 gc.time:            170,000 ms
+
+
+# Run progress: 35,00% complete, ETA 00:36:53
+# Fork: 3 of 5
+# Warmup Iteration   1: 261602795,462 ns/op
+# Warmup Iteration   2: 246964538,976 ns/op
+# Warmup Iteration   3: 237565156,465 ns/op
+# Warmup Iteration   4: 237734497,256 ns/op
+# Warmup Iteration   5: 234679233,930 ns/op
+Iteration   1: 237725948,465 ns/op
+                 gc.alloc.rate:      67,679 MB/sec
+                 gc.alloc.rate.norm: 18885866,605 B/op
+                 gc.count:           7,000 counts
+                 gc.time:            191,000 ms
+
+Iteration   2: 237273737,023 ns/op
+                 gc.alloc.rate:      67,824 MB/sec
+                 gc.alloc.rate.norm: 18885860,465 B/op
+                 gc.count:           7,000 counts
+                 gc.time:            182,000 ms
+
+Iteration   3: 235837230,512 ns/op
+                 gc.alloc.rate:      68,186 MB/sec
+                 gc.alloc.rate.norm: 18885860,465 B/op
+                 gc.count:           8,000 counts
+                 gc.time:            189,000 ms
+
+Iteration   4: 239238301,571 ns/op
+                 gc.alloc.rate:      67,247 MB/sec
+                 gc.alloc.rate.norm: 18954571,429 B/op
+                 gc.count:           9,000 counts
+                 gc.time:            184,000 ms
+
+Iteration   5: 236942169,930 ns/op
+                 gc.alloc.rate:      68,034 MB/sec
+                 gc.alloc.rate.norm: 18885863,256 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            166,000 ms
+
+Iteration   6: 240542638,381 ns/op
+                 gc.alloc.rate:      66,922 MB/sec
+                 gc.alloc.rate.norm: 18954572,190 B/op
+                 gc.count:           8,000 counts
+                 gc.time:            168,000 ms
+
+Iteration   7: 236432374,628 ns/op
+                 gc.alloc.rate:      67,955 MB/sec
+                 gc.alloc.rate.norm: 18885860,465 B/op
+                 gc.count:           7,000 counts
+                 gc.time:            182,000 ms
+
+Iteration   8: 241043894,476 ns/op
+                 gc.alloc.rate:      66,763 MB/sec
+                 gc.alloc.rate.norm: 18954571,429 B/op
+                 gc.count:           9,000 counts
+                 gc.time:            189,000 ms
+
+Iteration   9: 267660173,421 ns/op
+                 gc.alloc.rate:      61,253 MB/sec
+                 gc.alloc.rate.norm: 19265578,947 B/op
+                 gc.count:           5,000 counts
+                 gc.time:            164,000 ms
+
+Iteration  10: 240937672,643 ns/op
+                 gc.alloc.rate:      65,833 MB/sec
+                 gc.alloc.rate.norm: 18954571,429 B/op
+                 gc.count:           10,000 counts
+                 gc.time:            208,000 ms
+
+
+# Run progress: 40,00% complete, ETA 00:34:05
+# Fork: 4 of 5
+# Warmup Iteration   1: 253511665,425 ns/op
+# Warmup Iteration   2: 239519880,619 ns/op
+# Warmup Iteration   3: 236799638,767 ns/op
+# Warmup Iteration   4: 238394324,143 ns/op
+# Warmup Iteration   5: 239089235,738 ns/op
+Iteration   1: 238253791,976 ns/op
+                 gc.alloc.rate:      67,314 MB/sec
+                 gc.alloc.rate.norm: 18954577,714 B/op
+                 gc.count:           10,000 counts
+                 gc.time:            193,000 ms
+
+Iteration   2: 237379025,093 ns/op
+                 gc.alloc.rate:      67,830 MB/sec
+                 gc.alloc.rate.norm: 18885860,465 B/op
+                 gc.count:           7,000 counts
+                 gc.time:            193,000 ms
+
+Iteration   3: 239026255,214 ns/op
+                 gc.alloc.rate:      67,221 MB/sec
+                 gc.alloc.rate.norm: 18954571,429 B/op
+                 gc.count:           8,000 counts
+                 gc.time:            171,000 ms
+
+Iteration   4: 238591176,095 ns/op
+                 gc.alloc.rate:      67,546 MB/sec
+                 gc.alloc.rate.norm: 18954574,286 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            166,000 ms
+
+Iteration   5: 236149195,674 ns/op
+                 gc.alloc.rate:      68,151 MB/sec
+                 gc.alloc.rate.norm: 18885860,465 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            175,000 ms
+
+Iteration   6: 236716454,233 ns/op
+                 gc.alloc.rate:      67,783 MB/sec
+                 gc.alloc.rate.norm: 18885861,209 B/op
+                 gc.count:           9,000 counts
+                 gc.time:            178,000 ms
+
+Iteration   7: 240567866,333 ns/op
+                 gc.alloc.rate:      67,480 MB/sec
+                 gc.alloc.rate.norm: 18954571,429 B/op
+                 gc.count:           7,000 counts
+                 gc.time:            185,000 ms
+
+Iteration   8: 235067173,814 ns/op
+                 gc.alloc.rate:      68,508 MB/sec
+                 gc.alloc.rate.norm: 18885860,465 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            170,000 ms
+
+Iteration   9: 260250064,872 ns/op
+                 gc.alloc.rate:      62,733 MB/sec
+                 gc.alloc.rate.norm: 19181846,154 B/op
+                 gc.count:           7,000 counts
+                 gc.time:            192,000 ms
+
+Iteration  10: 244412235,049 ns/op
+                 gc.alloc.rate:      65,832 MB/sec
+                 gc.alloc.rate.norm: 19026634,146 B/op
+                 gc.count:           10,000 counts
+                 gc.time:            207,000 ms
+
+
+# Run progress: 45,00% complete, ETA 00:31:14
+# Fork: 5 of 5
+# Warmup Iteration   1: 254250498,575 ns/op
+# Warmup Iteration   2: 247861106,951 ns/op
+# Warmup Iteration   3: 250976267,600 ns/op
+# Warmup Iteration   4: 256959054,179 ns/op
+# Warmup Iteration   5: 259232273,923 ns/op
+Iteration   1: 247173754,537 ns/op
+                 gc.alloc.rate:      65,326 MB/sec
+                 gc.alloc.rate.norm: 19026640,585 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            176,000 ms
+
+Iteration   2: 233234644,930 ns/op
+                 gc.alloc.rate:      68,701 MB/sec
+                 gc.alloc.rate.norm: 18885860,465 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            172,000 ms
+
+Iteration   3: 238473037,714 ns/op
+                 gc.alloc.rate:      67,497 MB/sec
+                 gc.alloc.rate.norm: 18954571,429 B/op
+                 gc.count:           8,000 counts
+                 gc.time:            167,000 ms
+
+Iteration   4: 238414785,119 ns/op
+                 gc.alloc.rate:      67,646 MB/sec
+                 gc.alloc.rate.norm: 18954574,286 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            173,000 ms
+
+Iteration   5: 238777132,238 ns/op
+                 gc.alloc.rate:      67,130 MB/sec
+                 gc.alloc.rate.norm: 18954571,429 B/op
+                 gc.count:           11,000 counts
+                 gc.time:            203,000 ms
+
+Iteration   6: 235202867,140 ns/op
+                 gc.alloc.rate:      68,537 MB/sec
+                 gc.alloc.rate.norm: 18885861,209 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            170,000 ms
+
+Iteration   7: 240382822,500 ns/op
+                 gc.alloc.rate:      67,004 MB/sec
+                 gc.alloc.rate.norm: 18954571,429 B/op
+                 gc.count:           9,000 counts
+                 gc.time:            185,000 ms
+
+Iteration   8: 237740224,767 ns/op
+                 gc.alloc.rate:      67,870 MB/sec
+                 gc.alloc.rate.norm: 18885860,465 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            163,000 ms
+
+Iteration   9: 237646727,465 ns/op
+                 gc.alloc.rate:      67,636 MB/sec
+                 gc.alloc.rate.norm: 18885860,465 B/op
+                 gc.count:           8,000 counts
+                 gc.time:            162,000 ms
+
+Iteration  10: 235889928,279 ns/op
+                 gc.alloc.rate:      68,140 MB/sec
+                 gc.alloc.rate.norm: 18885860,465 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            165,000 ms
+
+
+
+Result "org.sample.MyBenchmark.benchmarkTreeMapInsertAll":
+  240979817,869 ±(99.9%) 3938296,445 ns/op [Average]
+  (min, avg, max) = (232804546,419, 240979817,869, 267660173,421), stdev = 7955553,652
+  CI (99.9%): [237041521,424, 244918114,315] (assumes normal distribution)
+
+Secondary result "org.sample.MyBenchmark.benchmarkTreeMapInsertAll:gc.alloc.rate":
+  66,932 ±(99.9%) 0,906 MB/sec [Average]
+  (min, avg, max) = (60,909, 66,932, 68,881), stdev = 1,831
+  CI (99.9%): [66,025, 67,838] (assumes normal distribution)
+
+Secondary result "org.sample.MyBenchmark.benchmarkTreeMapInsertAll:gc.alloc.rate.norm":
+  18957622,667 ±(99.9%) 48882,512 B/op [Average]
+  (min, avg, max) = (18885860,465, 18957622,667, 19265579,789), stdev = 98745,093
+  CI (99.9%): [18908740,155, 19006505,179] (assumes normal distribution)
+
+Secondary result "org.sample.MyBenchmark.benchmarkTreeMapInsertAll:gc.count":
+  365,000 ±(99.9%) 0,001 counts [Sum]
+  (min, avg, max) = (5,000, 7,300, 11,000), stdev = 1,542
+  CI (99.9%): [365,000, 365,000] (assumes normal distribution)
+
+Secondary result "org.sample.MyBenchmark.benchmarkTreeMapInsertAll:gc.time":
+  8961,000 ±(99.9%) 0,001 ms [Sum]
+  (min, avg, max) = (149,000, 179,220, 208,000), stdev = 12,659
+  CI (99.9%): [8961,000, 8961,000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.4, OpenJDK 64-Bit Server VM, 21.0.4+7-Ubuntu-1ubuntu224.04
+# VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 10 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.sample.MyBenchmark.benchmarkTreeMapRemoveAllByKey
+
+# Run progress: 50,00% complete, ETA 00:28:24
+# Fork: 1 of 5
+# Warmup Iteration   1: 1138372,860 ns/op
+# Warmup Iteration   2: 1160307,048 ns/op
+# Warmup Iteration   3: 1085402,064 ns/op
+# Warmup Iteration   4: 1323941,672 ns/op
+# Warmup Iteration   5: 1096835,494 ns/op
+Iteration   1: 1077208,886 ns/op
+                 gc.alloc.rate:      8,806 MB/sec
+                 gc.alloc.rate.norm: 11217,629 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            90,000 ms
+
+Iteration   2: 1116346,216 ns/op
+                 gc.alloc.rate:      8,836 MB/sec
+                 gc.alloc.rate.norm: 11625,832 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            57,000 ms
+
+Iteration   3: 1077794,552 ns/op
+                 gc.alloc.rate:      8,821 MB/sec
+                 gc.alloc.rate.norm: 11223,648 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            79,000 ms
+
+Iteration   4: 1155142,267 ns/op
+                 gc.alloc.rate:      8,809 MB/sec
+                 gc.alloc.rate.norm: 12028,667 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            72,000 ms
+
+Iteration   5: 1224573,640 ns/op
+                 gc.alloc.rate:      8,848 MB/sec
+                 gc.alloc.rate.norm: 12751,845 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            39,000 ms
+
+Iteration   6: 1135367,349 ns/op
+                 gc.alloc.rate:      8,796 MB/sec
+                 gc.alloc.rate.norm: 11823,823 B/op
+                 gc.count:           5,000 counts
+                 gc.time:            100,000 ms
+
+Iteration   7: 1082496,408 ns/op
+                 gc.alloc.rate:      8,700 MB/sec
+                 gc.alloc.rate.norm: 11272,249 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            81,000 ms
+
+Iteration   8: 1585376,135 ns/op
+                 gc.alloc.rate:      952,255 MB/sec
+                 gc.alloc.rate.norm: 1778082,467 B/op
+                 gc.count:           172,000 counts
+                 gc.time:            211,000 ms
+
+Iteration   9: 2164170,030 ns/op
+                 gc.alloc.rate:      3156,000 MB/sec
+                 gc.alloc.rate.norm: 8022537,156 B/op
+                 gc.count:           323,000 counts
+                 gc.time:            263,000 ms
+
+Iteration  10: 2025983,122 ns/op
+                 gc.alloc.rate:      3362,497 MB/sec
+                 gc.alloc.rate.norm: 8021098,900 B/op
+                 gc.count:           164,000 counts
+                 gc.time:            216,000 ms
+
+
+# Run progress: 55,00% complete, ETA 00:25:34
+# Fork: 2 of 5
+# Warmup Iteration   1: 1103879,868 ns/op
+# Warmup Iteration   2: 1085486,550 ns/op
+# Warmup Iteration   3: 1090923,549 ns/op
+# Warmup Iteration   4: 1113069,273 ns/op
+# Warmup Iteration   5: 1114962,932 ns/op
+Iteration   1: 1147841,981 ns/op
+                 gc.alloc.rate:      8,699 MB/sec
+                 gc.alloc.rate.norm: 11952,768 B/op
+                 gc.count:           2,000 counts
+                 gc.time:            73,000 ms
+
+Iteration   2: 1231607,373 ns/op
+                 gc.alloc.rate:      8,812 MB/sec
+                 gc.alloc.rate.norm: 12825,640 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            58,000 ms
+
+Iteration   3: 1088256,559 ns/op
+                 gc.alloc.rate:      8,792 MB/sec
+                 gc.alloc.rate.norm: 11332,339 B/op
+                 gc.count:           5,000 counts
+                 gc.time:            96,000 ms
+
+Iteration   4: 1087409,972 ns/op
+                 gc.alloc.rate:      8,799 MB/sec
+                 gc.alloc.rate.norm: 11323,714 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            81,000 ms
+
+Iteration   5: 1099802,631 ns/op
+                 gc.alloc.rate:      8,841 MB/sec
+                 gc.alloc.rate.norm: 11453,241 B/op
+                 gc.count:           2,000 counts
+                 gc.time:            61,000 ms
+
+Iteration   6: 2281269,879 ns/op
+                 gc.alloc.rate:      8,846 MB/sec
+                 gc.alloc.rate.norm: 23755,527 B/op
+                 gc.count:           3,000 counts
+                 gc.time:            28,000 ms
+
+Iteration   7: 1085467,939 ns/op
+                 gc.alloc.rate:      8,825 MB/sec
+                 gc.alloc.rate.norm: 11304,060 B/op
+                 gc.count:           2,000 counts
+                 gc.time:            93,000 ms
+
+Iteration   8: 1479295,596 ns/op
+                 gc.alloc.rate:      8,811 MB/sec
+                 gc.alloc.rate.norm: 15403,668 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            55,000 ms
+
+Iteration   9: 2279379,139 ns/op
+                 gc.alloc.rate:      2979,811 MB/sec
+                 gc.alloc.rate.norm: 8023733,865 B/op
+                 gc.count:           362,000 counts
+                 gc.time:            339,000 ms
+
+Iteration  10: 2285494,041 ns/op
+                 gc.alloc.rate:      2947,686 MB/sec
+                 gc.alloc.rate.norm: 8023798,949 B/op
+                 gc.count:           247,000 counts
+                 gc.time:            215,000 ms
+
+
+# Run progress: 60,00% complete, ETA 00:22:43
+# Fork: 3 of 5
+# Warmup Iteration   1: 1165258,799 ns/op
+# Warmup Iteration   2: 1119937,016 ns/op
+# Warmup Iteration   3: 1432148,247 ns/op
+# Warmup Iteration   4: 1828490,918 ns/op
+# Warmup Iteration   5: 1094081,656 ns/op
+Iteration   1: 2334716,067 ns/op
+                 gc.alloc.rate:      8,877 MB/sec
+                 gc.alloc.rate.norm: 24310,032 B/op
+                 gc.count:           ≈ 0 counts
+
+Iteration   2: 1393009,315 ns/op
+                 gc.alloc.rate:      8,653 MB/sec
+                 gc.alloc.rate.norm: 14506,784 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            72,000 ms
+
+Iteration   3: 1087815,247 ns/op
+                 gc.alloc.rate:      8,786 MB/sec
+                 gc.alloc.rate.norm: 11328,641 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            106,000 ms
+
+Iteration   4: 1100231,007 ns/op
+                 gc.alloc.rate:      8,816 MB/sec
+                 gc.alloc.rate.norm: 11457,021 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            71,000 ms
+
+Iteration   5: 1116226,687 ns/op
+                 gc.alloc.rate:      8,831 MB/sec
+                 gc.alloc.rate.norm: 11624,534 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            64,000 ms
+
+Iteration   6: 1165827,521 ns/op
+                 gc.alloc.rate:      8,735 MB/sec
+                 gc.alloc.rate.norm: 12140,852 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            42,000 ms
+
+Iteration   7: 1116644,563 ns/op
+                 gc.alloc.rate:      8,775 MB/sec
+                 gc.alloc.rate.norm: 11628,428 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            46,000 ms
+
+Iteration   8: 1403783,500 ns/op
+                 gc.alloc.rate:      8,803 MB/sec
+                 gc.alloc.rate.norm: 14618,796 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            78,000 ms
+
+Iteration   9: 1183631,145 ns/op
+                 gc.alloc.rate:      223,317 MB/sec
+                 gc.alloc.rate.norm: 311496,355 B/op
+                 gc.count:           34,000 counts
+                 gc.time:            129,000 ms
+
+Iteration  10: 2467748,744 ns/op
+                 gc.alloc.rate:      2745,091 MB/sec
+                 gc.alloc.rate.norm: 8025695,584 B/op
+                 gc.count:           397,000 counts
+                 gc.time:            503,000 ms
+
+
+# Run progress: 65,00% complete, ETA 00:19:53
+# Fork: 4 of 5
+# Warmup Iteration   1: 1129988,590 ns/op
+# Warmup Iteration   2: 1133043,307 ns/op
+# Warmup Iteration   3: 1147323,424 ns/op
+# Warmup Iteration   4: 1110497,960 ns/op
+# Warmup Iteration   5: 1089178,791 ns/op
+Iteration   1: 1314505,159 ns/op
+                 gc.alloc.rate:      8,791 MB/sec
+                 gc.alloc.rate.norm: 13688,810 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            36,000 ms
+
+Iteration   2: 1275804,230 ns/op
+                 gc.alloc.rate:      8,801 MB/sec
+                 gc.alloc.rate.norm: 13285,394 B/op
+                 gc.count:           2,000 counts
+                 gc.time:            99,000 ms
+
+Iteration   3: 1648624,677 ns/op
+                 gc.alloc.rate:      8,263 MB/sec
+                 gc.alloc.rate.norm: 17168,513 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            65,000 ms
+
+Iteration   4: 1102215,736 ns/op
+                 gc.alloc.rate:      8,788 MB/sec
+                 gc.alloc.rate.norm: 11478,488 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            95,000 ms
+
+Iteration   5: 1175642,499 ns/op
+                 gc.alloc.rate:      8,726 MB/sec
+                 gc.alloc.rate.norm: 12242,177 B/op
+                 gc.count:           2,000 counts
+                 gc.time:            82,000 ms
+
+Iteration   6: 1405825,222 ns/op
+                 gc.alloc.rate:      8,712 MB/sec
+                 gc.alloc.rate.norm: 14639,335 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            65,000 ms
+
+Iteration   7: 1106262,580 ns/op
+                 gc.alloc.rate:      8,804 MB/sec
+                 gc.alloc.rate.norm: 11520,376 B/op
+                 gc.count:           5,000 counts
+                 gc.time:            82,000 ms
+
+Iteration   8: 1112806,715 ns/op
+                 gc.alloc.rate:      8,791 MB/sec
+                 gc.alloc.rate.norm: 11551,054 B/op
+                 gc.count:           5,000 counts
+                 gc.time:            112,000 ms
+
+Iteration   9: 2373015,329 ns/op
+                 gc.alloc.rate:      1670,504 MB/sec
+                 gc.alloc.rate.norm: 4688053,191 B/op
+                 gc.count:           274,000 counts
+                 gc.time:            316,000 ms
+
+Iteration  10: 2169748,039 ns/op
+                 gc.alloc.rate:      3136,610 MB/sec
+                 gc.alloc.rate.norm: 8022595,834 B/op
+                 gc.count:           346,000 counts
+                 gc.time:            267,000 ms
+
+
+# Run progress: 70,00% complete, ETA 00:17:02
+# Fork: 5 of 5
+# Warmup Iteration   1: 2038841,321 ns/op
+# Warmup Iteration   2: 2185504,417 ns/op
+# Warmup Iteration   3: 2124987,920 ns/op
+# Warmup Iteration   4: 2039015,993 ns/op
+# Warmup Iteration   5: 2041977,655 ns/op
+Iteration   1: 1991848,253 ns/op
+                 gc.alloc.rate:      3427,447 MB/sec
+                 gc.alloc.rate.norm: 8020741,777 B/op
+                 gc.count:           363,000 counts
+                 gc.time:            276,000 ms
+
+Iteration   2: 2035790,905 ns/op
+                 gc.alloc.rate:      3316,028 MB/sec
+                 gc.alloc.rate.norm: 8021197,680 B/op
+                 gc.count:           131,000 counts
+                 gc.time:            245,000 ms
+
+Iteration   3: 2028630,474 ns/op
+                 gc.alloc.rate:      3348,881 MB/sec
+                 gc.alloc.rate.norm: 8021124,584 B/op
+                 gc.count:           88,000 counts
+                 gc.time:            256,000 ms
+
+Iteration   4: 2048422,359 ns/op
+                 gc.alloc.rate:      3336,003 MB/sec
+                 gc.alloc.rate.norm: 8021332,282 B/op
+                 gc.count:           75,000 counts
+                 gc.time:            290,000 ms
+
+Iteration   5: 2016775,621 ns/op
+                 gc.alloc.rate:      3392,189 MB/sec
+                 gc.alloc.rate.norm: 8021001,073 B/op
+                 gc.count:           305,000 counts
+                 gc.time:            219,000 ms
+
+Iteration   6: 1977628,440 ns/op
+                 gc.alloc.rate:      3443,257 MB/sec
+                 gc.alloc.rate.norm: 8020594,074 B/op
+                 gc.count:           196,000 counts
+                 gc.time:            247,000 ms
+
+Iteration   7: 1994496,062 ns/op
+                 gc.alloc.rate:      3402,569 MB/sec
+                 gc.alloc.rate.norm: 8020770,682 B/op
+                 gc.count:           127,000 counts
+                 gc.time:            224,000 ms
+
+Iteration   8: 2034159,305 ns/op
+                 gc.alloc.rate:      3343,343 MB/sec
+                 gc.alloc.rate.norm: 8021180,435 B/op
+                 gc.count:           260,000 counts
+                 gc.time:            250,000 ms
+
+Iteration   9: 1955012,630 ns/op
+                 gc.alloc.rate:      3495,572 MB/sec
+                 gc.alloc.rate.norm: 8020356,568 B/op
+                 gc.count:           334,000 counts
+                 gc.time:            250,000 ms
+
+Iteration  10: 1962323,297 ns/op
+                 gc.alloc.rate:      3460,801 MB/sec
+                 gc.alloc.rate.norm: 8020432,450 B/op
+                 gc.count:           266,000 counts
+                 gc.time:            273,000 ms
+
+
+
+Result "org.sample.MyBenchmark.benchmarkTreeMapRemoveAllByKey":
+  1556189,101 ±(99.9%) 236841,913 ns/op [Average]
+  (min, avg, max) = (1077208,886, 1556189,101, 2467748,744), stdev = 478432,380
+  CI (99.9%): [1319347,188, 1793031,013] (assumes normal distribution)
+
+Secondary result "org.sample.MyBenchmark.benchmarkTreeMapRemoveAllByKey:gc.alloc.rate":
+  1108,237 ±(99.9%) 754,916 MB/sec [Average]
+  (min, avg, max) = (8,263, 1108,237, 3495,572), stdev = 1524,967
+  CI (99.9%): [353,321, 1863,153] (assumes normal distribution)
+
+Secondary result "org.sample.MyBenchmark.benchmarkTreeMapRemoveAllByKey:gc.alloc.rate.norm":
+  2710686,156 ±(99.9%) 1854189,641 B/op [Average]
+  (min, avg, max) = (11217,629, 2710686,156, 8025695,584), stdev = 3745554,805
+  CI (99.9%): [856496,514, 4564875,797] (assumes normal distribution)
+
+Secondary result "org.sample.MyBenchmark.benchmarkTreeMapRemoveAllByKey:gc.count":
+  4556,000 ±(99.9%) 0,001 counts [Sum]
+  (min, avg, max) = (≈ 0, 91,120, 397,000), stdev = 131,816
+  CI (99.9%): [4556,000, 4556,000] (assumes normal distribution)
+
+Secondary result "org.sample.MyBenchmark.benchmarkTreeMapRemoveAllByKey:gc.time":
+  7167,000 ±(99.9%) 0,001 ms [Sum]
+  (min, avg, max) = (≈ 0, 143,340, 503,000), stdev = 106,049
+  CI (99.9%): [7167,000, 7167,000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.4, OpenJDK 64-Bit Server VM, 21.0.4+7-Ubuntu-1ubuntu224.04
+# VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 10 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.sample.MyBenchmark.benchmarkTreeMapSearchAllValue
+
+# Run progress: 75,00% complete, ETA 00:14:12
+# Fork: 1 of 5
+# Warmup Iteration   1: 247584308,195 ns/op
+# Warmup Iteration   2: 242937894,048 ns/op
+# Warmup Iteration   3: 233871283,442 ns/op
+# Warmup Iteration   4: 260184564,000 ns/op
+# Warmup Iteration   5: 270417947,811 ns/op
+Iteration   1: 235086949,023 ns/op
+                 gc.alloc.rate:      37,760 MB/sec
+                 gc.alloc.rate.norm: 10421964,279 B/op
+                 gc.count:           5,000 counts
+                 gc.time:            86,000 ms
+
+Iteration   2: 231537747,273 ns/op
+                 gc.alloc.rate:      38,165 MB/sec
+                 gc.alloc.rate.norm: 10366913,636 B/op
+                 gc.count:           10,000 counts
+                 gc.time:            80,000 ms
+
+Iteration   3: 269094959,947 ns/op
+                 gc.alloc.rate:      33,530 MB/sec
+                 gc.alloc.rate.norm: 10740636,842 B/op
+                 gc.count:           21,000 counts
+                 gc.time:            160,000 ms
+
+Iteration   4: 247729555,732 ns/op
+                 gc.alloc.rate:      36,127 MB/sec
+                 gc.alloc.rate.norm: 10540105,366 B/op
+                 gc.count:           7,000 counts
+                 gc.time:            85,000 ms
+
+Iteration   5: 237048120,605 ns/op
+                 gc.alloc.rate:      37,379 MB/sec
+                 gc.alloc.rate.norm: 10421958,140 B/op
+                 gc.count:           9,000 counts
+                 gc.time:            90,000 ms
+
+Iteration   6: 231500483,341 ns/op
+                 gc.alloc.rate:      38,208 MB/sec
+                 gc.alloc.rate.norm: 10366914,364 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            78,000 ms
+
+Iteration   7: 251005761,625 ns/op
+                 gc.alloc.rate:      35,829 MB/sec
+                 gc.alloc.rate.norm: 10603605,000 B/op
+                 gc.count:           15,000 counts
+                 gc.time:            84,000 ms
+
+Iteration   8: 253760547,100 ns/op
+                 gc.alloc.rate:      35,285 MB/sec
+                 gc.alloc.rate.norm: 10603605,000 B/op
+                 gc.count:           17,000 counts
+                 gc.time:            100,000 ms
+
+Iteration   9: 247742283,805 ns/op
+                 gc.alloc.rate:      36,239 MB/sec
+                 gc.alloc.rate.norm: 10540102,439 B/op
+                 gc.count:           12,000 counts
+                 gc.time:            95,000 ms
+
+Iteration  10: 225562472,889 ns/op
+                 gc.alloc.rate:      38,997 MB/sec
+                 gc.alloc.rate.norm: 10314315,556 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            83,000 ms
+
+
+# Run progress: 80,00% complete, ETA 00:11:21
+# Fork: 2 of 5
+# Warmup Iteration   1: 243047814,095 ns/op
+# Warmup Iteration   2: 241352877,286 ns/op
+# Warmup Iteration   3: 242753400,071 ns/op
+# Warmup Iteration   4: 219464765,500 ns/op
+# Warmup Iteration   5: 237400389,837 ns/op
+Iteration   1: 265326067,026 ns/op
+                 gc.alloc.rate:      8,774 MB/sec
+                 gc.alloc.rate.norm: 2740642,947 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            56,000 ms
+
+Iteration   2: 276901527,919 ns/op
+                 gc.alloc.rate:      8,595 MB/sec
+                 gc.alloc.rate.norm: 2814708,108 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            72,000 ms
+
+Iteration   3: 298015094,029 ns/op
+                 gc.alloc.rate:      8,721 MB/sec
+                 gc.alloc.rate.norm: 3063063,765 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            58,000 ms
+
+Iteration   4: 271565083,622 ns/op
+                 gc.alloc.rate:      8,741 MB/sec
+                 gc.alloc.rate.norm: 2814711,351 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            85,000 ms
+
+Iteration   5: 301837222,529 ns/op
+                 gc.alloc.rate:      8,504 MB/sec
+                 gc.alloc.rate.norm: 3063064,706 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            63,000 ms
+
+Iteration   6: 307239404,758 ns/op
+                 gc.alloc.rate:      8,588 MB/sec
+                 gc.alloc.rate.norm: 3155885,818 B/op
+                 gc.count:           3,000 counts
+                 gc.time:            47,000 ms
+
+Iteration   7: 291302157,086 ns/op
+                 gc.alloc.rate:      8,669 MB/sec
+                 gc.alloc.rate.norm: 2975548,571 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            65,000 ms
+
+Iteration   8: 288644638,371 ns/op
+                 gc.alloc.rate:      8,758 MB/sec
+                 gc.alloc.rate.norm: 2975548,571 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            38,000 ms
+
+Iteration   9: 220856591,435 ns/op
+                 gc.alloc.rate:      8,661 MB/sec
+                 gc.alloc.rate.norm: 2264004,348 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            111,000 ms
+
+Iteration  10: 242744519,714 ns/op
+                 gc.alloc.rate:      8,709 MB/sec
+                 gc.alloc.rate.norm: 2479624,571 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            50,000 ms
+
+
+# Run progress: 85,00% complete, ETA 00:08:31
+# Fork: 3 of 5
+# Warmup Iteration   1: 243206809,357 ns/op
+# Warmup Iteration   2: 232407797,045 ns/op
+# Warmup Iteration   3: 243725239,667 ns/op
+# Warmup Iteration   4: 234260135,279 ns/op
+# Warmup Iteration   5: 234979906,302 ns/op
+Iteration   1: 258303594,872 ns/op
+                 gc.alloc.rate:      8,767 MB/sec
+                 gc.alloc.rate.norm: 2670371,692 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            57,000 ms
+
+Iteration   2: 268741935,368 ns/op
+                 gc.alloc.rate:      8,618 MB/sec
+                 gc.alloc.rate.norm: 2740636,842 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            76,000 ms
+
+Iteration   3: 304460810,576 ns/op
+                 gc.alloc.rate:      8,674 MB/sec
+                 gc.alloc.rate.norm: 3155883,879 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            62,000 ms
+
+Iteration   4: 270788508,459 ns/op
+                 gc.alloc.rate:      8,725 MB/sec
+                 gc.alloc.rate.norm: 2814708,108 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            76,000 ms
+
+Iteration   5: 289547645,171 ns/op
+                 gc.alloc.rate:      8,696 MB/sec
+                 gc.alloc.rate.norm: 2975552,000 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            56,000 ms
+
+Iteration   6: 286688910,286 ns/op
+                 gc.alloc.rate:      8,774 MB/sec
+                 gc.alloc.rate.norm: 2975549,486 B/op
+                 gc.count:           3,000 counts
+                 gc.time:            50,000 ms
+
+Iteration   7: 284803513,306 ns/op
+                 gc.alloc.rate:      8,638 MB/sec
+                 gc.alloc.rate.norm: 2892894,444 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            64,000 ms
+
+Iteration   8: 299128522,088 ns/op
+                 gc.alloc.rate:      8,702 MB/sec
+                 gc.alloc.rate.norm: 3063064,706 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            36,000 ms
+
+Iteration   9: 220550598,891 ns/op
+                 gc.alloc.rate:      8,694 MB/sec
+                 gc.alloc.rate.norm: 2264004,348 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            121,000 ms
+
+Iteration  10: 233866353,860 ns/op
+                 gc.alloc.rate:      8,805 MB/sec
+                 gc.alloc.rate.norm: 2421958,140 B/op
+                 gc.count:           1,000 counts
+                 gc.time:            47,000 ms
+
+
+# Run progress: 90,00% complete, ETA 00:05:41
+# Fork: 4 of 5
+# Warmup Iteration   1: 255393257,075 ns/op
+# Warmup Iteration   2: 237977680,070 ns/op
+# Warmup Iteration   3: 222909136,289 ns/op
+# Warmup Iteration   4: 236774392,256 ns/op
+# Warmup Iteration   5: 226056501,578 ns/op
+Iteration   1: 227619897,477 ns/op
+                 gc.alloc.rate:      38,726 MB/sec
+                 gc.alloc.rate.norm: 10366919,636 B/op
+                 gc.count:           12,000 counts
+                 gc.time:            76,000 ms
+
+Iteration   2: 267524684,237 ns/op
+                 gc.alloc.rate:      33,803 MB/sec
+                 gc.alloc.rate.norm: 10740636,842 B/op
+                 gc.count:           16,000 counts
+                 gc.time:            125,000 ms
+
+Iteration   3: 249702763,415 ns/op
+                 gc.alloc.rate:      35,913 MB/sec
+                 gc.alloc.rate.norm: 10540101,659 B/op
+                 gc.count:           7,000 counts
+                 gc.time:            94,000 ms
+
+Iteration   4: 244626457,585 ns/op
+                 gc.alloc.rate:      36,682 MB/sec
+                 gc.alloc.rate.norm: 10540105,366 B/op
+                 gc.count:           4,000 counts
+                 gc.time:            83,000 ms
+
+Iteration   5: 267379189,553 ns/op
+                 gc.alloc.rate:      33,789 MB/sec
+                 gc.alloc.rate.norm: 10740636,842 B/op
+                 gc.count:           7,000 counts
+                 gc.time:            83,000 ms
+
+Iteration   6: 231394560,364 ns/op
+                 gc.alloc.rate:      38,138 MB/sec
+                 gc.alloc.rate.norm: 10366914,364 B/op
+                 gc.count:           9,000 counts
+                 gc.time:            77,000 ms
+
+Iteration   7: 234513374,372 ns/op
+                 gc.alloc.rate:      37,673 MB/sec
+                 gc.alloc.rate.norm: 10421958,140 B/op
+                 gc.count:           15,000 counts
+                 gc.time:            110,000 ms
+
+Iteration   8: 242763470,333 ns/op
+                 gc.alloc.rate:      36,721 MB/sec
+                 gc.alloc.rate.norm: 10479623,810 B/op
+                 gc.count:           11,000 counts
+                 gc.time:            95,000 ms
+
+Iteration   9: 236938652,814 ns/op
+                 gc.alloc.rate:      37,476 MB/sec
+                 gc.alloc.rate.norm: 10421958,140 B/op
+                 gc.count:           9,000 counts
+                 gc.time:            88,000 ms
+
+Iteration  10: 231632763,000 ns/op
+                 gc.alloc.rate:      38,235 MB/sec
+                 gc.alloc.rate.norm: 10366913,636 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            81,000 ms
+
+
+# Run progress: 95,00% complete, ETA 00:02:50
+# Fork: 5 of 5
+# Warmup Iteration   1: 249841248,244 ns/op
+# Warmup Iteration   2: 241066292,786 ns/op
+# Warmup Iteration   3: 245216359,927 ns/op
+# Warmup Iteration   4: 261175808,359 ns/op
+# Warmup Iteration   5: 241701750,095 ns/op
+Iteration   1: 245461999,220 ns/op
+                 gc.alloc.rate:      36,527 MB/sec
+                 gc.alloc.rate.norm: 10540108,878 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            92,000 ms
+
+Iteration   2: 236665547,070 ns/op
+                 gc.alloc.rate:      37,554 MB/sec
+                 gc.alloc.rate.norm: 10421958,140 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            88,000 ms
+
+Iteration   3: 243096328,452 ns/op
+                 gc.alloc.rate:      36,707 MB/sec
+                 gc.alloc.rate.norm: 10479623,810 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            82,000 ms
+
+Iteration   4: 240014506,214 ns/op
+                 gc.alloc.rate:      37,188 MB/sec
+                 gc.alloc.rate.norm: 10479626,667 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            90,000 ms
+
+Iteration   5: 225918031,711 ns/op
+                 gc.alloc.rate:      38,973 MB/sec
+                 gc.alloc.rate.norm: 10314315,556 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            80,000 ms
+
+Iteration   6: 243086728,786 ns/op
+                 gc.alloc.rate:      36,741 MB/sec
+                 gc.alloc.rate.norm: 10479624,571 B/op
+                 gc.count:           5,000 counts
+                 gc.time:            82,000 ms
+
+Iteration   7: 230330779,659 ns/op
+                 gc.alloc.rate:      38,350 MB/sec
+                 gc.alloc.rate.norm: 10366913,636 B/op
+                 gc.count:           9,000 counts
+                 gc.time:            80,000 ms
+
+Iteration   8: 237407337,093 ns/op
+                 gc.alloc.rate:      37,480 MB/sec
+                 gc.alloc.rate.norm: 10421958,884 B/op
+                 gc.count:           5,000 counts
+                 gc.time:            77,000 ms
+
+Iteration   9: 227669170,318 ns/op
+                 gc.alloc.rate:      38,657 MB/sec
+                 gc.alloc.rate.norm: 10366913,636 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            99,000 ms
+
+Iteration  10: 244376671,756 ns/op
+                 gc.alloc.rate:      36,662 MB/sec
+                 gc.alloc.rate.norm: 10540102,439 B/op
+                 gc.count:           6,000 counts
+                 gc.time:            90,000 ms
+
+
+
+Result "org.sample.MyBenchmark.benchmarkTreeMapSearchAllValue":
+  254390089,883 ±(99.9%) 12392299,729 ns/op [Average]
+  (min, avg, max) = (220550598,891, 254390089,883, 307239404,758), stdev = 25033058,515
+  CI (99.9%): [241997790,154, 266782389,612] (assumes normal distribution)
+
+Secondary result "org.sample.MyBenchmark.benchmarkTreeMapSearchAllValue:gc.alloc.rate":
+  25,667 ±(99.9%) 6,954 MB/sec [Average]
+  (min, avg, max) = (8,504, 25,667, 38,997), stdev = 14,047
+  CI (99.9%): [18,713, 32,621] (assumes normal distribution)
+
+Secondary result "org.sample.MyBenchmark.benchmarkTreeMapSearchAllValue:gc.alloc.rate.norm":
+  7412769,233 ±(99.9%) 1879298,416 B/op [Average]
+  (min, avg, max) = (2264004,348, 7412769,233, 10740636,842), stdev = 3796275,771
+  CI (99.9%): [5533470,818, 9292067,649] (assumes normal distribution)
+
+Secondary result "org.sample.MyBenchmark.benchmarkTreeMapSearchAllValue:gc.count":
+  307,000 ±(99.9%) 0,001 counts [Sum]
+  (min, avg, max) = (1,000, 6,140, 21,000), stdev = 4,755
+  CI (99.9%): [307,000, 307,000] (assumes normal distribution)
+
+Secondary result "org.sample.MyBenchmark.benchmarkTreeMapSearchAllValue:gc.time":
+  4003,000 ±(99.9%) 0,001 ms [Sum]
+  (min, avg, max) = (36,000, 80,060, 160,000), stdev = 22,658
+  CI (99.9%): [4003,000, 4003,000] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:56:55
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                                                      Mode  Cnt          Score          Error   Units
+MyBenchmark.baselineAccess                                     avgt   50          0,632 ±        0,003   ns/op
+MyBenchmark.baselineAccess:gc.alloc.rate                       avgt   50          8,814 ±        0,017  MB/sec
+MyBenchmark.baselineAccess:gc.alloc.rate.norm                  avgt   50          0,007 ±        0,001    B/op
+MyBenchmark.baselineAccess:gc.count                            avgt   50        122,000                 counts
+MyBenchmark.baselineAccess:gc.time                             avgt   50       3447,000                     ms
+MyBenchmark.benchmarkTreeMapInsertAll                          avgt   50  240979817,869 ±  3938296,445   ns/op
+MyBenchmark.benchmarkTreeMapInsertAll:gc.alloc.rate            avgt   50         66,932 ±        0,906  MB/sec
+MyBenchmark.benchmarkTreeMapInsertAll:gc.alloc.rate.norm       avgt   50   18957622,667 ±    48882,512    B/op
+MyBenchmark.benchmarkTreeMapInsertAll:gc.count                 avgt   50        365,000                 counts
+MyBenchmark.benchmarkTreeMapInsertAll:gc.time                  avgt   50       8961,000                     ms
+MyBenchmark.benchmarkTreeMapRemoveAllByKey                     avgt   50    1556189,101 ±   236841,913   ns/op
+MyBenchmark.benchmarkTreeMapRemoveAllByKey:gc.alloc.rate       avgt   50       1108,237 ±      754,916  MB/sec
+MyBenchmark.benchmarkTreeMapRemoveAllByKey:gc.alloc.rate.norm  avgt   50    2710686,156 ±  1854189,641    B/op
+MyBenchmark.benchmarkTreeMapRemoveAllByKey:gc.count            avgt   50       4556,000                 counts
+MyBenchmark.benchmarkTreeMapRemoveAllByKey:gc.time             avgt   50       7167,000                     ms
+MyBenchmark.benchmarkTreeMapSearchAllValue                     avgt   50  254390089,883 ± 12392299,729   ns/op
+MyBenchmark.benchmarkTreeMapSearchAllValue:gc.alloc.rate       avgt   50         25,667 ±        6,954  MB/sec
+MyBenchmark.benchmarkTreeMapSearchAllValue:gc.alloc.rate.norm  avgt   50    7412769,233 ±  1879298,416    B/op
+MyBenchmark.benchmarkTreeMapSearchAllValue:gc.count            avgt   50        307,000                 counts
+MyBenchmark.benchmarkTreeMapSearchAllValue:gc.time             avgt   50       4003,000                     ms
