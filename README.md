@@ -88,53 +88,51 @@ Antes de focarmos nas árvores escolhidas para a análise, devemos entender a im
 
 A _B-Tree_ é uma árvore auto-balanceada, projetada para gerenciar grandes volumes de dados com eficiência, especialmente em sistemas de armazenamento. Ela evoluiu a partir das árvores de busca binária (BSTs) e das árvores balanceadas (como AVL e _Red-Black Trees_), combinando a organização ordenada das BSTs com o nivelamento de altura das árvores balanceadas. Diferente dessas estruturas, a _B-Tree_ expandiu seu funcionamento ao permitir que cada nó contenha múltiplas chaves e múltiplos filhos, tornando-a ideal para aplicações que exigem operações rápidas de busca, inserção e remoção em grandes conjuntos de dados.
 
-* PROPRIEDADES:
-
-  * A _BTree_ possui um valor t chamado de ordem da árvore, que define a quantidade mínima de chaves que um nó pode possuir, sendo esta t-1 chaves.
-  * Na _BTree_, cada nó possui um atributo booleano que verifica se ele é uma folha ou não. Caso ele seja uma folha, não possuirá filhos. Caso não seja, seu número de filhos será determinado pela ordem da árvore, onde seu número mínimo de filhos será t e o máximo t*2, com exceção da raiz que só poderá ter no mínimo 2 filhos.
-  * Se um nó excede o número máximo de chaves, ele é dividido (_split_).
-  * Se um nó fica com menos chaves do que é permitido, ele pode ser fundido (_merge_) com outro.
-
-
-* OPERAÇÕES:
-  * Inserção:
-    
-    A inserção de uma chave em uma _B-Tree_ é feita de forma a manter a estrutura balanceada, o que pode envolver a divisão de nós e a promoção de chaves para o nó pai, se necessário.
-    * Comece com a busca pela posição adequada para a chave.
-    * Se a árvore estiver vazia, aloque um nó raiz e insira a chave.
-    * Se não estiver vazia, encontre o nó folha onde a chave deve ser inserida:
-        * 1- Se o nó não estiver cheio, insira a chave nesse nó e a árvore permanece balanceada.
-        * 2- Se o nó estiver cheio, o nó é dividido ao meio:
-           * A chave do meio é promovida para o nó pai;
-           * O nó é dividido em dois nós filhos, cada um com metade das chaves;
-           * Se o nó pai também estiver cheio, o processo de divisão pode se propagar recursivamente até a raiz.
-           * Caso a divisão atinja a raiz, uma nova raiz é criada, aumentando a altura da árvore.
-
-  * Remoção:
-    * Comece com a busca pela posição da chave que será removida.
-    * Quando encontrar o nó onde a chave que deve ser removida se encontra:
-       * 1- Se o nó for uma folha:
-           *  Se não ferir a propriedade de número mínimo de chaves, basta remover a chave.
-           *  Se violar, o nó pegará uma chave do nó irmão imediato da esquerda para a direita, para que se mantenha com a quantidade mínima de chaves.
-           * Se os nós irmãos também tiverem a quantidade mínima de chaves, os nós serão fundidos.
-       * 2-  Se o nó não for uma folha:
-           *  Se o filho à sua esquerda tiver mais que o número mínimo de chaves, a chave a ser excluída será substituída pelo seu antecessor imediato.
-           *  Se o filho à sua direita tiver mais que o número mínimo de chaves, a chave a ser excluída será substituída pelo seu sucessor imediato.
-           *  Se ambos os filhos tiverem o número mínimo de chaves, os nós filhos serão fundidos.
-           *  Caso os filhos e os irmãos estiverem com o número mínimo de chaves, fundimos o nó com o irmão e com alguma chave do pai, dessa forma a altura da árvore diminui.
+**PROPRIEDADES:**
+ * A _BTree_ possui um valor t chamado de ordem da árvore, que define a quantidade mínima de chaves que um nó pode possuir, sendo esta t-1 chaves.
+ * Na _BTree_, cada nó possui um atributo booleano que verifica se ele é uma folha ou não. Caso ele seja uma folha, não possuirá filhos. Caso não seja, seu número de filhos será determinado pela ordem da árvore, onde seu número mínimo de filhos será t e o máximo t*2, com exceção da raiz que só poderá ter no mínimo 2 filhos.
+ * Se um nó excede o número máximo de chaves, ele é dividido (_split_).
+ * Se um nó fica com menos chaves do que é permitido, ele pode ser fundido (_merge_) com outro.
 
 
-  * Busca:
-    
+**OPERAÇÕES:**
+  
+***⭢ Inserção:***\
+  A inserção de uma chave em uma _B-Tree_ é feita de forma a manter a estrutura balanceada, o que pode envolver a divisão de nós e a promoção de chaves para o nó pai, se necessário.
+   - Comece com a busca pela posição adequada para a chave:
+   - Se a árvore estiver vazia, aloque um nó raiz e insira a chave.
+   - Se não estiver vazia, encontre o nó folha onde a chave deve ser inserida:
+   - Se o nó não estiver cheio, insira a chave nesse nó e a árvore permanece balanceada.
+   - Se o nó estiver cheio, o nó é dividido ao meio:
+     1. A chave do meio é promovida para o nó pai;
+     2. O nó é dividido em dois nós filhos, cada um com metade das chaves;
+     3. Se o nó pai também estiver cheio, o processo de divisão pode se propagar recursivamente até a raiz.
+     4. Caso a divisão atinja a raiz, uma nova raiz é criada, aumentando a altura da árvore.
+
+***⭢ Remoção:***
+  - Comece com a busca pela posição da chave que será removida.
+  - Quando encontrar o nó onde a chave que deve ser removida se encontra:
+    - _Se o nó for uma folha:_
+       1. Se não ferir a propriedade de número mínimo de chaves, basta remover a chave.
+       2. Se violar, o nó pegará uma chave do nó irmão imediato da esquerda para a direita, para que se mantenha com a quantidade mínima de chaves.
+       3. Se os nós irmãos também tiverem a quantidade mínima de chaves, os nós serão fundidos.
+    - _Se o nó não for uma folha:_
+       1. Se o filho à sua esquerda tiver mais que o número mínimo de chaves, a chave a ser excluída será substituída pelo seu antecessor imediato.
+       2. Se o filho à sua direita tiver mais que o número mínimo de chaves, a chave a ser excluída será substituída pelo seu sucessor imediato.
+       3. Se ambos os filhos tiverem o número mínimo de chaves, os nós filhos serão fundidos.
+       4. Caso os filhos e os irmãos estiverem com o número mínimo de chaves, fundimos o nó com o irmão e com alguma chave do pai, dessa forma a altura da árvore diminui.
+
+
+ ***⭢ Busca:***\
     Procurar um elemento em uma _BTree_ é uma forma generalizada da busca em uma BST.
-     * A busca começa no nó raiz da árvore percorrendo as chaves ordenadas do nó. Se a chave procurada for encontrada no nó atual, a busca termina com sucesso. Se a chave não for encontrada, determinar qual dos filhos deve ser explorado:
-        *  Se a chave for menor que uma chave existente, a busca segue para o filho esquerdo correspondente.
-        *  Se for maior, a busca segue para o filho direito apropriado.
-        *  Se não encontrar, continuamos descendo na árvore até encontrar a chave ou chegar a uma folha. Se um nó folha for alcançado sem encontrar a chave, significa que ela não está presente na árvore.
+ - A busca começa no nó raiz da árvore percorrendo as chaves ordenadas do nó. Se a chave procurada for encontrada no nó atual, a busca termina com sucesso. Se a chave não for encontrada, determinar qual dos filhos deve ser explorado:
+    1. Se a chave for menor que uma chave existente, a busca segue para o filho esquerdo correspondente.
+    2. Se for maior, a busca segue para o filho direito apropriado.
+    3. Se não encontrar, continuamos descendo na árvore até encontrar a chave ou chegar a uma folha. Se um nó folha for alcançado sem encontrar a chave, significa que ela não está presente na árvore.
 
 
 
-* **Tabela de custo da _BTree_**
+**Tabela de custo da _BTree_**
 
   | Algoritmo   | Caso Médio | Pior Caso |
   |------------|----------------|--------------|
