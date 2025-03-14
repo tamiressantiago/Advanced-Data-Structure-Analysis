@@ -210,15 +210,15 @@ Portanto, acerca da complexidade da TreeMap, deve ser levado em consideração q
   | Inserção    | O(log n)           | O(log n)     |
   | Remoção    | O(log n)            | O(log n)     |
 
-## Créditos
+##  Créditos e Referências
 
-A implementação da SplayTree utilizada neste projeto foi baseada no repositório desenvolvido por Pedro Oliveira "cpdomina": https://github.com/cpdomina/SplayTree/tree/master
+* A implementação da SplayTree utilizada neste projeto foi baseada no repositório desenvolvido por Pedro Oliveira "cpdomina": https://github.com/cpdomina/SplayTree/tree/master
 
-As imagens de exemplos utilizadas na explicação da estrutura de dados SplayTree foi retirada do site: https://pt.wikipedia.org/wiki/%C3%81rvore_splay
+* As imagens de exemplos utilizadas na explicação da estrutura de dados SplayTree foi retirada do site: https://pt.wikipedia.org/wiki/%C3%81rvore_splay
 
-Matérial de consulta utilizado para a TreeMap: https://docs.oracle.com/javase/8/docs/api/java/util/TreeMap.html
+* Material de consulta utilizado para a TreeMap: https://docs.oracle.com/javase/8/docs/api/java/util/TreeMap.html
 
 
-A implementação da BTree utilizada neste projeto foi baseada em: https://www.programiz.com/dsa/b-tree
+* A implementação da BTree utilizada neste projeto foi baseada em: https://www.programiz.com/dsa/b-tree
 
-O estudo e a aplicação do ambiente de testes Java Microbenchmark Harness, ou JMH, foi baseado no artigo do Muhammad Asher Toqeer "TheBackEndGuy": https://thebackendguy.com/posts/performance-analysis-using-jmh/
+* O estudo e a aplicação do ambiente de testes Java Microbenchmark Harness, ou JMH, foi baseado no artigo do Muhammad Asher Toqeer "TheBackEndGuy": https://thebackendguy.com/posts/performance-analysis-using-jmh/
