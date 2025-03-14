@@ -110,17 +110,18 @@ A principal operação da _splay tree_ se baseia em uma sequência de rotações
 
   * Na rotação Zig, o filho direito do elemento B, ficará o filho esquerdo do elemento A, que era pai de B. Com a mesma lógica, na rotação Zag, o filho esquerdo do elemento A, ficará o filho direito do elemento B, que era pai de A.
   
-    ![Rotação_zig/zag](https://upload.wikimedia.org/wikipedia/commons/5/5b/Zig_e_zag.png)
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Zig_e_zag.png" alt="Rotação_zig/zag" height="200">
 
   * Já na rotação dupla Zig-zig, é realizado duas rotações simples do tipo zig, onde, neste exemplo, para fazer o zig-zig de C, primeiro é realizado o zig no pai de C (que é o B) e posteriormente é feito o zig de C. Da forma análoga ocorre a operação zag-zag, entretanto com duas rotações simples do tipo zag.
 
-    ![Rotação_zig-zig/zag-zag](https://upload.wikimedia.org/wikipedia/commons/0/01/Zig-zig_e_zag-zag.png)
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Zig-zig_e_zag-zag.png" alt="Rotação_zig-zig/zag-zag" height="200">
 
   * Por fim, na rotação dupla Zig-zag, primeiro realiza o zig de C com o pai de C (que é o B), e logo após aplica o zag de C com o avô de C (que é o A). Já o Zag-zig troca apenas a ordem das operações simples, sendo primeiramente realizado o zag e posteriormente o zig.
 
-    ![Rotação_zig-zag](https://upload.wikimedia.org/wikipedia/commons/e/ea/Zig-zag2.png)
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Zig-zag2.png" alt="Rotação_zig-zag" height="200">
 
-    ![Rotação_zag-zig](https://upload.wikimedia.org/wikipedia/commons/b/b1/Zag-zig.png)
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Zag-zig.png" alt="Rotação_zag-zig" height="200">
+
  
 * VANTAGENS
 
