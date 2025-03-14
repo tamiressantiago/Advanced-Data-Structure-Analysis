@@ -12,13 +12,6 @@ Natan Hugo Carvalho Evangelista - 123210202
 Tamires Santiago Oliveira - 123210205
 
 ## Como usar
-
-1. Em "/src/python" execute o script em python para gerar os dados sintéticos.
-2. (Opcional) Altere as cargas no script python ou os números de testes em "/src/main/java/org/sample/MyBenchmark.java"
-3. Na pasta raíz, execute o comando $ mvn clean verify
-4. Na mesma pasta, execute o comando $ java -jar target/benchmarks.jar
-5. (Opcional) Adicione "-prof gc" ao comando acima para verificar a alocação de memória também 
-
 1. Verifique primeiramente se você tem o Maven e o java na sua máquina para executar os benchmarks. Para isso, execute os seguintes comandos no terminal:
 ```
 mvn -version
