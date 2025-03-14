@@ -4,7 +4,7 @@
 
 # Log file
 *.log
-*.swop
+*.swp
 
 # BlueJ files
 *.ctxt
@@ -25,7 +25,7 @@
 hs_err_pid*
 replay_pid*
 
-# 
+# diretórios que não podem ir para o github :D
 target/
 data/
 bin/
