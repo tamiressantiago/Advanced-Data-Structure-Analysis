@@ -100,30 +100,44 @@ A _B-Tree_ é uma árvore auto-balanceada, projetada para gerenciar grandes volu
 | Inserção    | O(log n)           | O(log n)     |
 | Remoção    | O(log n)            | O(log n)     |
 
-
-
-
-
-
- 
-
- 
-
-
-
-
-
-          
-
- 
-
-
-
 ### SplayTree
-.
-.
-.
+A estrutura de dados avançada _splay tree_, ou árvore _splay_, é uma árvore binária de busca autoajustável, com o adicional de tornar os elementos acessados recentemente, fáceis de acessar novamente. Todas as suas operações básicas, como remoção, inserção e busca, são baseadas em colocar o elemento envolvido nessa operação na raiz, através de rotações (operação _splay_). 
+A principal operação da _splay tree_ se baseia em uma sequência de rotações, onde procura deixar junto a raiz os elementos mais usados e recentes. Por consequência, os elementos mais inativos estarão distantes da raiz. Essas rotações podem ser de dois tipos: Rotação simples ou rotação dupla.
 
+* OPERAÇÕES:
+
+  Na rotação simples temos a rotação Zig (para direita) e a rotação Zag (para esquerda). Já na rotação dupla, temos a rotação Zig-zig (duas rotações para a direita), Zag-zag (duas rotações para a esquerda) e a Zig-zag ou Zag-zig (Rotação direita e esquerda ou esquerda e direita, respectivamente).
+
+  * Na rotação Zig, o filho direito do elemento B, ficará o filho esquerdo do elemento A, que era pai de B. Com a mesma lógica, na rotação Zag, o filho esquerdo do elemento A, ficará o filho direito do elemento B, que era pai de A.
+  
+    ![Rotação_zig/zag](https://upload.wikimedia.org/wikipedia/commons/5/5b/Zig_e_zag.png)
+
+  * Já na rotação dupla Zig-zig, é realizado duas rotações simples do tipo zig, onde, neste exemplo, para fazer o zig-zig de C, primeiro é realizado o zig no pai de C (que é o B) e posteriormente é feito o zig de C. Da forma análoga ocorre a operação zag-zag, entretanto com duas rotações simples do tipo zag.
+
+    ![Rotação_zig-zig/zag-zag](https://upload.wikimedia.org/wikipedia/commons/0/01/Zig-zig_e_zag-zag.png)
+
+  * Por fim, na rotação dupla Zig-zag, primeiro realiza o zig de C com o pai de C (que é o B), e logo após aplica o zag de C com o avô de C (que é o A). Já o Zag-zig troca apenas a ordem das operações simples, sendo primeiramente realizado o zag e posteriormente o zig.
+
+    ![Rotação_zig-zag](https://upload.wikimedia.org/wikipedia/commons/e/ea/Zig-zag2.png)
+
+    ![Rotação_zag-zig](https://upload.wikimedia.org/wikipedia/commons/b/b1/Zag-zig.png)
+ 
+* VANTAGENS
+
+  O bom desempenho para uma árvore de splay está diretamente ligado com o fato dela ser autoajustável. Pois, na medida em que os elementos mais utilizados se movem para próximo da raiz, eles são acessados mais rapidamente e facilmente. 
+
+* DESVANTAGENS
+
+  A principal desvantagem é que a altura da splay tree pode ser linear. Onde os nós da árvore são acessados sequencialmente em ordem. Isto deixa a árvore totalmente desbalanceada. Outra desvantagem significativa é que a representação das árvores de splay pode mudar quando nelas são realizadas as operações básicas, pois envolvem reestruturação dinâmica. Ou seja, torna complicado o uso em um ambiente multi-threaded. Para conseguir contornar essa problemática, seria necessário uma adaptação nessa estrutura de dados.
+
+* **Tabela de custo da _SplayTree_**
+
+| Algoritmo   | Caso Médio | Pior Caso |
+|------------|----------------|--------------|
+| Espaço  | O(n)           | O(n)       |
+| Busca     | O(log n)            | O(log n) (amortizado)     |
+| Inserção    | O(log n)           | O(log n) (amortizado)    |
+| Remoção    | O(log n)            | O(log n) (amortizado)    |
 
 ### TreeMap
 .
