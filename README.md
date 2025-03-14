@@ -93,12 +93,12 @@ A _B-Tree_ é uma árvore auto-balanceada, projetada para gerenciar grandes volu
 
 * **Tabela de custo da _BTree_**
 
-| Algoritmo   | Caso Médio | Pior Caso |
-|------------|----------------|--------------|
-| Espaço  | O(n)           | O(n)       |
-| Busca     | O(log n)            | O(log n)     |
-| Inserção    | O(log n)           | O(log n)     |
-| Remoção    | O(log n)            | O(log n)     |
+  | Algoritmo   | Caso Médio | Pior Caso |
+  |------------|----------------|--------------|
+  | Espaço  | O(n)           | O(n)       |
+  | Busca     | O(log n)            | O(log n)     |
+  | Inserção    | O(log n)           | O(log n)     |
+  | Remoção    | O(log n)            | O(log n)     |
 
 ### SplayTree
 A estrutura de dados avançada _splay tree_, ou árvore _splay_, é uma árvore binária de busca autoajustável, com o adicional de tornar os elementos acessados recentemente, fáceis de acessar novamente. Todas as suas operações básicas, como remoção, inserção e busca, são baseadas em colocar o elemento envolvido nessa operação na raiz, através de rotações (operação _splay_). 
@@ -126,23 +126,15 @@ Entretanto, a principal desvantagem é que a altura da splay tree pode ser linea
 
     <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Zag-zig.png" alt="Rotação_zag-zig" height="200">
 
- 
-* VANTAGENS
-
-  
-
-* DESVANTAGENS
-
-  
 
 * **Tabela de custo da _SplayTree_**
 
-| Algoritmo   | Caso Médio | Pior Caso |
-|------------|----------------|--------------|
-| Espaço  | O(n)           | O(n)       |
-| Busca     | O(log n)            | O(log n) (amortizado)     |
-| Inserção    | O(log n)           | O(log n) (amortizado)    |
-| Remoção    | O(log n)            | O(log n) (amortizado)    |
+  | Algoritmo   | Caso Médio | Pior Caso |
+  |------------|----------------|--------------|
+  | Espaço  | O(n)           | O(n)       |
+  | Busca     | O(log n)            | O(log n) (amortizado)     |
+  | Inserção    | O(log n)           | O(log n) (amortizado)    |
+  | Remoção    | O(log n)            | O(log n) (amortizado)    |
 
 ### TreeMap
 .
