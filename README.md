@@ -137,9 +137,36 @@ Entretanto, a principal desvantagem é que a altura da splay tree pode ser linea
   | Remoção    | O(log n)            | O(log n) (amortizado)    |
 
 ### TreeMap
-.
-.
-.
+
+O TreeMap é uma estrutura que armazena dados no formato chave-valor, ou seja, é possível fazer o acesso de um elemento por meio de uma chave única, por exemplo, o acesso a um aluno por meio de seu CPF. No caso do TreeMap, ele implementa a interface SortedMap, interface essa que herda da classe Map(classe que mapeia os valores em chaves). A interface SortedMap tem como intuito ordenar as chaves atribuídas a determinados valores(por ordem crescente, alfabética ou qualquer ordem definida previamente). 
+
+Por exemplo, se fosse necessário fazer um sistema de agenda de eventos, seria necessário acessar os eventos pelas datas, e ter como recuperá-los de acordo com as datas mais recentes ou mais antigas pode ser muito útil para o sistema. Para saber qual o show mais próximo? O TreeMap pode ajudar, atribuindo uma data como chave a um objeto do tipo Evento como valor.
+O Tree Map está disponível para uso por meio da biblioteca padrão do java java.Util, mas para fins didáticos, é necessário saber o funcionamento por trás dele. Diferentemente do HashMap que utiliza estratégias de hashing, a qual o valor da chave é associado a um endereço na memória a qual podemos buscar por meio de operações O(1), o TreeMap é uma estrutura que utiliza a Árvore Rubro-Negra para realizar suas operações de inserção, busca, contains e remoção(entre outras).
+
+A Árvore Rubro Negra é um tipo específico de árvore binária que se mantém balanceada por meio de regras simples. As árvores binárias são estruturas super eficientes, realizando operações em em tempo de O(log(n)) quando estão balanceadas. Para isso, são utilizadas muitas estratégias de balanceamento, todas regidas por determinadas regras.
+Nesse cenário,  a Árvore Rubro Negra é uma estrutura de dados capaz de gerar árvores binárias balanceadas, caracterizada por nós de cor preta e vermelha, as cores de cada nó são utilizadas para uma melhor representação da lógica utilizada para as operações nas árvores, dito isso, essas são as seguintes regras numa árvore rubro-negra.
+
+1. Um nó é vermelho ou preto.
+2. A raiz da árvore é sempre preta.
+3. Todas as folhas(nós da extremidade da árvore, também chamados de nil) são pretas, e nulas.
+4. Ambos os filhos de todos os nós vermelhos são pretos.
+5. Todo caminho de um dado nó para qualquer uma de suas folhas descendentes sempre contém o mesmo número de nós pretos.
+
+Os elementos ficam ordenados de uma forma similar a uma árvore binária comum, mas sempre que um nó for inserido ou deletado, a árvore irá se reorganizar de forma que os axiomas sejam respeitados, essa reorganização é o que garante seu balanceamento, com nós se movendo para direita ou para a esquerda, e trocando de cores de acordo com o que satisfaça as regras pré-estabelecidas da árvore, e que não desordene os valores da árvore de forma que um nó contendo um valor x, tenha um filho y a sua direita que é maior do que ele.
+
+Compreendendo a lógica do funcionamento da árvore rubro negra, sempre que um valor é inserido, ele passa por todo o processo de reorganização dentro da árvore, e a árvore ordena de acordo com as chaves dos elementos. Dessa forma, a chave de um elemento de uma TreeMap não está definindo seu endereço direto da memória, mas sim sendo ordenada dentro de uma árvore rubro negra. O acesso a elementos por meio do valor bruto(e não da chave) pode até ser possível em alguns casos, mas quebra a lógica da estrutura e de sua forma de utilização.
+
+Portanto, acerca da complexidade da TreeMap, deve ser levado em consideração que os objetos estão sendo acessados por meio de suas chaves. 
+* **Tabela de custo da _TreeMap_**
+
+  | Algoritmo   | Caso Médio | Pior Caso |
+  |------------|----------------|--------------|
+  | Espaço  | O(n)           | O(n)       |
+  | Busca     | O(log n)            | O(log n)     |
+  | Inserção    | O(log n)           | O(log n)     |
+  | Remoção    | O(log n)            | O(log n)     |
+
+
 
 ## Como usar
 
@@ -154,6 +181,9 @@ Entretanto, a principal desvantagem é que a altura da splay tree pode ser linea
 A implementação da SplayTree utilizada neste projeto foi baseada no repositório desenvolvido por Pedro Oliveira "cpdomina": https://github.com/cpdomina/SplayTree/tree/master
 
 As imagens de exemplos utilizadas na explicação da estrutura de dados SplayTree foi retirada do site: https://pt.wikipedia.org/wiki/%C3%81rvore_splay
+
+Matérial de consulta utilizado para a TreeMap: https://docs.oracle.com/javase/8/docs/api/java/util/TreeMap.html
+
 
 A implementação da BTree utilizada neste projeto foi baseada em: https://www.programiz.com/dsa/b-tree
 
