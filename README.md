@@ -155,10 +155,10 @@ A principal operação da _splay tree_ se baseia em uma sequência de rotações
 
 ## Créditos
 
-A implementação da SplayTree utilizada neste projeto foi baseada no repositório desenvolvido por Pedro Oliveira "cpdomina":
+A implementação da SplayTree utilizada neste projeto foi baseada no repositório desenvolvido por Pedro Oliveira "cpdomina": https://github.com/cpdomina/SplayTree/tree/master
 
-https://github.com/cpdomina/SplayTree/tree/master
+As imagens de exemplos utilizadas na explicação da estrutura de dados SplayTree foi retirada do site: https://pt.wikipedia.org/wiki/%C3%81rvore_splay
 
-A implementação da BTree utilizada neste projeto foi baseada em:
+A implementação da BTree utilizada neste projeto foi baseada em: https://www.programiz.com/dsa/b-tree
 
-https://www.programiz.com/dsa/b-tree
+O estudo e a aplicação do ambiente de testes Java Microbenchmark Harness, ou JMH, foi baseado no artigo do Muhammad Asher Toqeer "TheBackEndGuy": https://thebackendguy.com/posts/performance-analysis-using-jmh/
