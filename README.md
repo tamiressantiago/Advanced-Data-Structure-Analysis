@@ -11,6 +11,38 @@ Natan Hugo Carvalho Evangelista - 123210202
 
 Tamires Santiago Oliveira - 123210205
 
+## Como usar
+
+1. Em "/src/python" execute o script em python para gerar os dados sintéticos.
+2. (Opcional) Altere as cargas no script python ou os números de testes em "/src/main/java/org/sample/MyBenchmark.java"
+3. Na pasta raíz, execute o comando $ mvn clean verify
+4. Na mesma pasta, execute o comando $ java -jar target/benchmarks.jar
+5. (Opcional) Adicione "-prof gc" ao comando acima para verificar a alocação de memória também 
+
+1. Verifique primeiramente se você tem o Maven e o java na sua máquina para executar os benchmarks. Para isso, execute os seguintes comandos no terminal:
+```
+mvn -version
+```
+```
+java -version 
+```
+2. Agora, na raiz do projeto, execute o script em python para gerar os dados sintéticos:
+```
+python3 src/python/scripts_data.py
+```
+3. Ainda na pasta raíz, execute o seguinte comando para compilar e gerar o JAR executável do benchmark:
+```
+mvn clean verify
+```
+4. Após compilar com sucesso, execute o seguinte comando para iniciar o benchmark:
+``` 
+java -jar target/benchmarks.jar
+```
+5. Caso deseje verificar também a alocação de memória do benchmark, execute:
+```
+java -jar target/benchmarks.jar -prof gc
+``` 
+
 ## Metodologia Geral
 Considerando as diversas estruturas de dados avançadas que não são abordadas na disciplina de Estrutura de Dados na Universidade Federal de Campina Grande (UFCG) o objetivo deste projeto é analisar, comparar e catalogar estas estruturas em Java:
 
@@ -166,16 +198,6 @@ Portanto, acerca da complexidade da TreeMap, deve ser levado em consideração q
   | Busca     | O(log n)            | O(log n)     |
   | Inserção    | O(log n)           | O(log n)     |
   | Remoção    | O(log n)            | O(log n)     |
-
-
-
-## Como usar
-
-1. Em "/src/python" execute o script em python para gerar os dados sintéticos.
-2. (Opcional) Altere as cargas no script python ou os números de testes em "/src/main/java/org/sample/MyBenchmark.java"
-3. Na pasta raíz, execute o comando $ mvn clean verify
-4. Na mesma pasta, execute o comando $ java -jar target/benchmarks.jar
-5. (Opcional) Adicione "-prof gc" ao comando acima para verificar a alocação de memória também 
 
 ## Créditos
 
