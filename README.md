@@ -18,7 +18,7 @@ Todo o processo da segunda entrega foi realizada em conjunto, com exceção do e
 * Pesquisamos implementações das estruturas e as testamos para verificar se a implementação estava correta;
 * Implementamos o script gerador das cargas em python que gera sempre a mesma carga, para que não seja necessário salvar as cargas no repositório ;
 * Aplicamos um teste de estresse da máquina usando apenas a estrutura SplayTree, a partir disso definimos uma carga máxima de 10⁷;
-* Aprendemos a utilizar a ferramenta Java Microbenchmark Harness (JMH) através do gerenciador de dependências Maven;
+* Aprendemos a utilizar a ferramenta Java Microbenchmark Harness (JMH) junto com o gerenciador de dependências Maven;
 * Aplicamos a carga definida em todas as estruturas e percebemos que não era adequada para as demais, então a carga foi reduzida para 5x10⁵;
 * Implementamos os testes iniciais de benchmarking [aqui](https://github.com/tamiressantiago/Advanced-Data-Structure-Analysis/blob/main/src/main/java/org/sample/MyBenchmark.java);
 * Geramos os testes de remoção, inserção e busca de cada estrutura separadamente [aqui](https://github.com/tamiressantiago/Advanced-Data-Structure-Analysis/tree/main/results).
