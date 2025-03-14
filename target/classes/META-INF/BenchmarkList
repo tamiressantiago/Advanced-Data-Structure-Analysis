@@ -1,4 +1,0 @@
-JMH S 22 org.sample.MyBenchmark S 59 org.sample.jmh_generated.MyBenchmark_baselineAccess_jmhTest S 14 baselineAccess S 11 AverageTime E A 1 1 1 E I 1 5 E E I 2 10 E E I 1 5 E E E E E E U 11 NANOSECONDS E E 
-JMH S 22 org.sample.MyBenchmark S 68 org.sample.jmh_generated.MyBenchmark_benchmarkBTreeInsertAll_jmhTest S 23 benchmarkBTreeInsertAll S 11 AverageTime E A 1 1 1 E I 1 5 E E I 2 10 E E I 1 5 E E E E E E U 11 NANOSECONDS E E 
-JMH S 22 org.sample.MyBenchmark S 68 org.sample.jmh_generated.MyBenchmark_benchmarkBTreeRemoveAll_jmhTest S 23 benchmarkBTreeRemoveAll S 11 AverageTime E A 1 1 1 E I 1 5 E E I 2 10 E E I 1 5 E E E E E E U 11 NANOSECONDS E E 
-JMH S 22 org.sample.MyBenchmark S 68 org.sample.jmh_generated.MyBenchmark_benchmarkBTreeSearchAll_jmhTest S 23 benchmarkBTreeSearchAll S 11 AverageTime E A 1 1 1 E I 1 5 E E I 2 10 E E I 1 5 E E E E E E U 11 NANOSECONDS E E 
