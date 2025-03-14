@@ -144,13 +144,14 @@ Por exemplo, se fosse necessário fazer um sistema de agenda de eventos, seria n
 O Tree Map está disponível para uso por meio da biblioteca padrão do java java.Util, mas para fins didáticos, é necessário saber o funcionamento por trás dele. Diferentemente do HashMap que utiliza estratégias de hashing, a qual o valor da chave é associado a um endereço na memória a qual podemos buscar por meio de operações O(1), o TreeMap é uma estrutura que utiliza a Árvore Rubro-Negra para realizar suas operações de inserção, busca, contains e remoção(entre outras).
 
 A Árvore Rubro Negra é um tipo específico de árvore binária que se mantém balanceada por meio de regras simples. As árvores binárias são estruturas super eficientes, realizando operações em em tempo de O(log(n)) quando estão balanceadas. Para isso, são utilizadas muitas estratégias de balanceamento, todas regidas por determinadas regras.
-Nesse cenário,  a Árvore Rubro Negra é uma estrutura de dados capaz de gerar árvores binárias balanceadas, caracterizada por nós de cor preta e vermelha, as cores de cada nó são utilizadas para uma melhor representação da lógica utilizada para as operações nas árvores, dito isso, essas são as seguintes regras numa árvore rubro-negra.
+Nesse cenário,  a Árvore Rubro Negra é uma estrutura de dados capaz de gerar árvores binárias balanceadas, caracterizada por nós de cor preta e vermelha, as cores de cada nó são utilizadas para uma melhor representação da lógica utilizada para as operações nas árvores.
 
-1. Um nó é vermelho ou preto.
-2. A raiz da árvore é sempre preta.
-3. Todas as folhas(nós da extremidade da árvore, também chamados de nil) são pretas, e nulas.
-4. Ambos os filhos de todos os nós vermelhos são pretos.
-5. Todo caminho de um dado nó para qualquer uma de suas folhas descendentes sempre contém o mesmo número de nós pretos.
+* PROPRIEDADES
+ 1. Um nó é vermelho ou preto.
+ 2. A raiz da árvore é sempre preta.
+ 3. Todas as folhas(nós da extremidade da árvore, também chamados de nil) são pretas, e nulas.
+ 4. Ambos os filhos de todos os nós vermelhos são pretos.
+ 5. Todo caminho de um dado nó para qualquer uma de suas folhas descendentes sempre contém o mesmo número de nós pretos.
 
 Os elementos ficam ordenados de uma forma similar a uma árvore binária comum, mas sempre que um nó for inserido ou deletado, a árvore irá se reorganizar de forma que os axiomas sejam respeitados, essa reorganização é o que garante seu balanceamento, com nós se movendo para direita ou para a esquerda, e trocando de cores de acordo com o que satisfaça as regras pré-estabelecidas da árvore, e que não desordene os valores da árvore de forma que um nó contendo um valor x, tenha um filho y a sua direita que é maior do que ele.
 
