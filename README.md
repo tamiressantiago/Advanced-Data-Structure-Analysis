@@ -11,6 +11,24 @@ Natan Hugo Carvalho Evangelista - 123210202
 
 Tamires Santiago Oliveira - 123210205
 
+## Processo da Segunda Entrega
+
+Todo o processo da segunda entrega foi realizada em conjunto, com exceção do estudo individual das estruturas, os pontos realizados foram:
+* Estudamos profundamente cada estrutura, entendendo suas propriedades e operações;
+* Pesquisamos implementações das estruturas e as testamos para verificar se a implementação estava correta;
+* Implementamos o script gerador das cargas em python que gera sempre a mesma carga, para que não seja necessário salvar as cargas no repositório ;
+* Aplicamos um teste de estresse da máquina usando apenas a estrutura SplayTree, a partir disso definimos uma carga máxima de 10⁷;
+* Aprendemos a utilizar a ferramenta Java Microbenchmark Harness (JMH) através do gerenciador de dependências Maven;
+* Aplicamos a carga definida em todas as estruturas e percebemos que não era adequada para as demais, então a carga foi reduzida para 5x10⁵;
+* Implementamos os testes iniciais de benchmarking [aqui](https://github.com/tamiressantiago/Advanced-Data-Structure-Analysis/blob/main/src/main/java/org/sample/MyBenchmark.java);
+* Geramos os testes de remoção, inserção e busca de cada estrutura separadamente [aqui](https://github.com/tamiressantiago/Advanced-Data-Structure-Analysis/tree/main/results).
+
+## Definição para a Próxima Entrega
+* Refinamento dos testes, com a tentativa de melhora na precisão dos testes, com aumento de cargas e operações mais específicas;
+* Formatar a saída dos resultados dos benchmarks, criando uma tabela para criar gráficos no PowerBI;
+* Análise dos resultados, e comparação entre as estruturas. 
+
+
 ## Como usar
 1. Verifique primeiramente se você tem o Maven e o java na sua máquina para executar os benchmarks. Para isso, execute os seguintes comandos no terminal:
 ```
