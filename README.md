@@ -104,6 +104,10 @@ A _B-Tree_ é uma árvore auto-balanceada, projetada para gerenciar grandes volu
 A estrutura de dados avançada _splay tree_, ou árvore _splay_, é uma árvore binária de busca autoajustável, com o adicional de tornar os elementos acessados recentemente, fáceis de acessar novamente. Todas as suas operações básicas, como remoção, inserção e busca, são baseadas em colocar o elemento envolvido nessa operação na raiz, através de rotações (operação _splay_). 
 A principal operação da _splay tree_ se baseia em uma sequência de rotações, onde procura deixar junto a raiz os elementos mais usados e recentes. Por consequência, os elementos mais inativos estarão distantes da raiz. Essas rotações podem ser de dois tipos: Rotação simples ou rotação dupla.
 
+A principal vantagem da _splay tree_ está diretamente ligado com o fato dela ser autoajustável. Pois, na medida em que os elementos mais utilizados se movem para próximo da raiz, eles são acessados mais rapidamente e facilmente.
+
+Entretanto, a principal desvantagem é que a altura da splay tree pode ser linear. Onde os nós da árvore são acessados sequencialmente em ordem. Isto deixa a árvore totalmente desbalanceada. Outra desvantagem significativa é que a representação das árvores de splay pode mudar quando nelas são realizadas as operações básicas, pois envolvem reestruturação dinâmica. Ou seja, torna complicado o uso em um ambiente multi-threaded. Para conseguir contornar essa problemática, seria necessário uma adaptação nessa estrutura de dados.
+
 * OPERAÇÕES:
 
   Na rotação simples temos a rotação Zig (para direita) e a rotação Zag (para esquerda). Já na rotação dupla, temos a rotação Zig-zig (duas rotações para a direita), Zag-zag (duas rotações para a esquerda) e a Zig-zag ou Zag-zig (Rotação direita e esquerda ou esquerda e direita, respectivamente).
@@ -125,11 +129,11 @@ A principal operação da _splay tree_ se baseia em uma sequência de rotações
  
 * VANTAGENS
 
-  O bom desempenho para uma árvore de splay está diretamente ligado com o fato dela ser autoajustável. Pois, na medida em que os elementos mais utilizados se movem para próximo da raiz, eles são acessados mais rapidamente e facilmente. 
+  
 
 * DESVANTAGENS
 
-  A principal desvantagem é que a altura da splay tree pode ser linear. Onde os nós da árvore são acessados sequencialmente em ordem. Isto deixa a árvore totalmente desbalanceada. Outra desvantagem significativa é que a representação das árvores de splay pode mudar quando nelas são realizadas as operações básicas, pois envolvem reestruturação dinâmica. Ou seja, torna complicado o uso em um ambiente multi-threaded. Para conseguir contornar essa problemática, seria necessário uma adaptação nessa estrutura de dados.
+  
 
 * **Tabela de custo da _SplayTree_**
 
