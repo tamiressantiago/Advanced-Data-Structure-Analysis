@@ -68,8 +68,8 @@ A _B-Tree_ é uma árvore auto-balanceada, projetada para gerenciar grandes volu
            * Caso a divisão atinja a raiz, uma nova raiz é criada, aumentando a altura da árvore.
 
   * Remoção:
-    * Comece com a busca pela posição adequada para a chave.
-    * Quando encontrar o nó onde a chave deve ser removida:
+    * Comece com a busca pela posição da chave que será removida.
+    * Quando encontrar o nó onde a chave que deve ser removida se encontra:
        * 1- Se o nó for uma folha:
            *  Se não ferir a propriedade de número mínimo de chaves, basta remover a chave.
            *  Se violar, o nó pegará uma chave do nó irmão imediato da esquerda para a direita, para que se mantenha com a quantidade mínima de chaves.
