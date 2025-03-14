@@ -1,16 +1,11 @@
 META-INF/CompilerHints
 org/sample/jmh_generated/MyBenchmark_jmhType_B1.class
-org/sample/jmh_generated/MyBenchmark_benchmarkSplayTreeInsertAll_jmhTest.class
-org/sample/jmh_generated/MyBenchmark_benchmarkTreeMapInsertAll_jmhTest.class
 structure/SplayTree.class
-org/sample/jmh_generated/MyBenchmark_benchmarkTreeMapSearchAllValue_jmhTest.class
-structure/BTreeNode.class
 org/sample/jmh_generated/MyBenchmark_benchmarkBTreeInsertAll_jmhTest.class
 org/sample/MyBenchmark.class
+structure/BTree$Node.class
 reader/GeneralFileReader.class
 structure/SplayTree$SplayTreeIterator.class
-org/sample/jmh_generated/MyBenchmark_benchmarkSplayTreeSearchAll_jmhTest.class
-org/sample/jmh_generated/MyBenchmark_benchmarkSplayTreeRemoveAll_jmhTest.class
 META-INF/BenchmarkList
 org/sample/jmh_generated/MyBenchmark_benchmarkBTreeSearchAll_jmhTest.class
 structure/SplayTree$BinaryNode.class
@@ -18,6 +13,5 @@ structure/BTree.class
 org/sample/jmh_generated/MyBenchmark_jmhType.class
 org/sample/jmh_generated/MyBenchmark_jmhType_B3.class
 org/sample/jmh_generated/MyBenchmark_jmhType_B2.class
-org/sample/jmh_generated/MyBenchmark_benchmarkTreeMapRemoveAllByKey_jmhTest.class
 org/sample/jmh_generated/MyBenchmark_benchmarkBTreeRemoveAll_jmhTest.class
 org/sample/jmh_generated/MyBenchmark_baselineAccess_jmhTest.class

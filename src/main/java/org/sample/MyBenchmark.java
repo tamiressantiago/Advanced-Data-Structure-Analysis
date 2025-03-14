@@ -75,12 +75,12 @@ public class MyBenchmark{
 	    splayTreeCheia = new SplayTree<>();
         bTree = new BTree(256);
         bTreeCheia = new BTree(256);
-        treeMap = new TreeMap<>();
-        treeMapCheia = new TreeMap<>();
+        //treeMap = new TreeMap<>();
+        //treeMapCheia = new TreeMap<>();
 
 	    for (int value : values) {
-            splayTreeCheia.insert(value);
-            treeMapCheia.put(value,value);
+            //splayTreeCheia.insert(value);
+            //treeMapCheia.put(value,value);
             bTreeCheia.Insert(value);
         }
     }
@@ -90,6 +90,7 @@ public class MyBenchmark{
         blackhole.consume(splayTree.isEmpty());
     }
 
+    /*
     @Benchmark
     public void benchmarkSplayTreeInsertAll() {
         for (int value : values) {
@@ -110,7 +111,7 @@ public class MyBenchmark{
         for (int value : values) {
             splayTreeCheia.remove(value); 
         }
-    }
+    }*/
 
 
     @Benchmark
@@ -135,6 +136,7 @@ public class MyBenchmark{
         }
     }
 
+    /*
     @Benchmark
     public void benchmarkTreeMapInsertAll() {
        for (int value : values) {
@@ -157,7 +159,7 @@ public class MyBenchmark{
         for (int value : values) {
             treeMapCheia.remove(value);
         }
-    }
+    }*/
 
 }
 
