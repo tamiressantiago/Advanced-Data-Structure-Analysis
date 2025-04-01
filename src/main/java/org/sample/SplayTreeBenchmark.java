@@ -31,7 +31,6 @@
 package org.sample;
 
 import java.util.List;
-import java.util.TreeMap;
 import java.util.concurrent.TimeUnit;
 
 import org.openjdk.jmh.annotations.Benchmark;
@@ -48,9 +47,7 @@ import org.openjdk.jmh.annotations.Warmup;
 import org.openjdk.jmh.infra.Blackhole;
 
 import reader.GeneralFileReader;
-import structure.BTree;
 import structure.SplayTree;
-
 
 @State(Scope.Thread)
 @Fork(value = 5)
@@ -59,29 +56,19 @@ import structure.SplayTree;
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 
-public class MyBenchmark{
+public class SplayTreeBenchmark{
     private List<Integer> values;
     private SplayTree<Integer> splayTree;
     private SplayTree<Integer> splayTreeCheia;
-    private BTree bTree;
-    private BTree bTreeCheia;
-    private TreeMap<Integer,Integer> treeMap;
-    private TreeMap<Integer,Integer> treeMapCheia;
 
     @Setup(Level.Iteration) //Feito a cada iteração
     public void setup() {
         values = GeneralFileReader.readValues("data/dados_com_repeticoes_desordenados.csv");
         splayTree = new SplayTree<>();
-	    splayTreeCheia = new SplayTree<>();
-        bTree = new BTree(256);
-        bTreeCheia = new BTree(256);
-        treeMap = new TreeMap<>();
-        treeMapCheia = new TreeMap<>();
+	      splayTreeCheia = new SplayTree<>();
 
 	    for (int value : values) {
             splayTreeCheia.insert(value);
-            treeMapCheia.put(value,value);
-            bTreeCheia.Insert(value);
         }
     }
 
@@ -113,54 +100,4 @@ public class MyBenchmark{
         }
     }
 
-
-    @Benchmark
-    public void benchmarkBTreeInsertAll() {
-        for (int value : values) {
-            bTree.Insert(value);
-        }
-    }
-
-    @Benchmark
-    public void benchmarkBTreeSearchAll(Blackhole blackhole) {
-        //buscar e blackhole consome o resultado
-        for (int value : values) {
-            blackhole.consume(bTreeCheia.Contain(value));
-        }
-    }
-    
-    @Benchmark
-    public void benchmarkBTreeRemoveAll() {        
-        for (int value : values) {
-            bTreeCheia.Remove(value); 
-        }
-    }
-
-    
-    @Benchmark
-    public void benchmarkTreeMapInsertAll() {
-       for (int value : values) {
-           treeMap.put(value,value);
-       }
-    }
-
-    //Procura os valores no treemap pela chave;
-    @Benchmark
-    public void benchmarkTreeMapSearchAllValue(Blackhole blackhole) {
-    // valores antes da busca
-        for (int value : values) {
-            blackhole.consume(treeMapCheia.containsKey(value));
-        }
-    }
-
-    //Removendo pela chave;
-    @Benchmark
-    public void benchmarkTreeMapRemoveAllByKey() {
-        for (int value : values) {
-            treeMapCheia.remove(value);
-        }
-    }
-
 }
-
-

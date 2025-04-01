@@ -30,6 +30,10 @@ public class BTree {
 
   private Node root;
 
+  public boolean isEmpty() {
+    return root == null;
+  }
+
   // Search the key
   private Node Search(Node x, int key) {
     int i = 0;
