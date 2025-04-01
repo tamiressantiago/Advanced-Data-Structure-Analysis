@@ -11,7 +11,7 @@ Natan Hugo Carvalho Evangelista - 123210202
 
 Tamires Santiago Oliveira - 123210205
 
-## Processo da Segunda Entrega
+## Processo da Segunda Entrega:
 
 Todo o processo da segunda entrega foi realizada em conjunto, com exceção do estudo individual das estruturas, os pontos realizados foram:
 * Estudamos profundamente cada estrutura, entendendo suas propriedades e operações;
