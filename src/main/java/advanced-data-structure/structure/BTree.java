@@ -4,6 +4,18 @@ import java.util.Stack;
 public class BTree {
 
   private int T;
+  private Node root;
+
+  public BTree(int t) {
+    T = t;
+    root = new Node();
+    root.n = 0;
+    root.leaf = true;
+  }
+
+  public boolean isEmpty() {
+    return root == null;
+  }
 
   public class Node {
     int n;
@@ -19,19 +31,6 @@ public class BTree {
       }
       return -1;
     };
-  }
-
-  public BTree(int t) {
-    T = t;
-    root = new Node();
-    root.n = 0;
-    root.leaf = true;
-  }
-
-  private Node root;
-
-  public boolean isEmpty() {
-    return root == null;
   }
 
   // Search the key

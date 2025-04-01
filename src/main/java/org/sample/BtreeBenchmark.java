@@ -48,7 +48,7 @@ import org.openjdk.jmh.infra.Blackhole;
 
 import reader.GeneralFileReader;
 import structure.BTree;
-
+import java.util.Random;
 
 @State(Scope.Thread)
 @Fork(value = 5)
@@ -87,11 +87,25 @@ public class BtreeBenchmark{
     }
 
     @Benchmark
+    public void benchmarkBTreeInsertOneElement() {
+        Random random = new Random();
+        int random_index = random.nextInt(100000000);
+        int random_index_2 = random.nextInt(100000000);
+        bTreeCheia.Insert(values.get(random_index) + values.get(random_index_2));
+    }
+
+    @Benchmark
     public void benchmarkBTreeSearchAll(Blackhole blackhole) {
-        //buscar e blackhole consome o resultado
         for (int value : values) {
             blackhole.consume(bTreeCheia.Contain(value));
         }
+    }
+
+    @Benchmark
+    public void benchmarkBTreeSearchOneElement(Blackhole blackhole) {
+        Random random = new Random();
+        int random_index = random.nextInt(100000000);
+        bTreeCheia.Contain(values.get(random_index));
     }
     
     @Benchmark
@@ -99,5 +113,12 @@ public class BtreeBenchmark{
         for (int value : values) {
             bTreeCheia.Remove(value); 
         }
+    }
+
+    @Benchmark
+    public void benchmarkBTreeRemoveOneElement() {
+        Random random = new Random();
+        int random_index = random.nextInt(100000000);
+        bTreeCheia.Contain(values.get(random_index));
     }
 }
