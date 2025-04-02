@@ -89,8 +89,8 @@ public class BtreeBenchmark{
     @Benchmark
     public void benchmarkBTreeInsertOneElement() {
         Random random = new Random();
-        int random_index = random.nextInt(100000000);
-        int random_index_2 = random.nextInt(100000000);
+        int random_index = random.nextInt(500000);
+        int random_index_2 = random.nextInt(500000);
         bTreeCheia.Insert(values.get(random_index) + values.get(random_index_2));
     }
 
@@ -104,7 +104,7 @@ public class BtreeBenchmark{
     @Benchmark
     public void benchmarkBTreeSearchOneElement(Blackhole blackhole) {
         Random random = new Random();
-        int random_index = random.nextInt(100000000);
+        int random_index = random.nextInt(500000);
         bTreeCheia.Contain(values.get(random_index));
     }
     
@@ -118,7 +118,7 @@ public class BtreeBenchmark{
     @Benchmark
     public void benchmarkBTreeRemoveOneElement() {
         Random random = new Random();
-        int random_index = random.nextInt(100000000);
+        int random_index = random.nextInt(500000);
         bTreeCheia.Contain(values.get(random_index));
     }
 }
