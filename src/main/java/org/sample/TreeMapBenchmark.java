@@ -46,7 +46,7 @@ import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
 import org.openjdk.jmh.infra.Blackhole;
-
+import java.util.Random;
 import reader.GeneralFileReader;
 
 @State(Scope.Thread)
@@ -99,6 +99,26 @@ public class TreeMapBenchmark{
         for (int value : values) {
             treeMapCheia.remove(value);
         }
+    }
+
+    @Benchmark
+    public void benchmarkTreeMapInsertOneElement(){
+        Random random = new Random();
+        int random_index = random.nextInt(100000000);
+        treeMapCheia.put(random_index, random_index);
+    }
+    @Benchmark
+    public void benchmarkTreeMapRemoveOneElement(){
+        Random random = new Random();
+        int random_index = random.nextInt(100000000);
+        treeMapCheia.remove(random_index);
+    }
+
+    @Benchmark
+    public void benchmarkTreeMapSearchOneElement(){
+        Random random = new Random();
+        int random_index = random.nextInt(100000000);
+        treeMapCheia.containsKey(random_index);
     }
 
 }
