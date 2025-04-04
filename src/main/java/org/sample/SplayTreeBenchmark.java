@@ -31,6 +31,7 @@
 package org.sample;
 
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openjdk.jmh.annotations.Benchmark;
@@ -51,8 +52,8 @@ import structure.SplayTree;
 
 @State(Scope.Thread)
 @Fork(value = 5)
-@Warmup(iterations = 5)
-@Measurement(iterations = 10)
+@Warmup(iterations = 5, time = 5)
+@Measurement(iterations = 10, time = 5)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 
@@ -65,7 +66,7 @@ public class SplayTreeBenchmark{
     public void setup() {
         values = GeneralFileReader.readValues("data/dados_com_repeticoes_desordenados.csv");
         splayTree = new SplayTree<>();
-	      splayTreeCheia = new SplayTree<>();
+	    splayTreeCheia = new SplayTree<>();
 
 	    for (int value : values) {
             splayTreeCheia.insert(value);
@@ -79,14 +80,14 @@ public class SplayTreeBenchmark{
 
     
     @Benchmark
-    public void benchmarkSplayTreeInsertAll() {
+    public void splayTreeInsertAll() {
         for (int value : values) {
             splayTree.insert(value);
         }
     }
 
     @Benchmark
-    public void benchmarkSplayTreeSearchAll(Blackhole blackhole) {
+    public void splayTreeSearchAll(Blackhole blackhole) {
         //buscar e blackhole consome o resultado
         for (int value : values) {
             blackhole.consume(splayTreeCheia.contains(value));
@@ -94,10 +95,31 @@ public class SplayTreeBenchmark{
     }
     
     @Benchmark
-    public void benchmarkSplayTreeRemoveAll() {        
+    public void splayTreeRemoveAll() {        
         for (int value : values) {
             splayTreeCheia.remove(value); 
         }
+    }
+
+    @Benchmark
+    public void splayTreeSearchOneElement() {
+        Random random = new Random();
+        int random_index = random.nextInt(100000000);
+        splayTreeCheia.contains(random_index);
+    }
+
+    @Benchmark
+    public void splayTreeRemoveOne() {
+        Random random = new Random();
+        int random_index = random.nextInt(100000000);
+        splayTreeCheia.remove(random_index);
+    }
+
+    @Benchmark
+    public void splayTreeInsertOne() {
+        Random random = new Random();
+        int random_index = random.nextInt(100000000);
+        splayTreeCheia.insert(random_index);
     }
 
 }

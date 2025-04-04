@@ -31,6 +31,7 @@
 package org.sample;
 
 import java.util.List;
+import java.util.Random;
 import java.util.TreeMap;
 import java.util.concurrent.TimeUnit;
 
@@ -46,13 +47,13 @@ import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
 import org.openjdk.jmh.infra.Blackhole;
-import java.util.Random;
+
 import reader.GeneralFileReader;
 
 @State(Scope.Thread)
 @Fork(value = 5)
-@Warmup(iterations = 5)
-@Measurement(iterations = 10)
+@Warmup(iterations = 5, time=5)
+@Measurement(iterations = 10, time=5)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 
@@ -78,7 +79,7 @@ public class TreeMapBenchmark{
     }
 
     @Benchmark
-    public void benchmarkTreeMapInsertAll() {
+    public void treeMapInsertAll() {
        for (int value : values) {
            treeMap.put(value,value);
        }
@@ -86,7 +87,7 @@ public class TreeMapBenchmark{
 
     //Procura os valores no treemap pela chave;
     @Benchmark
-    public void benchmarkTreeMapSearchAllValue(Blackhole blackhole) {
+    public void treeMapSearchAllValue(Blackhole blackhole) {
     // valores antes da busca
         for (int value : values) {
             blackhole.consume(treeMapCheia.containsKey(value));
@@ -95,27 +96,27 @@ public class TreeMapBenchmark{
 
     //Removendo pela chave;
     @Benchmark
-    public void benchmarkTreeMapRemoveAllByKey() {
+    public void treeMapRemoveAllByKey() {
         for (int value : values) {
             treeMapCheia.remove(value);
         }
     }
 
     @Benchmark
-    public void benchmarkTreeMapInsertOneElement(){
+    public void treeMapInsertOneElement(){
         Random random = new Random();
         int random_index = random.nextInt(100000000);
         treeMapCheia.put(random_index, random_index);
     }
     @Benchmark
-    public void benchmarkTreeMapRemoveOneElement(){
+    public void treeMapRemoveOneElement(){
         Random random = new Random();
         int random_index = random.nextInt(100000000);
         treeMapCheia.remove(random_index);
     }
 
     @Benchmark
-    public void benchmarkTreeMapSearchOneElement(){
+    public void treeMapSearchOneElement(){
         Random random = new Random();
         int random_index = random.nextInt(100000000);
         treeMapCheia.containsKey(random_index);

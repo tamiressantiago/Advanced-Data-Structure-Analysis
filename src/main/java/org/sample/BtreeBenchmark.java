@@ -31,6 +31,7 @@
 package org.sample;
 
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openjdk.jmh.annotations.Benchmark;
@@ -48,12 +49,11 @@ import org.openjdk.jmh.infra.Blackhole;
 
 import reader.GeneralFileReader;
 import structure.BTree;
-import java.util.Random;
 
 @State(Scope.Thread)
 @Fork(value = 5)
-@Warmup(iterations = 5)
-@Measurement(iterations = 10)
+@Warmup(iterations = 5, time = 5)
+@Measurement(iterations = 10, time =5)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 
@@ -80,45 +80,44 @@ public class BtreeBenchmark{
 
     
     @Benchmark
-    public void benchmarkBTreeInsertAll() {
+    public void bTreeInsertAll() {
         for (int value : values) {
             bTree.Insert(value);
         }
     }
 
     @Benchmark
-    public void benchmarkBTreeInsertOneElement() {
+    public void bTreeInsertOneElement() throws InterruptedException{
         Random random = new Random();
-        int random_index = random.nextInt(500000);
-        int random_index_2 = random.nextInt(500000);
-        bTreeCheia.Insert(values.get(random_index) + values.get(random_index_2));
+        int random_index = random.nextInt(100000000);
+        bTreeCheia.Insert(random_index);
     }
 
     @Benchmark
-    public void benchmarkBTreeSearchAll(Blackhole blackhole) {
+    public void bTreeSearchAll(Blackhole blackhole) {
         for (int value : values) {
             blackhole.consume(bTreeCheia.Contain(value));
         }
     }
 
     @Benchmark
-    public void benchmarkBTreeSearchOneElement(Blackhole blackhole) {
+    public void bTreeSearchOneElement(Blackhole blackhole) {
         Random random = new Random();
-        int random_index = random.nextInt(500000);
-        bTreeCheia.Contain(values.get(random_index));
+        int random_index = random.nextInt(100000000);
+        bTreeCheia.Contain(random_index);
     }
     
     @Benchmark
-    public void benchmarkBTreeRemoveAll() {        
+    public void bTreeRemoveAll() {        
         for (int value : values) {
             bTreeCheia.Remove(value); 
         }
     }
 
     @Benchmark
-    public void benchmarkBTreeRemoveOneElement() {
+    public void bTreeRemoveOneElement() {
         Random random = new Random();
-        int random_index = random.nextInt(500000);
-        bTreeCheia.Contain(values.get(random_index));
+        int random_index = random.nextInt(100000000);
+        bTreeCheia.Contain(random_index);
     }
 }
