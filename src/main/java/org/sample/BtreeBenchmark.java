@@ -77,17 +77,16 @@ public class BtreeBenchmark{
     public void baselineAccess(Blackhole blackhole) {
         blackhole.consume(bTree.isEmpty());
     }
-
     
     @Benchmark
-    public void bTreeInsertAll() {
+    public void bTreeInsertAll(Blackhole blackhole) {
         for (int value : values) {
             bTree.Insert(value);
         }
     }
 
     @Benchmark
-    public void bTreeInsertOneElement() throws InterruptedException{
+    public void bTreeInsertOneElement(Blackhole blackhole){
         Random random = new Random();
         int random_index = random.nextInt(100000000);
         bTreeCheia.Insert(random_index);
@@ -104,20 +103,20 @@ public class BtreeBenchmark{
     public void bTreeSearchOneElement(Blackhole blackhole) {
         Random random = new Random();
         int random_index = random.nextInt(100000000);
-        bTreeCheia.Contain(random_index);
+        blackhole.consume(bTreeCheia.Contain(random_index));
     }
     
     @Benchmark
-    public void bTreeRemoveAll() {        
+    public void bTreeRemoveAll(Blackhole blackhole) {        
         for (int value : values) {
             bTreeCheia.Remove(value); 
         }
     }
 
     @Benchmark
-    public void bTreeRemoveOneElement() {
+    public void bTreeRemoveOneElement(Blackhole blackhole) {
         Random random = new Random();
         int random_index = random.nextInt(100000000);
-        bTreeCheia.Contain(random_index);
+        bTreeCheia.Remove(random_index);
     }
 }

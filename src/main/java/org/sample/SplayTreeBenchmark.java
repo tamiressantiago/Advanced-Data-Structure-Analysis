@@ -80,10 +80,17 @@ public class SplayTreeBenchmark{
 
     
     @Benchmark
-    public void splayTreeInsertAll() {
+    public void splayTreeInsertAll(Blackhole blackhole) {
         for (int value : values) {
-            splayTree.insert(value);
+            blackhole.consume(splayTree.insert(value));
         }
+    }
+
+    @Benchmark
+    public void splayTreeInsertOne(Blackhole blackhole) {
+        Random random = new Random();
+        int random_index = random.nextInt(100000000);
+        blackhole.consume(splayTreeCheia.insert(random_index));
     }
 
     @Benchmark
@@ -95,31 +102,24 @@ public class SplayTreeBenchmark{
     }
     
     @Benchmark
-    public void splayTreeRemoveAll() {        
+    public void splayTreeSearchOneElement(Blackhole blackhole) {
+        Random random = new Random();
+        int random_index = random.nextInt(100000000);
+        blackhole.consume(splayTreeCheia.contains(random_index));
+    }
+
+    @Benchmark
+    public void splayTreeRemoveOne(Blackhole blackhole) {
+        Random random = new Random();
+        int random_index = random.nextInt(100000000);
+        blackhole.consume(splayTreeCheia.remove(random_index));
+    }
+
+    @Benchmark
+    public void splayTreeRemoveAll(Blackhole blackhole) {        
         for (int value : values) {
-            splayTreeCheia.remove(value); 
+            blackhole.consume(splayTreeCheia.remove(value));
         }
-    }
-
-    @Benchmark
-    public void splayTreeSearchOneElement() {
-        Random random = new Random();
-        int random_index = random.nextInt(100000000);
-        splayTreeCheia.contains(random_index);
-    }
-
-    @Benchmark
-    public void splayTreeRemoveOne() {
-        Random random = new Random();
-        int random_index = random.nextInt(100000000);
-        splayTreeCheia.remove(random_index);
-    }
-
-    @Benchmark
-    public void splayTreeInsertOne() {
-        Random random = new Random();
-        int random_index = random.nextInt(100000000);
-        splayTreeCheia.insert(random_index);
     }
 
 }

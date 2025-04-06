@@ -79,10 +79,17 @@ public class TreeMapBenchmark{
     }
 
     @Benchmark
-    public void treeMapInsertAll() {
-       for (int value : values) {
-           treeMap.put(value,value);
-       }
+    public void treeMapInsertAll(Blackhole blackhole) {
+        for (int value : values) {
+            blackhole.consume(treeMap.put(value, value));
+        }
+    }
+
+    @Benchmark
+    public void treeMapInsertOneElement(Blackhole blackhole){
+        Random random = new Random();
+        int random_index = random.nextInt(100000000);
+        blackhole.consume(treeMapCheia.put(random_index, random_index));
     }
 
     //Procura os valores no treemap pela chave;
@@ -94,32 +101,26 @@ public class TreeMapBenchmark{
         }
     }
 
+    @Benchmark
+    public void treeMapSearchOneElement(Blackhole blackhole){
+        Random random = new Random();
+        int random_index = random.nextInt(100000000);
+        blackhole.consume(treeMapCheia.containsKey(random_index));
+    }
+
     //Removendo pela chave;
     @Benchmark
-    public void treeMapRemoveAllByKey() {
+    public void treeMapRemoveAllByKey(Blackhole blackhole) {
         for (int value : values) {
-            treeMapCheia.remove(value);
+            blackhole.consume(treeMapCheia.remove(value));
         }
     }
 
     @Benchmark
-    public void treeMapInsertOneElement(){
+    public void treeMapRemoveOneElement(Blackhole blackhole){
         Random random = new Random();
         int random_index = random.nextInt(100000000);
-        treeMapCheia.put(random_index, random_index);
-    }
-    @Benchmark
-    public void treeMapRemoveOneElement(){
-        Random random = new Random();
-        int random_index = random.nextInt(100000000);
-        treeMapCheia.remove(random_index);
-    }
-
-    @Benchmark
-    public void treeMapSearchOneElement(){
-        Random random = new Random();
-        int random_index = random.nextInt(100000000);
-        treeMapCheia.containsKey(random_index);
+        blackhole.consume(treeMapCheia.remove(random_index));
     }
 
 }
