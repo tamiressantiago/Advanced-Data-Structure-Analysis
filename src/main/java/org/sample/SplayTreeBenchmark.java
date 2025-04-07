@@ -71,6 +71,7 @@ public class SplayTreeBenchmark{
 	    for (int value : values) {
             splayTreeCheia.insert(value);
         }
+        System.gc();
     }
 
     @Benchmark

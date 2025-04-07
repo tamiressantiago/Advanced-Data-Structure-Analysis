@@ -71,6 +71,7 @@ public class TreeMapBenchmark{
 	    for (int value : values) {
             treeMapCheia.put(value,value);
         }
+        System.gc();
     }
 
     @Benchmark

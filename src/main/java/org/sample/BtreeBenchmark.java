@@ -71,6 +71,7 @@ public class BtreeBenchmark{
 	    for (int value : values) {
             bTreeCheia.Insert(value);
         }
+        System.gc();
     }
 
     @Benchmark
