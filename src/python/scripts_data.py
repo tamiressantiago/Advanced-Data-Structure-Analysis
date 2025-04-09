@@ -15,7 +15,8 @@ def gerar_dados_sinteticos(num_elementos=1000000, minimo=1, maximo=100000000, re
         raise ValueError(f"num_elementos ({num_elementos}) não pode ser maior que o intervalo [{minimo}, {maximo}] ({tamanho_populacao} valores únicos disponíveis)")
 
     if repetidos:
-        dados = [random.randint(minimo, maximo) for _ in range(num_elementos)]
+        dados = [random.randint(minimo, maximo) for _ in range(num_elementos//2)]
+        dados += dados
     else:
         dados = random.sample(range(minimo, maximo + 1), min(num_elementos, tamanho_populacao))  
 
