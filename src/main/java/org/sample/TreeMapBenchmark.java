@@ -64,7 +64,7 @@ public class TreeMapBenchmark{
 
     @Setup(Level.Iteration) //Feito a cada iteração
     public void setup() {
-        values = GeneralFileReader.readValues("data/dados_sem_repeticoes_ordenados.csv");
+        values = GeneralFileReader.readValues("data/dados_com_repeticoes_ordenados.csv");
         treeMap = new TreeMap<>();
         treeMapCheia = new TreeMap<>();
 

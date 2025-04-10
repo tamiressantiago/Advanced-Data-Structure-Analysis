@@ -64,9 +64,9 @@ public class BtreeBenchmark{
 
     @Setup(Level.Iteration) //Feito a cada iteração
     public void setup() {
-        values = GeneralFileReader.readValues("data/dados_sem_repeticoes_ordenados.csv");
-        bTree = new BTree(256);
-        bTreeCheia = new BTree(256);
+        values = GeneralFileReader.readValues("data/dados_com_repeticoes_ordenados.csv");
+        bTree = new BTree(512);
+        bTreeCheia = new BTree(512);
 
 	    for (int value : values) {
             bTreeCheia.Insert(value);
