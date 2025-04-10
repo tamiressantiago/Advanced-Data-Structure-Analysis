@@ -15,8 +15,14 @@ def gerar_dados_sinteticos(num_elementos=1000000, minimo=1, maximo=100000000, re
         raise ValueError(f"num_elementos ({num_elementos}) não pode ser maior que o intervalo [{minimo}, {maximo}] ({tamanho_populacao} valores únicos disponíveis)")
 
     if repetidos:
-        dados = [random.randint(minimo, maximo) for _ in range(num_elementos//2)]
-        dados += dados
+        # Gera elementos únicos (1/100 do total)
+        elementos_unicos = [random.randint(minimo, maximo) for _ in range(num_elementos//100)]
+        # Repete cada elemento 100 vezes
+        dados = []
+        for elemento in elementos_unicos:
+            dados.extend([elemento] * 100)
+        # Ajusta o tamanho final caso num_elementos não seja múltiplo de 100
+        dados = dados[:num_elementos]
     else:
         dados = random.sample(range(minimo, maximo + 1), min(num_elementos, tamanho_populacao))  
 
@@ -41,4 +47,3 @@ def salvar_csv(nome_arquivo, valores):
 for nome_arquivo, valores in dados:
     caminho_arquivo = salvar_csv(nome_arquivo, valores)
     print(f"Arquivo salvo em: {os.path.abspath(caminho_arquivo)}")
-
