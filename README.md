@@ -1,4 +1,4 @@
-# Advanced-Data-Structure-Analysis
+# Análise de Estruturas de Dados Avançadas
 **Grupo 5 - Segunda entrega do projeto de EDA/LEDA**
 
 Anthony Willy Miranda Pereira - 123210127
