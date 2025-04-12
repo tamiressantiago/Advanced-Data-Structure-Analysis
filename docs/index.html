@@ -97,7 +97,7 @@
             <h3>BTree</h3>
             <p>A <em>B-Tree</em> é uma árvore auto-balanceada, projetada para gerenciar grandes volumes de dados com eficiência, especialmente em sistemas de armazenamento. Ela evoluiu a partir das árvores de busca binária (BSTs) e das árvores balanceadas (como AVL e <em>Red-Black Trees</em>), combinando a organização ordenada das BSTs com o nivelamento de altura das árvores balanceadas. Diferente dessas estruturas, a <em>B-Tree</em> expandiu seu funcionamento ao permitir que cada nó contenha múltiplas chaves e múltiplos filhos, tornando-a ideal para aplicações que exigem operações rápidas de busca, inserção e remoção em grandes conjuntos de dados.</p>
 
-            <h4>PROPRIEDADES:</h4>
+            <h4>Propriedades:</h4>
             <ul>
               <li>A <em>BTree</em> possui um valor <strong>t</strong> chamado de ordem da árvore, que define a quantidade mínima de chaves que um nó pode possuir, sendo esta <strong>t-1</strong> chaves.</li>
               <li>Na <em>BTree</em>, cada nó possui um atributo booleano que verifica se ele é uma folha ou não. Caso ele seja uma folha, não possuirá filhos. Caso não seja, seu número de filhos será determinado pela ordem da árvore, onde seu número mínimo de filhos será t e o máximo t*2, com exceção da raiz que só poderá ter no mínimo 2 filhos.</li>
@@ -105,7 +105,7 @@
               <li>Se um nó fica com menos chaves do que é permitido, ele pode ser fundido (<em>merge</em>) com outro.</li>
             </ul>
             
-            <h4>OPERAÇÕES:</h4>
+            <h4>Operações:</h4>
             
             <h5>⭢ Inserção:</h5>
             <p>A inserção de uma chave em uma <em>B-Tree</em> é feita de forma a manter a estrutura balanceada, o que pode envolver a divisão de nós e a promoção de chaves para o nó pai, se necessário.</p>
@@ -190,7 +190,73 @@
             </table>
 
             <h3>SplayTree</h3>
-            <p>Explicação sobre SplayTree.</p>
+                <p>
+                  A estrutura de dados avançada <em>splay tree</em>, ou árvore <em>splay</em>, é uma árvore binária de busca autoajustável, com o adicional de tornar os elementos acessados recentemente, fáceis de acessar novamente. Todas as suas operações básicas, como remoção, inserção e busca, são baseadas em colocar o elemento envolvido nessa operação na raiz, através de rotações (operação <em>splay</em>).
+                </p>
+                
+                <p>
+                  A principal operação da <em>splay tree</em> se baseia em uma sequência de rotações, onde procura deixar junto à raiz os elementos mais usados e recentes. Por consequência, os elementos mais inativos estarão distantes da raiz. Essas rotações podem ser de dois tipos: Rotação simples ou rotação dupla.
+                </p>
+                
+                <p>
+                  A principal vantagem da <em>splay tree</em> está diretamente ligada com o fato dela ser autoajustável. Pois, na medida em que os elementos mais utilizados se movem para próximo da raiz, eles são acessados mais rapidamente e facilmente.
+                </p>
+                
+                <p>
+                  Entretanto, a principal desvantagem é que a altura da splay tree pode ser linear, quando os nós da árvore são acessados sequencialmente em ordem, deixando-a totalmente desbalanceada. Outra desvantagem significativa é que a representação da árvore pode mudar quando nela são realizadas as operações básicas, pois envolvem reestruturação dinâmica. Ou seja, isso torna complicado o uso em um ambiente multi-threaded. Para contornar essa problemática, seria necessário adaptar essa estrutura de dados.
+                </p>
+                
+                <h4>Operações:</h4>
+                
+                <p>
+                  Na rotação simples temos a rotação <strong>Zig</strong> (para direita) e a rotação <strong>Zag</strong> (para esquerda). Já na rotação dupla, temos a rotação <strong>Zig-zig</strong> (duas rotações para a direita), <strong>Zag-zag</strong> (duas rotações para a esquerda) e a <strong>Zig-zag</strong> ou <strong>Zag-zig</strong> (rotação direita e esquerda ou esquerda e direita, respectivamente).
+                </p>
+                
+                <ul>
+                  <li>Na rotação <strong>Zig</strong>, o filho direito do elemento B ficará o filho esquerdo do elemento A, que era pai de B. Com a mesma lógica, na rotação <strong>Zag</strong>, o filho esquerdo do elemento A ficará o filho direito do elemento B, que era pai de A.</li>
+                </ul>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Zig_e_zag.png" alt="Rotação_zig/zag" height="200">
+                
+                <ul>
+                  <li>Já na rotação dupla <strong>Zig-zig</strong>, são realizadas duas rotações simples do tipo zig. Neste exemplo, para fazer o zig-zig de C, primeiro é realizado o zig no pai de C (que é o B) e posteriormente é feito o zig de C. De forma análoga ocorre a operação <strong>Zag-zag</strong>, com duas rotações simples do tipo zag.</li>
+                </ul>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Zig-zig_e_zag-zag.png" alt="Rotação_zig-zig/zag-zag" height="200">
+                
+                <ul>
+                  <li>Por fim, na rotação dupla <strong>Zig-zag</strong>, primeiro realiza-se o zig de C com o pai de C (que é o B), e logo após aplica-se o zag de C com o avô de C (que é o A). Já o <strong>Zag-zig</strong> troca a ordem das operações simples: primeiro o zag e, em seguida, o zig.</li>
+                </ul>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Zig-zag2.png" alt="Rotação_zig-zag" height="200">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Zag-zig.png" alt="Rotação_zag-zig" height="200">
+                
+                <h4>Tabela de custo da <em>Splay Tree</em></h4>
+                <table border="1">
+                  <tr>
+                    <th>Algoritmo</th>
+                    <th>Caso Médio</th>
+                    <th>Pior Caso</th>
+                  </tr>
+                  <tr>
+                    <td>Espaço</td>
+                    <td>O(n)</td>
+                    <td>O(n)</td>
+                  </tr>
+                  <tr>
+                    <td>Busca</td>
+                    <td>O(log n)</td>
+                    <td>O(log n) (amortizado)</td>
+                  </tr>
+                  <tr>
+                    <td>Inserção</td>
+                    <td>O(log n)</td>
+                    <td>O(log n) (amortizado)</td>
+                  </tr>
+                  <tr>
+                    <td>Remoção</td>
+                    <td>O(log n)</td>
+                    <td>O(log n) (amortizado)</td>
+                  </tr>
+                </table>
+
             <h3>TreeMap</h3>
             <p>Explicação sobre TreeMap.</p>
         </section>
