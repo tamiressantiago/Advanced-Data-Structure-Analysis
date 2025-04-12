@@ -215,18 +215,18 @@
                 <ul>
                   <li>Na rotação <strong>Zig</strong>, o filho direito do elemento B ficará o filho esquerdo do elemento A, que era pai de B. Com a mesma lógica, na rotação <strong>Zag</strong>, o filho esquerdo do elemento A ficará o filho direito do elemento B, que era pai de A.</li>
                 </ul>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Zig_e_zag.png" alt="Rotação_zig/zag" height="200">
+                <img src="imagens/splay1.png" alt="Rotação_zig/zag" height="200">
                 
                 <ul>
                   <li>Já na rotação dupla <strong>Zig-zig</strong>, são realizadas duas rotações simples do tipo zig. Neste exemplo, para fazer o zig-zig de C, primeiro é realizado o zig no pai de C (que é o B) e posteriormente é feito o zig de C. De forma análoga ocorre a operação <strong>Zag-zag</strong>, com duas rotações simples do tipo zag.</li>
                 </ul>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Zig-zig_e_zag-zag.png" alt="Rotação_zig-zig/zag-zag" height="200">
+                <img src="imagens/splay2.png" alt="Rotação_zig-zig/zag-zag" height="200">
                 
                 <ul>
                   <li>Por fim, na rotação dupla <strong>Zig-zag</strong>, primeiro realiza-se o zig de C com o pai de C (que é o B), e logo após aplica-se o zag de C com o avô de C (que é o A). Já o <strong>Zag-zig</strong> troca a ordem das operações simples: primeiro o zag e, em seguida, o zig.</li>
                 </ul>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Zig-zag2.png" alt="Rotação_zig-zag" height="200">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Zag-zig.png" alt="Rotação_zag-zig" height="200">
+                <img src="imagens/splay3.png" alt="Rotação_zig-zag" height="200">
+                <img src="imagens/splay4.png" alt="Rotação_zag-zig" height="200">
                 
                 <h4>Tabela de custo da <em>Splay Tree</em></h4>
                 <table border="1">
@@ -258,7 +258,70 @@
                 </table>
 
             <h3>TreeMap</h3>
-            <p>Explicação sobre TreeMap.</p>
+            <p>
+              O <strong>TreeMap</strong> é uma estrutura que armazena dados no formato chave-valor, ou seja, é possível acessar um elemento por meio de uma chave única. Por exemplo, o acesso a um aluno por meio de seu CPF. O TreeMap implementa a interface <code>SortedMap</code>, que por sua vez herda da interface <code>Map</code> — utilizada para mapear valores a chaves.
+            </p>
+            
+            <p>
+              A interface <code>SortedMap</code> tem como objetivo ordenar as chaves atribuídas a determinados valores (por ordem crescente, alfabética ou qualquer outra ordem definida). Por exemplo, em um sistema de agenda de eventos, é necessário acessar os eventos pelas datas, podendo ordená-los da mais recente à mais antiga. Nesses casos, o TreeMap pode ser extremamente útil ao atribuir uma data como chave e um objeto <code>Evento</code> como valor. Além disso, essa ordenação permite que ele seja usado para estratégias de <em>cache eviction</em>.
+            </p>
+            
+            <p>
+              O <code>TreeMap</code> está disponível na biblioteca padrão do Java (<code>java.util</code>), mas é importante compreender seu funcionamento interno para fins didáticos. Diferentemente do <code>HashMap</code>, que utiliza funções de hash para localizar chaves em tempo O(1), o <code>TreeMap</code> utiliza uma estrutura baseada em uma <strong>Árvore Rubro-Negra</strong> para realizar suas operações de inserção, busca, remoção e verificação.
+            </p>
+            
+            <h4>Árvore Rubro-Negra</h4>
+            
+            <p>
+              A árvore rubro-negra é um tipo específico de árvore binária de busca balanceada, caracterizada por regras que mantêm seu balanceamento por meio do uso de cores nos nós (vermelho e preto). A árvore realiza operações em O(log n) mesmo nos piores casos, desde que esteja balanceada.
+            </p>
+            
+            <h5>Propriedades:</h5>
+            <ol>
+              <li>Todo nó é vermelho ou preto.</li>
+              <li>A raiz é sempre preta.</li>
+              <li>Todas as folhas (nós nulos ou nil) são pretas.</li>
+              <li>Ambos os filhos de todo nó vermelho são pretos.</li>
+              <li>Todo caminho de um nó até uma folha descendente contém o mesmo número de nós pretos.</li>
+            </ol>
+            
+            <p>
+              Os elementos em um TreeMap ficam ordenados de forma semelhante a uma árvore binária de busca comum. No entanto, sempre que um nó é inserido ou removido, a árvore se reorganiza para manter suas propriedades. Essa reorganização envolve rotações e trocas de cor entre os nós. Isso garante que a árvore continue balanceada e funcional.
+            </p>
+            
+            <p>
+              Com isso, ao inserir um valor, o TreeMap o posiciona na árvore rubro-negra de forma ordenada com base na chave. Assim, o acesso é feito por meio da chave, e não pelo valor diretamente. A tentativa de acessar pelo valor (sem usar a chave) pode violar a lógica da estrutura e sua eficiência.
+            </p>
+            
+            <h4>Tabela de custo da <em>TreeMap</em></h4>
+            
+            <table border="1">
+              <tr>
+                <th>Algoritmo</th>
+                <th>Caso Médio</th>
+                <th>Pior Caso</th>
+              </tr>
+              <tr>
+                <td>Espaço</td>
+                <td>O(n)</td>
+                <td>O(n)</td>
+              </tr>
+              <tr>
+                <td>Busca</td>
+                <td>O(log n)</td>
+                <td>O(log n)</td>
+              </tr>
+              <tr>
+                <td>Inserção</td>
+                <td>O(log n)</td>
+                <td>O(log n)</td>
+              </tr>
+              <tr>
+                <td>Remoção</td>
+                <td>O(log n)</td>
+                <td>O(log n)</td>
+              </tr>
+            </table>
         </section>
 
         <section id="resultados">
@@ -277,11 +340,38 @@
 
         <section id="conclusao">
             <h2>Conclusão</h2>
-            <p>Recomendamos o uso da BTree para sistemas com alta carga e dados persistentes. Para cenários com acesso repetitivo, a SplayTree é uma escolha eficaz.</p>
+            <p>Concluir</p>
         </section>
 
         <section id="creditos">
             <h2>Créditos e Bibliografia</h2>
+                <ul>
+                  <li>
+                    As imagens utilizadas para ilustrar os exemplos da estrutura de dados <strong>SplayTree</strong> foram retiradas de: 
+                    <a href="https://pt.wikipedia.org/wiki/%C3%81rvore_splay" target="_blank">
+                      https://pt.wikipedia.org/wiki/Árvore_splay
+                    </a>
+                  </li>
+                  <li>
+                    Material de consulta utilizado para a <strong>TreeMap</strong>:
+                    <a href="https://docs.oracle.com/javase/8/docs/api/java/util/TreeMap.html" target="_blank">
+                      https://docs.oracle.com/javase/8/docs/api/java/util/TreeMap.html
+                    </a>
+                  </li>
+                  <li>
+                    A implementação da <strong>BTree</strong> utilizada neste projeto foi baseada em:
+                    <a href="https://www.programiz.com/dsa/b-tree" target="_blank">
+                      https://www.programiz.com/dsa/b-tree
+                    </a>
+                  </li>
+                  <li>
+                    O estudo e a aplicação do ambiente de testes <strong>Java Microbenchmark Harness (JMH)</strong> foi baseado no artigo de Muhammad Asher Toqeer ("TheBackEndGuy"):
+                    <a href="https://thebackendguy.com/posts/performance-analysis-using-jmh/" target="_blank">
+                      https://thebackendguy.com/posts/performance-analysis-using-jmh/
+                    </a>
+                  </li>
+                </ul>
+        </section>
 
         <footer>
             <p>&copy; 2025. Todos os direitos reservados.</p>
