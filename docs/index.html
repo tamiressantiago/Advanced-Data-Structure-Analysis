@@ -97,7 +97,7 @@
             <h3>BTree</h3>
             <p>A <em>B-Tree</em> é uma árvore auto-balanceada, projetada para gerenciar grandes volumes de dados com eficiência, especialmente em sistemas de armazenamento. Ela evoluiu a partir das árvores de busca binária (BSTs) e das árvores balanceadas (como AVL e <em>Red-Black Trees</em>), combinando a organização ordenada das BSTs com o nivelamento de altura das árvores balanceadas. Diferente dessas estruturas, a <em>B-Tree</em> expandiu seu funcionamento ao permitir que cada nó contenha múltiplas chaves e múltiplos filhos, tornando-a ideal para aplicações que exigem operações rápidas de busca, inserção e remoção em grandes conjuntos de dados.</p>
 
-            <h2>PROPRIEDADES:</h2>
+            <h4>PROPRIEDADES:</h4>
             <ul>
               <li>A <em>BTree</em> possui um valor <strong>t</strong> chamado de ordem da árvore, que define a quantidade mínima de chaves que um nó pode possuir, sendo esta <strong>t-1</strong> chaves.</li>
               <li>Na <em>BTree</em>, cada nó possui um atributo booleano que verifica se ele é uma folha ou não. Caso ele seja uma folha, não possuirá filhos. Caso não seja, seu número de filhos será determinado pela ordem da árvore, onde seu número mínimo de filhos será t e o máximo t*2, com exceção da raiz que só poderá ter no mínimo 2 filhos.</li>
@@ -105,9 +105,9 @@
               <li>Se um nó fica com menos chaves do que é permitido, ele pode ser fundido (<em>merge</em>) com outro.</li>
             </ul>
             
-            <h2>OPERAÇÕES:</h2>
+            <h4>OPERAÇÕES:</h4>
             
-            <h3>⭢ Inserção:</h3>
+            <h5>⭢ Inserção:</h5>
             <p>A inserção de uma chave em uma <em>B-Tree</em> é feita de forma a manter a estrutura balanceada, o que pode envolver a divisão de nós e a promoção de chaves para o nó pai, se necessário.</p>
             <ul>
               <li>Comece com a busca pela posição adequada para a chave.</li>
@@ -126,7 +126,7 @@
               </ul>
             </ul>
             
-            <h3>⭢ Remoção:</h3>
+            <h5>⭢ Remoção:</h5>
             <ul>
               <li>Comece com a busca pela posição da chave que será removida.</li>
               <li>Quando encontrar o nó onde a chave que deve ser removida se encontra:</li>
@@ -149,7 +149,7 @@
               </ul>
             </ul>
             
-            <h3>⭢ Busca:</h3>
+            <h5>⭢ Busca:</h5>
             <p>Procurar um elemento em uma <em>BTree</em> é uma forma generalizada da busca em uma BST.</p>
             <ul>
               <li>A busca começa no nó raiz da árvore percorrendo as chaves ordenadas do nó. Se a chave procurada for encontrada no nó atual, a busca termina com sucesso. Se a chave não for encontrada, determinar qual dos filhos deve ser explorado:</li>
@@ -160,7 +160,7 @@
               </ul>
             </ul>
             
-            <h2>Tabela de custo da <em>BTree</em></h2>
+            <h4>Tabela de custo da <em>BTree</em></h4>
             <table border="1">
               <tr>
                 <th>Algoritmo</th>
