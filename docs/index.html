@@ -39,40 +39,156 @@
         <section id="use">
             <h2>Como usar</h2>
             <ol>
-  <li>
-    Verifique primeiramente se você tem o Maven e o Java na sua máquina para executar os benchmarks. Para isso, execute os seguintes comandos no terminal:
-    <pre><code>mvn -version</code></pre>
-    <pre><code>java -version</code></pre>
-  </li>
-  <li>
-    Agora, na raiz do projeto, execute o script em Python para gerar os dados sintéticos:
-    <pre><code>python3 src/python/scripts_data.py</code></pre>
-  </li>
-  <li>
-    Ainda na pasta raiz, execute o seguinte comando para compilar e gerar o JAR executável do benchmark:
-    <pre><code>mvn clean verify</code></pre>
-  </li>
-  <li>
-    Após compilar com sucesso, execute o seguinte comando para iniciar o benchmark:
-    <pre><code>java -jar target/benchmarks.jar</code></pre>
-  </li>
-  <li>
-    Caso deseje verificar também a alocação de memória do benchmark, execute:
-    <pre><code>java -jar target/benchmarks.jar -prof gc</code></pre>
-  </li>
-</ol>
+              <li>
+                Verifique primeiramente se você tem o Maven e o Java na sua máquina para executar os benchmarks. Para isso, execute os seguintes comandos no terminal:
+                <pre><code>mvn -version</code></pre>
+                <pre><code>java -version</code></pre>
+              </li>
+              <li>
+                Agora, na raiz do projeto, execute o script em Python para gerar os dados sintéticos:
+                <pre><code>python3 src/python/scripts_data.py</code></pre>
+              </li>
+              <li>
+                Ainda na pasta raiz, execute o seguinte comando para compilar e gerar o JAR executável do benchmark:
+                <pre><code>mvn clean verify</code></pre>
+              </li>
+              <li>
+                Após compilar com sucesso, execute o seguinte comando para iniciar o benchmark:
+                <pre><code>java -jar target/benchmarks.jar</code></pre>
+              </li>
+              <li>
+                Caso deseje verificar também a alocação de memória do benchmark, execute:
+                <pre><code>java -jar target/benchmarks.jar -prof gc</code></pre>
+              </li>
+            </ol>
         </section>
 
         <section id="metodologia">
             <h2>Metodologia Geral</h2>
-            <p>Descrição geral da metodologia utilizada nos testes.</p>
+            <p>Considerando as diversas estruturas de dados avançadas que não são abordadas na disciplina de Estrutura de Dados na Universidade Federal de Campina Grande (UFCG), o objetivo deste projeto é analisar, comparar e catalogar estas estruturas em Java:</p>
+
+            <ul>
+              <li><em>B-Tree</em></li>
+              <li><em>TreeMap</em></li>
+              <li><em>Splay Tree</em></li>
+            </ul>
+            
+            <p>Para a análise, comparamos os seguintes aspectos:</p>
+            
+            <ul>
+              <li>Tempo de leitura/escrita;</li>
+              <li>Velocidade de acesso de um elemento;</li>
+              <li>Tempo de inserção e remoção de um elemento;</li>
+              <li>Memória utilizada.</li>
+            </ul>
+            
+            <p>Para a verificação do tempo de execução e memória utilizada, utilizamos a <em>JMH</em> (<em>Java Microbenchmarking Harness</em>), que é uma ferramenta especializada para realizar <em>microbenchmarks</em> em Java. Com o auxílio dela, poderemos medir com precisão o desempenho das operações citadas acima. Os testes das operações do benchmark são executados da seguinte forma: a cada iteração, o JMH executa o método do benchmark até quantas vezes ele consegue em um determinado número de tempo (definido para o projeto como 5 segundos), e é feita uma média a partir de quanto tempo demorou para o código terminar sua operação nessa quantidade de segundos. Caso a operação seja pesada demais para ser executada no tempo definido, o código continuará sendo executado até que a operação seja feita e entregará o tempo dessa única execução. Para garantir que mesmo as operações pesadas demais para serem executadas em apenas 5 segundos sejam testadas um número significativo de vezes para uma maior precisão, foi definido um número mínimo de 50 iterações. Por fim, é feita uma média do tempo de execução e memória dessas 50 iterações (ou mais).</p>
+            
+            <p>As cargas são geradas utilizando a biblioteca <em>random</em> do <em>Python</em> com uma <em>seed</em> (número qualquer que escolhemos). O <em>script</em> gera as cargas na pasta <em>data</em> em um arquivo .csv de apenas uma coluna de dados sintéticos. São gerados 4 arquivos: um de dados ordenados e com repetições, ordenados sem repetições, desordenados com repetição e sem repetição. Cada arquivo tem 10⁶ dados sintéticos.</p>
+            
+            <p>Os testes de estresse da máquina foram feitos no ambiente do <em>IntelliJ</em>, instalado em uma máquina do LCC da UFCG, usando diferentes cargas na estrutura de <em>Splay Tree</em>, variando entre 10⁵ e 10⁷, observando os erros de memória e o tempo de execução usando a biblioteca <em>NanoTime</em>, que embora seja menos precisa que a <em>JMH</em>, seja mais simples de utilizar para esse teste. Portanto, foi chegada à conclusão de que para as três estruturas, 10⁶ possibilitou um bom tempo de execução com uma boa quantidade de elementos.</p>
+
         </section>
 
         <section id="arvores">
-            <h2>Sobre as Estruturas</h2>
-            <p>Explicação geral sobre árvores.</p>
+            <h2>Árvores</h2>
+            <!--<img src="img1" alt="a" width="300" height="200">-->
+            <p>Antes de focarmos nas árvores escolhidas para a análise, devemos entender a importância dessas estruturas para computação. Em programação, árvores se referem à estruturas hierárquicas para armazenamento de dados. Diferentemente das listas que possuem acesso sequencial, as árvores são organizadas de forma ramificada, composta por nós que são conectados por arestas, por isso são denominadas estruturas não-lineares. Cada nó pode ter um ou mais filhos, mas apenas um pai, com exceção da raiz da árvore, que não tem pai. No mundo real esta estrutura é bastante utilizada quando temos uma relação de nível entre os elementos como por exemplo: estruturas de pastas de um sistema operacional, interfaces gráficas e bancos de dados.</p>
             <h3>BTree</h3>
-            <p>Explicação sobre BTree.</p>
+            <p>A <em>B-Tree</em> é uma árvore auto-balanceada, projetada para gerenciar grandes volumes de dados com eficiência, especialmente em sistemas de armazenamento. Ela evoluiu a partir das árvores de busca binária (BSTs) e das árvores balanceadas (como AVL e <em>Red-Black Trees</em>), combinando a organização ordenada das BSTs com o nivelamento de altura das árvores balanceadas. Diferente dessas estruturas, a <em>B-Tree</em> expandiu seu funcionamento ao permitir que cada nó contenha múltiplas chaves e múltiplos filhos, tornando-a ideal para aplicações que exigem operações rápidas de busca, inserção e remoção em grandes conjuntos de dados.</p>
+
+            <h2>PROPRIEDADES:</h2>
+            <ul>
+              <li>A <em>BTree</em> possui um valor <strong>t</strong> chamado de ordem da árvore, que define a quantidade mínima de chaves que um nó pode possuir, sendo esta <strong>t-1</strong> chaves.</li>
+              <li>Na <em>BTree</em>, cada nó possui um atributo booleano que verifica se ele é uma folha ou não. Caso ele seja uma folha, não possuirá filhos. Caso não seja, seu número de filhos será determinado pela ordem da árvore, onde seu número mínimo de filhos será t e o máximo t*2, com exceção da raiz que só poderá ter no mínimo 2 filhos.</li>
+              <li>Se um nó excede o número máximo de chaves, ele é dividido (<em>split</em>).</li>
+              <li>Se um nó fica com menos chaves do que é permitido, ele pode ser fundido (<em>merge</em>) com outro.</li>
+            </ul>
+            
+            <h2>OPERAÇÕES:</h2>
+            
+            <h3>⭢ Inserção:</h3>
+            <p>A inserção de uma chave em uma <em>B-Tree</em> é feita de forma a manter a estrutura balanceada, o que pode envolver a divisão de nós e a promoção de chaves para o nó pai, se necessário.</p>
+            <ul>
+              <li>Comece com a busca pela posição adequada para a chave.</li>
+              <li>Se a árvore estiver vazia, aloque um nó raiz e insira a chave.</li>
+              <li>Se não estiver vazia, encontre o nó folha onde a chave deve ser inserida:</li>
+              <ul>
+                <li>Se o nó não estiver cheio, insira a chave nesse nó e a árvore permanece balanceada.</li>
+                <li>Se o nó estiver cheio, o nó é dividido ao meio:
+                  <ol>
+                    <li>A chave do meio é promovida para o nó pai;</li>
+                    <li>O nó é dividido em dois nós filhos, cada um com metade das chaves;</li>
+                    <li>Se o nó pai também estiver cheio, o processo de divisão pode se propagar recursivamente até a raiz.</li>
+                    <li>Caso a divisão atinja a raiz, uma nova raiz é criada, aumentando a altura da árvore.</li>
+                  </ol>
+                </li>
+              </ul>
+            </ul>
+            
+            <h3>⭢ Remoção:</h3>
+            <ul>
+              <li>Comece com a busca pela posição da chave que será removida.</li>
+              <li>Quando encontrar o nó onde a chave que deve ser removida se encontra:</li>
+              <ul>
+                <li><strong>Se o nó for uma folha:</strong>
+                  <ol>
+                    <li>Se não ferir a propriedade de número mínimo de chaves, basta remover a chave.</li>
+                    <li>Se violar, o nó pegará uma chave do nó irmão imediato da esquerda para a direita, para que se mantenha com a quantidade mínima de chaves.</li>
+                    <li>Se os nós irmãos também tiverem a quantidade mínima de chaves, os nós serão fundidos.</li>
+                  </ol>
+                </li>
+                <li><strong>Se o nó não for uma folha:</strong>
+                  <ol>
+                    <li>Se o filho à sua esquerda tiver mais que o número mínimo de chaves, a chave a ser excluída será substituída pelo seu antecessor imediato.</li>
+                    <li>Se o filho à sua direita tiver mais que o número mínimo de chaves, a chave a ser excluída será substituída pelo seu sucessor imediato.</li>
+                    <li>Se ambos os filhos tiverem o número mínimo de chaves, os nós filhos serão fundidos.</li>
+                    <li>Caso os filhos e os irmãos estiverem com o número mínimo de chaves, fundimos o nó com o irmão e com alguma chave do pai, dessa forma a altura da árvore diminui.</li>
+                  </ol>
+                </li>
+              </ul>
+            </ul>
+            
+            <h3>⭢ Busca:</h3>
+            <p>Procurar um elemento em uma <em>BTree</em> é uma forma generalizada da busca em uma BST.</p>
+            <ul>
+              <li>A busca começa no nó raiz da árvore percorrendo as chaves ordenadas do nó. Se a chave procurada for encontrada no nó atual, a busca termina com sucesso. Se a chave não for encontrada, determinar qual dos filhos deve ser explorado:</li>
+              <ul>
+                <li>Se a chave for menor que uma chave existente, a busca segue para o filho esquerdo correspondente.</li>
+                <li>Se for maior, a busca segue para o filho direito apropriado.</li>
+                <li>Se não encontrar, continuamos descendo na árvore até encontrar a chave ou chegar a uma folha. Se um nó folha for alcançado sem encontrar a chave, significa que ela não está presente na árvore.</li>
+              </ul>
+            </ul>
+            
+            <h2>Tabela de custo da <em>BTree</em></h2>
+            <table border="1">
+              <tr>
+                <th>Algoritmo</th>
+                <th>Caso Médio</th>
+                <th>Pior Caso</th>
+              </tr>
+              <tr>
+                <td>Espaço</td>
+                <td>O(n)</td>
+                <td>O(n)</td>
+              </tr>
+              <tr>
+                <td>Busca</td>
+                <td>O(log n)</td>
+                <td>O(log n)</td>
+              </tr>
+              <tr>
+                <td>Inserção</td>
+                <td>O(log n)</td>
+                <td>O(log n)</td>
+              </tr>
+              <tr>
+                <td>Remoção</td>
+                <td>O(log n)</td>
+                <td>O(log n)</td>
+              </tr>
+            </table>
+
             <h3>SplayTree</h3>
             <p>Explicação sobre SplayTree.</p>
             <h3>TreeMap</h3>
