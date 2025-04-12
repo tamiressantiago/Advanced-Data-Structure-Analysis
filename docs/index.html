@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Structure Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <aside class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="#intro">Introdução</a></li>
+                <li><a href="#use">Como usar</a></li>
+                <li><a href="#metodologia">Metodologia Geral</a></li>
+                <li><a href="#arvores">Estruturas</a></li>
+                <li><a href="#resultados">Resultados</a></li>
+                <li><a href="#analise">Análise</a></li>
+                <li><a href="#conclusao">Conclusão</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="conteudo">
+        <header>
+            <h1>Análises de estruturas de dados através de Benchmark</h1>
+        </header>
+
+        <section id="intro">
+            <h2>Introdução</h2>
+            <p>
+  Este GitHub Pages tem como objetivo ser a entrega do Grupo 5, composto por <strong>Anthony Willy Miranda Pereira</strong> (123210127), <strong>Maria Eduarda Viana Cordeiro dos Santos</strong> (123210087), <strong>Matheus Adiel Medeiros Lima de Oliveira</strong> (123210171), <strong>Natan Hugo Carvalho Evangelista</strong> (123210202), <strong>Tamires Santiago Oliveira</strong> (123210205), na disciplina de <strong>Estruturas de Dados e Algoritmos (EDA/LEDA)</strong>, ministrada pelo professor <strong>Professor João Arthur Brunet</strong> na <strong>Universidade Federal de Campina Grande (UFCG)</strong> A proposta inicial consiste na realização de benchmarks entre diferentes estruturas de árvore, como B-Tree, Splay Tree e TreeMap (Java), utilizando a ferramenta JMH (Java Microbenchmark Harness) para medições de desempenho. Além disso, serão utilizados scripts em Python para geração automática de cargas de dados, permitindo a simulação de diferentes cenários de uso. Após os testes foi feita uma análise para entender porque cada estrutura teve aquele desempenho
+</p>
+
+        </section>
+
+        <section id="use">
+            <h2>Como usar</h2>
+            <ol>
+  <li>
+    Verifique primeiramente se você tem o Maven e o Java na sua máquina para executar os benchmarks. Para isso, execute os seguintes comandos no terminal:
+    <pre><code>mvn -version</code></pre>
+    <pre><code>java -version</code></pre>
+  </li>
+  <li>
+    Agora, na raiz do projeto, execute o script em Python para gerar os dados sintéticos:
+    <pre><code>python3 src/python/scripts_data.py</code></pre>
+  </li>
+  <li>
+    Ainda na pasta raiz, execute o seguinte comando para compilar e gerar o JAR executável do benchmark:
+    <pre><code>mvn clean verify</code></pre>
+  </li>
+  <li>
+    Após compilar com sucesso, execute o seguinte comando para iniciar o benchmark:
+    <pre><code>java -jar target/benchmarks.jar</code></pre>
+  </li>
+  <li>
+    Caso deseje verificar também a alocação de memória do benchmark, execute:
+    <pre><code>java -jar target/benchmarks.jar -prof gc</code></pre>
+  </li>
+</ol>
+        </section>
+
+        <section id="metodologia">
+            <h2>Metodologia Geral</h2>
+            <p>Descrição geral da metodologia utilizada nos testes.</p>
+        </section>
+
+        <section id="arvores">
+            <h2>Sobre as Estruturas</h2>
+            <p>Explicação geral sobre árvores.</p>
+            <h3>BTree</h3>
+            <p>Explicação sobre BTree.</p>
+            <h3>SplayTree</h3>
+            <p>Explicação sobre SplayTree.</p>
+            <h3>TreeMap</h3>
+            <p>Explicação sobre TreeMap.</p>
+        </section>
+
+        <section id="resultados">
+            <h2>Resultados dos Benchmarks</h2>
+            <iframe title="Benchmarks" width="1140" height="541.25"
+                src="https://app.powerbi.com/view?r=eyJrIjoiNmZlODM2YzctNTMwYi00ZTdlLTk2NzktZDFiMzE4ZjZlZDkwIiwidCI6ImU3NzBmMjc3LWRhODItNGFhMi05ZTg2LTRjZWQyYTA3MWU4MiJ9"
+                frameborder="0" allowfullscreen="true">
+            </iframe>
+            <p>Use o seletor acima para filtrar os resultados por método (como <code>insert</code>, <code>remove</code>, <code>search</code>). As setas na parte inferior do gráfico permitem navegar entre os indicadores de tempo (ms/op) e memória (MB/sec).</p>
+        </section>
+
+        <section id="analise">
+            <h2>Análise</h2>
+            <p>Discussão crítica dos resultados, com destaque para desempenho, consumo de memória e aplicações recomendadas para cada estrutura.</p>
+        </section>
+
+        <section id="conclusao">
+            <h2>Conclusão</h2>
+            <p>Recomendamos o uso da BTree para sistemas com alta carga e dados persistentes. Para cenários com acesso repetitivo, a SplayTree é uma escolha eficaz.</p>
+        </section>
+
+        <section id="creditos">
+            <h2>Créditos e Bibliografia</h2>
+
+        <footer>
+            <p>&copy; 2025. Todos os direitos reservados.</p>
+        </footer>
+    </main>
+</body>
+</html>
