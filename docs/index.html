@@ -13,54 +13,26 @@
         <nav>
             <ul>
                 <li><a href="#intro">Introdução</a></li>
-                <li><a href="#use">Como usar</a></li>
                 <li><a href="#metodologia">Metodologia Geral</a></li>
                 <li><a href="#arvores">Estruturas</a></li>
                 <li><a href="#resultados">Resultados</a></li>
                 <li><a href="#analise">Análise</a></li>
                 <li><a href="#conclusao">Conclusão</a></li>
+                <li><a href="#creditos">Créditos e Bibliografia</a></li>
             </ul>
         </nav>
     </aside>
 
     <main class="conteudo">
         <header>
-            <h1>Análises de estruturas de dados através de Benchmark</h1>
+            <h1>Análises de estruturas de dados através de <i>Benchmark</i></h1>
         </header>
 
         <section id="intro">
             <h2>Introdução</h2>
-            <p>
-  Este GitHub Pages tem como objetivo ser a entrega do Grupo 5, composto por <strong>Anthony Willy Miranda Pereira</strong> (123210127), <strong>Maria Eduarda Viana Cordeiro dos Santos</strong> (123210087), <strong>Matheus Adiel Medeiros Lima de Oliveira</strong> (123210171), <strong>Natan Hugo Carvalho Evangelista</strong> (123210202), <strong>Tamires Santiago Oliveira</strong> (123210205), na disciplina de <strong>Estruturas de Dados e Algoritmos (EDA/LEDA)</strong>, ministrada pelo professor <strong>Professor João Arthur Brunet</strong> na <strong>Universidade Federal de Campina Grande (UFCG)</strong> A proposta inicial consiste na realização de benchmarks entre diferentes estruturas de árvore, como B-Tree, Splay Tree e TreeMap (Java), utilizando a ferramenta JMH (Java Microbenchmark Harness) para medições de desempenho. Além disso, serão utilizados scripts em Python para geração automática de cargas de dados, permitindo a simulação de diferentes cenários de uso. Após os testes foi feita uma análise para entender porque cada estrutura teve aquele desempenho
-</p>
+            <p>Este <em>GitHub Pages</em> contém a entrega do <strong>Grupo 5</strong>, formado por: <strong>Anthony Willy Miranda Pereira</strong>, <strong>Maria Eduarda Viana Cordeiro dos Santos</strong>, <strong>Matheus Adiel Medeiros Lima de Oliveira</strong>, <strong>Natan Hugo Carvalho Evangelista</strong> e <strong>Tamires Santiago Oliveira</strong>, na disciplina <strong>Estruturas de Dados e Algoritmos (EDA/LEDA)</strong>, sob orientação do <strong>Professor João Arthur Brunet</strong>, na <strong>Universidade Federal de Campina Grande (UFCG)</strong>.</p>
+            <p>O trabalho tem como objetivo comparar o desempenho de diferentes estruturas de árvore, como <strong>B-Tree</strong>, <strong>Splay Tree</strong> e <strong>TreeMap (Java)</strong>, utilizando a ferramenta <strong>JMH (Java Microbenchmark Harness)</strong> para <em>benchmarks</em> de desempenho. Para simular diferentes cenários de uso, foram utilizados <strong>scripts em Python</strong> para geração automática de cargas de dados, e, após os testes, foi realizada uma análise detalhada para entender os fatores que influenciaram o desempenho de cada estrutura.</p>
 
-        </section>
-
-        <section id="use">
-            <h2>Como usar</h2>
-            <ol>
-              <li>
-                Verifique primeiramente se você tem o Maven e o Java na sua máquina para executar os benchmarks. Para isso, execute os seguintes comandos no terminal:
-                <pre><code>mvn -version</code></pre>
-                <pre><code>java -version</code></pre>
-              </li>
-              <li>
-                Agora, na raiz do projeto, execute o script em Python para gerar os dados sintéticos:
-                <pre><code>python3 src/python/scripts_data.py</code></pre>
-              </li>
-              <li>
-                Ainda na pasta raiz, execute o seguinte comando para compilar e gerar o JAR executável do benchmark:
-                <pre><code>mvn clean verify</code></pre>
-              </li>
-              <li>
-                Após compilar com sucesso, execute o seguinte comando para iniciar o benchmark:
-                <pre><code>java -jar target/benchmarks.jar</code></pre>
-              </li>
-              <li>
-                Caso deseje verificar também a alocação de memória do benchmark, execute:
-                <pre><code>java -jar target/benchmarks.jar -prof gc</code></pre>
-              </li>
-            </ol>
         </section>
 
         <section id="metodologia">
@@ -82,23 +54,22 @@
               <li>Memória utilizada.</li>
             </ul>
             
-            <p>Para medir com precisão o tempo de execução e o uso de memória das operações, utilizamos o JMH (Java Microbenchmarking Harness), uma ferramenta especializada em microbenchmarks para Java. Com ela, conseguimos avaliar o desempenho das operações descritas anteriormente de forma confiável.</p>
-            <p>Durante os testes, o JMH executa o método de benchmark repetidamente ao longo de um intervalo de tempo pré-definido — neste projeto, 5 segundos por iteração. Ao final desse período, é calculada uma média do tempo necessário para a execução da operação. Se a operação for pesada demais para ser concluída dentro desses 5 segundos, o JMH ainda a executa até o fim, registrando o tempo de uma única execução.</p>
-            <p>Para garantir maior precisão nos resultados, mesmo em operações mais custosas, estipulamos um mínimo de 50 iterações por benchmark. Ao final, é calculada a média do tempo de execução e do consumo de memória considerando essas 50 iterações.</p>
+            <p>Para medir com precisão o tempo de execução e o uso de memória das operações, utilizamos o <em>JMH</em> (<em>Java Microbenchmarking Harness</em>), uma ferramenta especializada em microbenchmarks para <em>Java</em>. Com ela, conseguimos avaliar o desempenho das operações descritas anteriormente de forma confiável.</p>
+            <p>Durante os testes, o <em>JMH</em> executa o método de benchmark repetidamente ao longo de um intervalo de tempo pré-definido — neste projeto, 5 segundos por iteração. Ao final desse período, é calculada uma média do tempo necessário para a execução da operação. Se a operação for pesada demais para ser concluída dentro desses 5 segundos, o <em>JMH</em> ainda a executa até o fim, registrando o tempo de uma única execução.</p>
+            <p>Para garantir maior precisão nos resultados, mesmo em operações mais custosas, estipulamos um mínimo de 50 iterações por <em>benchmark</em>. Ao final, é calculada a média do tempo de execução e do consumo de memória considerando essas 50 iterações.</p>
             <p>As cargas são geradas utilizando a biblioteca <em>random</em> do <em>Python</em> com uma <em>seed</em> (número qualquer que escolhemos). O <em>script</em> gera as cargas na pasta <em>data</em> em um arquivo .csv de apenas uma coluna de dados sintéticos. São gerados 4 arquivos: um de dados ordenados e com repetições, ordenados sem repetições, desordenados com repetição e sem repetição. Cada arquivo tem 10⁶ dados sintéticos.</p>
-            
             <p>Os testes de estresse da máquina foram feitos no ambiente do <em>IntelliJ</em>, instalado em uma máquina do LCC da UFCG, usando diferentes cargas na estrutura de <em>Splay Tree</em>, variando entre 10⁵ e 10⁷, observando os erros de memória e o tempo de execução usando a biblioteca <em>NanoTime</em>, que embora seja menos precisa que a <em>JMH</em>, seja mais simples de utilizar para esse teste. Portanto, foi chegada à conclusão de que para as três estruturas, 10⁶ possibilitou um bom tempo de execução com uma boa quantidade de elementos.</p>
 
         </section>
 
         <section id="arvores">
             <h2>Árvores</h2>
-            <img src="imagens/arvores.png" alt="Exemplo de árvore" width="300" height="200"/>
+            <img src="imagens/arvores.png" alt="Exemplo de árvore" width="450" height="400" class="imagem-centralizada" style="margin-bottom: 50px;"/>          
             <p>Antes de focarmos nas árvores escolhidas para a análise, devemos entender a importância dessas estruturas para computação. Em programação, árvores se referem à estruturas hierárquicas para armazenamento de dados. Diferentemente das listas que possuem acesso sequencial, as árvores são organizadas de forma ramificada, composta por nós que são conectados por arestas, por isso são denominadas estruturas não-lineares. Cada nó pode ter um ou mais filhos, mas apenas um pai, com exceção da raiz da árvore, que não tem pai. No mundo real esta estrutura é bastante utilizada quando temos uma relação de nível entre os elementos como por exemplo: estruturas de pastas de um sistema operacional, interfaces gráficas e bancos de dados.</p>
-            <h3>BTree</h3>
+            <h2>BTree</h2>
             <p>A <em>B-Tree</em> é uma árvore auto-balanceada, projetada para gerenciar grandes volumes de dados com eficiência, especialmente em sistemas de armazenamento. Ela evoluiu a partir das árvores de busca binária (BSTs) e das árvores balanceadas (como AVL e <em>Red-Black Trees</em>), combinando a organização ordenada das BSTs com o nivelamento de altura das árvores balanceadas. Diferente dessas estruturas, a <em>B-Tree</em> expandiu seu funcionamento ao permitir que cada nó contenha múltiplas chaves e múltiplos filhos, tornando-a ideal para aplicações que exigem operações rápidas de busca, inserção e remoção em grandes conjuntos de dados.</p>
 
-            <h4>Propriedades:</h4>
+            <h3>Propriedades:</h3>
             <ul>
               <li>A <em>BTree</em> possui um valor <strong>t</strong> chamado de ordem da árvore, que define a quantidade mínima de chaves que um nó pode possuir, sendo esta <strong>t-1</strong> chaves.</li>
               <li>Na <em>BTree</em>, cada nó possui um atributo booleano que verifica se ele é uma folha ou não. Caso ele seja uma folha, não possuirá filhos. Caso não seja, seu número de filhos será determinado pela ordem da árvore, onde seu número mínimo de filhos será t e o máximo t*2, com exceção da raiz que só poderá ter no mínimo 2 filhos.</li>
@@ -106,9 +77,9 @@
               <li>Se um nó fica com menos chaves do que é permitido, ele pode ser fundido (<em>merge</em>) com outro.</li>
             </ul>
             
-            <h4>Operações:</h4>
+            <h3>Operações:</h3>
             
-            <h5>⭢ Inserção:</h5>
+            <h4>⭢ Inserção:</h4>
             <p>A inserção de uma chave em uma <em>B-Tree</em> é feita de forma a manter a estrutura balanceada, o que pode envolver a divisão de nós e a promoção de chaves para o nó pai, se necessário.</p>
             <ul>
               <li>Comece com a busca pela posição adequada para a chave.</li>
@@ -127,7 +98,7 @@
               </ul>
             </ul>
             
-            <h5>⭢ Remoção:</h5>
+            <h4>⭢ Remoção:</h4>
             <ul>
               <li>Comece com a busca pela posição da chave que será removida.</li>
               <li>Quando encontrar o nó onde a chave que deve ser removida se encontra:</li>
@@ -150,19 +121,21 @@
               </ul>
             </ul>
             
-            <h5>⭢ Busca:</h5>
+            <h4>⭢ Busca:</h4>
             <p>Procurar um elemento em uma <em>BTree</em> é uma forma generalizada da busca em uma BST.</p>
             <ul>
               <li>A busca começa no nó raiz da árvore percorrendo as chaves ordenadas do nó. Se a chave procurada for encontrada no nó atual, a busca termina com sucesso. Se a chave não for encontrada, determinar qual dos filhos deve ser explorado:</li>
               <ul>
+                <ol>
                 <li>Se a chave for menor que uma chave existente, a busca segue para o filho esquerdo correspondente.</li>
                 <li>Se for maior, a busca segue para o filho direito apropriado.</li>
                 <li>Se não encontrar, continuamos descendo na árvore até encontrar a chave ou chegar a uma folha. Se um nó folha for alcançado sem encontrar a chave, significa que ela não está presente na árvore.</li>
+              </ol>
               </ul>
             </ul>
             
-            <h4>Tabela de custo da <em>BTree</em></h4>
-            <table border="1">
+            <h3>Tabela de custo da <em>BTree</em></h3>
+            <table border="1" class="tabela-centralizada">
               <tr>
                 <th>Algoritmo</th>
                 <th>Caso Médio</th>
@@ -190,7 +163,7 @@
               </tr>
             </table>
 
-            <h3>SplayTree</h3>
+            <h2>SplayTree</h2>
                 <p>
                   A estrutura de dados avançada <em>splay tree</em>, ou árvore <em>splay</em>, é uma árvore binária de busca autoajustável, com o adicional de tornar os elementos acessados recentemente, fáceis de acessar novamente. Todas as suas operações básicas, como remoção, inserção e busca, são baseadas em colocar o elemento envolvido nessa operação na raiz, através de rotações (operação <em>splay</em>).
                 </p>
@@ -207,7 +180,7 @@
                   Entretanto, a principal desvantagem é que a altura da splay tree pode ser linear, quando os nós da árvore são acessados sequencialmente em ordem, deixando-a totalmente desbalanceada. Outra desvantagem significativa é que a representação da árvore pode mudar quando nela são realizadas as operações básicas, pois envolvem reestruturação dinâmica. Ou seja, isso torna complicado o uso em um ambiente multi-threaded. Para contornar essa problemática, seria necessário adaptar essa estrutura de dados.
                 </p>
                 
-                <h4>Operações:</h4>
+                <h3>Operações:</h3>
                 
                 <p>
                   Na rotação simples temos a rotação <strong>Zig</strong> (para direita) e a rotação <strong>Zag</strong> (para esquerda). Já na rotação dupla, temos a rotação <strong>Zig-zig</strong> (duas rotações para a direita), <strong>Zag-zag</strong> (duas rotações para a esquerda) e a <strong>Zig-zag</strong> ou <strong>Zag-zig</strong> (rotação direita e esquerda ou esquerda e direita, respectivamente).
@@ -216,21 +189,21 @@
                 <ul>
                   <li>Na rotação <strong>Zig</strong>, o filho direito do elemento B ficará o filho esquerdo do elemento A, que era pai de B. Com a mesma lógica, na rotação <strong>Zag</strong>, o filho esquerdo do elemento A ficará o filho direito do elemento B, que era pai de A.</li>
                 </ul>
-                <img src="imagens/splay1.png" alt="Rotação_zig/zag" height="200">
+                <img src="imagens/splay1.png" alt="Rotação_zig/zag" height="200" class="imagem-centralizada">
                 
                 <ul>
                   <li>Já na rotação dupla <strong>Zig-zig</strong>, são realizadas duas rotações simples do tipo zig. Neste exemplo, para fazer o zig-zig de C, primeiro é realizado o zig no pai de C (que é o B) e posteriormente é feito o zig de C. De forma análoga ocorre a operação <strong>Zag-zag</strong>, com duas rotações simples do tipo zag.</li>
                 </ul>
-                <img src="imagens/splay2.png" alt="Rotação_zig-zig/zag-zag" height="200">
+                <img src="imagens/splay2.png" alt="Rotação_zig-zig/zag-zag" height="200" class="imagem-centralizada">
                 
                 <ul>
                   <li>Por fim, na rotação dupla <strong>Zig-zag</strong>, primeiro realiza-se o zig de C com o pai de C (que é o B), e logo após aplica-se o zag de C com o avô de C (que é o A). Já o <strong>Zag-zig</strong> troca a ordem das operações simples: primeiro o zag e, em seguida, o zig.</li>
                 </ul>
-                <img src="imagens/splay3.png" alt="Rotação_zig-zag" height="200">
-                <img src="imagens/splay4.png" alt="Rotação_zag-zig" height="200">
+                <img src="imagens/splay3.png" alt="Rotação_zig-zag" height="200" class="imagem-centralizada">
+                <img src="imagens/splay4.png" alt="Rotação_zag-zig" height="200" class="imagem-centralizada">
                 
-                <h4>Tabela de custo da <em>Splay Tree</em></h4>
-                <table border="1">
+                <h3>Tabela de custo da <em>Splay Tree</em></h3>
+                <table border="1" class="tabela-centralizada">
                   <tr>
                     <th>Algoritmo</th>
                     <th>Caso Médio</th>
@@ -258,26 +231,26 @@
                   </tr>
                 </table>
 
-            <h3>TreeMap</h3>
+            <h2>TreeMap</h2>
             <p>
-              O <strong>TreeMap</strong> é uma estrutura que armazena dados no formato chave-valor, ou seja, é possível acessar um elemento por meio de uma chave única. Por exemplo, o acesso a um aluno por meio de seu CPF. O TreeMap implementa a interface <code>SortedMap</code>, que por sua vez herda da interface <code>Map</code> — utilizada para mapear valores a chaves.
+              O <strong>TreeMap</strong> é uma estrutura que armazena dados no formato chave-valor, ou seja, é possível acessar um elemento por meio de uma chave única. Por exemplo, o acesso a um aluno por meio de seu CPF. O TreeMap implementa a interface <em>SortedMap</em>, que por sua vez herda da interface <em>Map</em> — utilizada para mapear valores a chaves.
             </p>
             
             <p>
-              A interface <code>SortedMap</code> tem como objetivo ordenar as chaves atribuídas a determinados valores (por ordem crescente, alfabética ou qualquer outra ordem definida). Por exemplo, em um sistema de agenda de eventos, é necessário acessar os eventos pelas datas, podendo ordená-los da mais recente à mais antiga. Nesses casos, o TreeMap pode ser extremamente útil ao atribuir uma data como chave e um objeto <code>Evento</code> como valor. Além disso, essa ordenação permite que ele seja usado para estratégias de <em>cache eviction</em>.
+              A interface <em>SortedMap</em> tem como objetivo ordenar as chaves atribuídas a determinados valores (por ordem crescente, alfabética ou qualquer outra ordem definida). Por exemplo, em um sistema de agenda de eventos, é necessário acessar os eventos pelas datas, podendo ordená-los da mais recente à mais antiga. Nesses casos, o TreeMap pode ser extremamente útil ao atribuir uma data como chave e um objeto <em>Evento</em> como valor. Além disso, essa ordenação permite que ele seja usado para estratégias de <em>cache eviction</em>.
             </p>
             
             <p>
-              O <code>TreeMap</code> está disponível na biblioteca padrão do Java (<code>java.util</code>), mas é importante compreender seu funcionamento interno para fins didáticos. Diferentemente do <code>HashMap</code>, que utiliza funções de hash para localizar chaves em tempo O(1), o <code>TreeMap</code> utiliza uma estrutura baseada em uma <strong>Árvore Rubro-Negra</strong> para realizar suas operações de inserção, busca, remoção e verificação.
+              O <em>TreeMap</em> está disponível na biblioteca padrão do Java (<em>java.util</em>), mas é importante compreender seu funcionamento interno para fins didáticos. Diferentemente do <em>HashMap</em>, que utiliza funções de hash para localizar chaves em tempo O(1), o <em>TreeMap</em> utiliza uma estrutura baseada em uma <strong>Árvore Rubro-Negra</strong> para realizar suas operações de inserção, busca, remoção e verificação.
             </p>
             
-            <h4>Árvore Rubro-Negra</h4>
+            <h3>Árvore Rubro-Negra</h3>
             
             <p>
               A árvore rubro-negra é um tipo específico de árvore binária de busca balanceada, caracterizada por regras que mantêm seu balanceamento por meio do uso de cores nos nós (vermelho e preto). A árvore realiza operações em O(log n) mesmo nos piores casos, desde que esteja balanceada.
             </p>
             
-            <h5>Propriedades:</h5>
+            <h3>Propriedades:</h3>
             <ol>
               <li>Todo nó é vermelho ou preto.</li>
               <li>A raiz é sempre preta.</li>
@@ -294,9 +267,9 @@
               Com isso, ao inserir um valor, o TreeMap o posiciona na árvore rubro-negra de forma ordenada com base na chave. Assim, o acesso é feito por meio da chave, e não pelo valor diretamente. A tentativa de acessar pelo valor (sem usar a chave) pode violar a lógica da estrutura e sua eficiência.
             </p>
             
-            <h4>Tabela de custo da <em>TreeMap</em></h4>
+            <h3>Tabela de custo da <em>TreeMap</em></h3>
             
-            <table border="1">
+            <table border="1" class="tabela-centralizada">
               <tr>
                 <th>Algoritmo</th>
                 <th>Caso Médio</th>
@@ -327,7 +300,7 @@
 
         <section id="resultados">
             <h2>Resultados dos Benchmarks</h2>
-            <iframe title="Benchmarks" width="1140" height="541.25"
+            <iframe title="Benchmarks" width="1150" height="541.25"
                 src="https://app.powerbi.com/view?r=eyJrIjoiNmZlODM2YzctNTMwYi00ZTdlLTk2NzktZDFiMzE4ZjZlZDkwIiwidCI6ImU3NzBmMjc3LWRhODItNGFhMi05ZTg2LTRjZWQyYTA3MWU4MiJ9"
                 frameborder="0" allowfullscreen="true">
             </iframe>

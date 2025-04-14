@@ -24,10 +24,30 @@ nav ul {
     margin: 0;
 }
 
-h1, h2 {
+h1 {
     margin: 0;
     padding: 10px 0;
 }
+
+h4 {
+    margin: 0;
+    padding: 10px 0;
+    color: #30253b;
+}
+
+h2 {
+    margin: 0;
+    padding: 10px 0;
+    color: #30253b;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+}
+
+section h3 {
+    margin-top: 30px;
+    color: #30253b;
+}
+
 
 section {
     padding: 40px 20px;
@@ -55,12 +75,6 @@ footer {
     margin-top: 40px;
 }
 
-section h3 {
-    margin-top: 30px;
-    color: #000000;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 5px;
-}
 
 .sidebar {
     position: fixed;
@@ -102,3 +116,44 @@ main {
     margin-left: 220px;
     padding: 20px;
 }
+
+.imagem-centralizada {
+    display: block;
+    margin: 0 auto;
+}
+
+.tabela-centralizada {
+    margin-left: auto;
+    margin-right: auto;
+}
+p {
+    text-align: justify;   
+    margin: 10px;         
+}
+
+li {
+    text-align: justify;   
+}
+
+strong {
+    color: #30253b;
+}
+
+
+ul {
+    list-style-type: disc; 
+}
+
+
+ul li::marker {
+    color: #30253b;
+}
+
+th, td {
+    border: 2px solid #30253b;  /* Borda roxa para as células */
+}
+
+tr, th {
+    border-bottom: 2px solid #30253b;  /* Linha roxa entre as linhas */
+}
+
