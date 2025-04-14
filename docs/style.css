@@ -53,11 +53,21 @@ section {
     padding: 40px 20px;
     max-width: 900px;
     margin: auto;
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+.arvore_cor {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: auto;
     background-color: #fdfcfa;
     margin-top: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
+
 
 iframe {
     width: 100%;
@@ -156,4 +166,5 @@ th, td {
 tr, th {
     border-bottom: 2px solid #30253b;  /* Linha roxa entre as linhas */
 }
+
 
