@@ -48,17 +48,15 @@
             <p>Para a análise, comparamos os seguintes aspectos:</p>
             
             <ul>
-              <li>Tempo de leitura/escrita;</li>
-              <li>Velocidade de acesso de um elemento;</li>
-              <li>Tempo de inserção e remoção de um elemento;</li>
-              <li>Memória utilizada.</li>
+              <li>Tempo de leitura, escrita e acesso de todos os elementos;</li>
+              <li>Tempo de leitura, escrita e acesso de apenas um elemento;</li>
             </ul>
             
-            <p>Para medir com precisão o tempo de execução e o uso de memória das operações, utilizamos o <em>JMH</em> (<em>Java Microbenchmarking Harness</em>), uma ferramenta especializada em microbenchmarks para <em>Java</em>. Com ela, conseguimos avaliar o desempenho das operações descritas anteriormente de forma confiável.</p>
-            <p>Durante os testes, o <em>JMH</em> executa o método de benchmark repetidamente ao longo de um intervalo de tempo pré-definido — neste projeto, 5 segundos por iteração. Ao final desse período, é calculada uma média do tempo necessário para a execução da operação. Se a operação for pesada demais para ser concluída dentro desses 5 segundos, o <em>JMH</em> ainda a executa até o fim, registrando o tempo de uma única execução.</p>
-            <p>Para garantir maior precisão nos resultados, mesmo em operações mais custosas, estipulamos um mínimo de 50 iterações por <em>benchmark</em>. Ao final, é calculada a média do tempo de execução e do consumo de memória considerando essas 50 iterações.</p>
+            <p>Para medir com precisão o tempo de execução das operações, utilizamos o <em>JMH</em> (<em>Java Microbenchmarking Harness</em>), uma ferramenta especializada em microbenchmarks para <em>Java</em>. Com ela, conseguimos avaliar o desempenho das operações descritas anteriormente de forma confiável.</p>
+            <p>Durante os testes, o <em>JMH</em> executa o método de benchmark repetidamente ao longo de um intervalo de tempo pré-definido, neste projeto, 5 segundos por iteração. Ao final desse período, é calculada uma média do tempo necessário para a execução da operação. Se a operação for pesada demais para ser concluída dentro desses 5 segundos, o <em>JMH</em> ainda a executa até o fim, registrando o tempo de uma única execução.</p>
+            <p>Para garantir maior precisão nos resultados, mesmo em operações mais custosas, estipulamos um mínimo de 50 iterações por <em>benchmark</em>. Ao final, é calculada a média do tempo de execução considerando essas 50 iterações. A titulo de informação adicionamos a velocidade de alocação de mémoria por segundos de cada operação, porém não é foco do estudo e não será aprofundado.</p>
             <p>As cargas são geradas utilizando a biblioteca <em>random</em> do <em>Python</em> com uma <em>seed</em> (número qualquer que escolhemos). O <em>script</em> gera as cargas na pasta <em>data</em> em um arquivo .csv de apenas uma coluna de dados sintéticos. São gerados 4 arquivos: um de dados ordenados e com repetições, ordenados sem repetições, desordenados com repetição e sem repetição. Cada arquivo tem 10⁶ dados sintéticos.</p>
-            <p>Os testes de estresse da máquina foram feitos no ambiente do <em>IntelliJ</em>, instalado em uma máquina do LCC da UFCG, usando diferentes cargas na estrutura de <em>Splay Tree</em>, variando entre 10⁵ e 10⁷, observando os erros de memória e o tempo de execução usando a biblioteca <em>NanoTime</em>, que embora seja menos precisa que a <em>JMH</em>, seja mais simples de utilizar para esse teste. Portanto, foi chegada à conclusão de que para as três estruturas, 10⁶ possibilitou um bom tempo de execução com uma boa quantidade de elementos.</p>
+            <p>Os testes de estresse da máquina foram executados no terminal em uma máquina do LCC da UFCG, usando diferentes cargas nas três estrutura, variando entre 10⁵ e 10⁸, observando os erros de memória e o tempo de execução. Portanto, foi chegada à conclusão de que para as três estruturas, 10⁶ possibilitou um bom tempo de execução com uma boa quantidade de elementos.</p>
 
         </section>
 
@@ -235,7 +233,7 @@
 
             <h2>TreeMap</h2>
             <p>
-              O <strong>TreeMap</strong> é uma estrutura que armazena dados no formato chave-valor, ou seja, é possível acessar um elemento por meio de uma chave única. Por exemplo, o acesso a um aluno por meio de seu CPF. O TreeMap implementa a interface <em>SortedMap</em>, que por sua vez herda da interface <em>Map</em> — utilizada para mapear valores a chaves.
+              O <strong>TreeMap</strong> é uma estrutura que armazena dados no formato chave-valor, ou seja, é possível acessar um elemento por meio de uma chave única. Por exemplo, o acesso a um aluno por meio de seu CPF. O TreeMap implementa a interface <em>SortedMap</em>, que por sua vez herda da interface <em>Map</em> utilizada para mapear valores a chaves.
             </p>
             
             <p>
@@ -249,8 +247,7 @@
             <h3>Árvore Rubro-Negra</h3>
             
             <p>
-              A árvore rubro-negra é um tipo específico de árvore binária de busca balanceada, caracterizada por regras que mantêm seu balanceamento por meio do uso de cores nos nós (vermelho e preto). A árvore realiza operações em O(log n) mesmo nos piores casos, desde que esteja balanceada.
-            </p>
+              A árvore rubro-negra é um tipo específico de árvore binária de busca balanceada, caracterizada por regras que mantêm seu balanceamento por meio do uso de cores nos nós (vermelho e preto). A árvore realiza operações em O(log n) mesmo nos piores casos, desde que esteja balanceada.</p>
             
             <h3>Propriedades:</h3>
             <ol>
@@ -302,16 +299,45 @@
 
         <section id="resultados">
             <h2>Resultados dos Benchmarks</h2>
+            <p>Para este projeto, selecionamos 6 métodos para análise, aplicados em 3 estruturas diferentes e com 4 conjuntos distintos de dados. Como cada execução foi avaliada em termos de tempo e velocidade de alocação de mémoria por segundo, o total de combinações testadas chegou a 144 resultados.
+              Esses dados foram filtrados e organizados em uma planilha, e a partir dela, foram gerados 48 gráficos no Power BI, categorizados por tipo de operação para facilitar a análise comparativa.</p>
             <iframe title="Benchmarks" width="1150" height="541.25"
                 src="https://app.powerbi.com/view?r=eyJrIjoiNmZlODM2YzctNTMwYi00ZTdlLTk2NzktZDFiMzE4ZjZlZDkwIiwidCI6ImU3NzBmMjc3LWRhODItNGFhMi05ZTg2LTRjZWQyYTA3MWU4MiJ9"
                 frameborder="0" allowfullscreen="true">
             </iframe>
-            <h6>Use o seletor acima para filtrar os resultados por método (como <code>insert</code>, <code>remove</code>, <code>search</code>). As setas na parte inferior do gráfico permitem navegar entre os indicadores de tempo (ms/op) e memória (MB/sec).</h6>
+            <h6>Use o seletor acima para filtrar os resultados por método (como <code>insert</code>, <code>remove</code>, <code>search</code>). As setas na parte inferior do gráfico permitem navegar entre os indicadores de tempo (ms/op) e velocidade de alocação de mémoria (MB/sec).</h6>
         </section>
 
         <section id="analise">
             <h2>Análise</h2>
-            <p>Discussão crítica dos resultados, com destaque para desempenho, consumo de memória e aplicações recomendadas para cada estrutura.</p>
+            <p>Para fins de análise, priorizaram-se os dados que melhor evidenciam as particularidades, vantagens e limitações de cada estrutura em estudo.</p>
+
+            <h5>INSERT ALL</h5>
+            <p>Para a operação de inserção de todos os elementos, é possível observar que a presença de repetição e ordenação impacta positivamente no tempo de execução tanto da TreeMap quanto da SplayTree. No caso da TreeMap, a implementação do Java sobrescreve os elementos repetidos, o que reduz significativamente sua altura, pois nos testes com elementos repetidos estamos trabalhando com uma carga de 1 milhão de dados, dos quais 1 a cada 100 elementos são únicos, totalizando 10 mil elementos adicionados na TreeMap. Além disso, a estrutura realiza menos reorganizações e mantém um bom balanceamento quando os elementos são inseridos de forma ordenada.</p>
+            <p>A repetição também beneficia o desempenho da SplayTree, pois a estrutura se reorganiza com base na frequência de acesso aos elementos, o que é favorável quando há muitas repetições. É possível observar no gráfico que a SplayTree está com comportamento similar à TreeMap, porém a TreeMap contém apenas 10 mil elementos adicionados, enquanto que a SplayTree contém 1 milhão, logo apesar da SplayTree ter uma maior quantidade de dados ela se comporta de forma mais eficiente que as demais.</p>
+            <p>Por outro lado, a BTree apresenta um custo maior na inserção, pois precisa realizar buscas entre todos os seus nós filhos até encontrar o lugar onde o elemento será inserido. Esse processo contribui para um custo maior em comparação com as outras estruturas, impactando diretamente o tempo da operação.</p>
+
+            <h5>INSERT ONE</h5>
+            <p>Na operação de inserir apenas um elemento aleatório, a Splaytree tem um tempo de execução alto, pois a cada valor que é adicionado nas folhas, a árvore é reorganizada para esse elemento ir para a raíz. Já na TreeMap, apesar dela possuir uma menor altura com elementos repetidos, ela precisa trocar o valor antigo pelo novo, aumentando levemente o tempo da inserção. Neste caso, a BTree se sai melhor que as demais, pois ela possui um menor número de reorganizações já que cada nó possui mais de uma chave.</p>
+
+            <h5>REMOVE ALL</h5>
+            <p>tem que ver splay horrivel</p>
+            <p>A TreeMap não se sai bem na operação de remoção de todos os valores quando trabalha com elementos repetidos. Apesar de a estrutura apresentar uma altura menor nesses casos, essa vantagem não se traduz em melhor desempenho. Isso ocorre porque, após a primeira remoção de uma chave, ainda será necessário realizar sucessivas buscas para remover todas as ocorrências dessa mesma chave, o que exige percorrer toda a estrutura repetidamente, aumentando o tempo de execução.</p>
+            <p>Por outro lado, a BTree se mostra mais eficiente nessa operação, pois cada nó armazena várias chaves. Com isso, as remoções não exigem reorganizações frequentes da árvore, o que contribui para um desempenho mais estável e eficiente nesse cenário.
+
+            </p>
+            <h5>REMOVE ONE</h5>
+            <p>tem que ver splaytree</p>
+            <p>Diferentemente da operação da remoção de todos os elementos, a repetição de elementos na TreeMap diminui seu tempo de execução na operação de remover apenas um elemento, isso pois sua altura é menor e a mesma chave não será removida várias vezes.</p>
+            <p>Já na BTree, a justificativa se mantém: como vários valores podem ser armazenados em um mesmo nó, a remoção continua sendo eficiente e exige pouca ou nenhuma reorganização da estrutura.</p>
+
+            <h5>SEARCH ALL</h5>
+            <p>Na busca por todos os elementos de uma estrutura de dados, a presença de valores repetidos favorece fortemente a Splay Tree, já que sua estrutura foi projetada exatamente para explorar padrões de acesso repetidos. Isso acontece graças ao splaying, que move elementos frequentemente acessados para posições próximas à raiz, reduzindo o tempo médio de acesso em cenários com repetições. </p>
+            <p>Além disso, a Splay Tree também é eficiente com dados ordenados. Nesses casos, ela tende a se reorganizar como uma lista ligada ordenada (semelhante a um array), como mostrado na imagem. Com isso, quanto mais buscas são realizadas, mais os nós seguintes estarão perto da raiz por estarem em sequência.Por outro lado, quando os dados estão desordenados, essa vantagem se perde. Isso porque não há garantia de que o próximo nó a ser buscado será favorecido pelo splaying anterior, ou seja, a árvore não "se prepara" para a próxima busca, e por isso tende a cair em casos piores com mais frequência. </p>
+            <img src="imagens/splaytreeOrder.png" alt="SplayTree Ordenado" height="300" class="imagem-centralizada">
+
+            <h5>SEARCH ONE</h5>
+            <p>Para a operação de busca de apenas um elemento, a SplayTree se beneficia dos elementos repetidos, pois existem 100 cópias do mesmo valor na árvore, logo é mais rápido encontrá-lo do que se existisse apenas um valor ali dentro. É importante ressaltar que a reorganização da SplayTree de sempre definir como raiz o último elemento acessado não está ajudando no tempo de execução dessa operação, pois estamos buscando apenas 1 elemento. Já a TreeMap está melhor nos dados com repetição, pois nestes ela guarda menos nós (apenas 10 mil), enquanto que sem repetição ela guarda muitos nós (1 milhão).</p>
         </section>
 
         <section id="conclusao">
@@ -324,25 +350,25 @@
                 <ul>
                   <li>
                     As imagens utilizadas para ilustrar os exemplos da estrutura de dados <strong>SplayTree</strong> foram retiradas de: 
-                    <a href="https://pt.wikipedia.org/wiki/%C3%81rvore_splay" target="_blank">
+                    <a href="https://pt.wikipedia.org/wiki/%C3%81rvore_splay" target="_blank" style="color:#30253b;">
                       https://pt.wikipedia.org/wiki/Árvore_splay
                     </a>
                   </li>
                   <li>
                     Material de consulta utilizado para a <strong>TreeMap</strong>:
-                    <a href="https://docs.oracle.com/javase/8/docs/api/java/util/TreeMap.html" target="_blank">
+                    <a href="https://docs.oracle.com/javase/8/docs/api/java/util/TreeMap.html" target="_blank" style="color:#30253b;">
                       https://docs.oracle.com/javase/8/docs/api/java/util/TreeMap.html
                     </a>
                   </li>
                   <li>
                     A implementação da <strong>BTree</strong> utilizada neste projeto foi baseada em:
-                    <a href="https://www.programiz.com/dsa/b-tree" target="_blank">
+                    <a href="https://www.programiz.com/dsa/b-tree" target="_blank" style="color:#30253b;">
                       https://www.programiz.com/dsa/b-tree
                     </a>
                   </li>
                   <li>
                     O estudo e a aplicação do ambiente de testes <strong>Java Microbenchmark Harness (JMH)</strong> foi baseado no artigo de Muhammad Asher Toqeer ("TheBackEndGuy"):
-                    <a href="https://thebackendguy.com/posts/performance-analysis-using-jmh/" target="_blank">
+                    <a href="https://thebackendguy.com/posts/performance-analysis-using-jmh/" target="_blank" style="color:#30253b;">
                       https://thebackendguy.com/posts/performance-analysis-using-jmh/
                     </a>
                   </li>
