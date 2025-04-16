@@ -310,41 +310,46 @@
 
         <section id="analise">
             <h2>Análise</h2>
-            <p>Para fins de análise, priorizaram-se os dados que melhor evidenciam as particularidades, vantagens e limitações de cada estrutura em estudo.</p>
-
+            <p>Para fins de análise, priorizaram-se os dados mais precisos e que melhor evidenciam as particularidades, vantagens e limitações de cada estrutura em estudo.  </p>
             <h5>INSERT ALL</h5>
             <p>Para a operação de inserção de todos os elementos, é possível observar que a presença de repetição e ordenação impacta positivamente no tempo de execução tanto da TreeMap quanto da SplayTree. No caso da TreeMap, a implementação do Java sobrescreve os elementos repetidos, o que reduz significativamente sua altura, pois nos testes com elementos repetidos estamos trabalhando com uma carga de 1 milhão de dados, dos quais 1 a cada 100 elementos são únicos, totalizando 10 mil elementos adicionados na TreeMap. Além disso, a estrutura realiza menos reorganizações e mantém um bom balanceamento quando os elementos são inseridos de forma ordenada.</p>
-            <p>A repetição também beneficia o desempenho da SplayTree, pois a estrutura se reorganiza com base na frequência de acesso aos elementos, o que é favorável quando há muitas repetições. É possível observar no gráfico que a SplayTree está com comportamento similar à TreeMap, porém a TreeMap contém apenas 10 mil elementos adicionados, enquanto que a SplayTree contém 1 milhão, logo apesar da SplayTree ter uma maior quantidade de dados ela se comporta de forma mais eficiente que as demais.</p>
+            <p>A repetição nos dados também beneficia o desempenho da SplayTree, pois como a estrutura não aceita elementos repetidos, o tempo de execução é apenas de adicionar a primeira vez, e nas subsequentes ela apenas verifica se já existe, sem precisar adicionar e se reorganizar. É possível observar no gráfico que a SplayTree está com comportamento similar à TreeMap, isso ocorre pois tanto a TreeMap quanto a SplayTree contém apenas 10 mil elementos adicionados,  isso deriva das duas estruturas não adicionarem elementos repetidos.</p>
             <p>Por outro lado, a BTree apresenta um custo maior na inserção, pois precisa realizar buscas entre todos os seus nós filhos até encontrar o lugar onde o elemento será inserido. Esse processo contribui para um custo maior em comparação com as outras estruturas, impactando diretamente o tempo da operação.</p>
 
             <h5>INSERT ONE</h5>
             <p>Na operação de inserir apenas um elemento aleatório, a Splaytree tem um tempo de execução alto, pois a cada valor que é adicionado nas folhas, a árvore é reorganizada para esse elemento ir para a raíz. Já na TreeMap, apesar dela possuir uma menor altura com elementos repetidos, ela precisa trocar o valor antigo pelo novo, aumentando levemente o tempo da inserção. Neste caso, a BTree se sai melhor que as demais, pois ela possui um menor número de reorganizações já que cada nó possui mais de uma chave.</p>
 
             <h5>REMOVE ALL</h5>
-            <p>tem que ver splay horrivel</p>
+            <p>Sobre a remoção de todos os elementos, a estrutura SplayTree tende a se desbalancear com a repetição de chaves. Uma vez que para remover um elemento, ela busca em toda sua estrutura o elemento e, a partir de operações de rotações, promove o nó para a raiz e o remove. E, apesar de não admitir elementos repetidos, ao tentar remover um elemento que não esteja contido na árvore, ele irá promover para a raiz o nó com o valor mais próximo. Portanto, mesmo com elementos repetidos ele irá realizar sucessivas buscas e rotações para realizar a remoção de um elemento existente ou não na árvore</p>
             <p>A TreeMap não se sai bem na operação de remoção de todos os valores quando trabalha com elementos repetidos. Apesar de a estrutura apresentar uma altura menor nesses casos, essa vantagem não se traduz em melhor desempenho. Isso ocorre porque, após a primeira remoção de uma chave, ainda será necessário realizar sucessivas buscas para remover todas as ocorrências dessa mesma chave, o que exige percorrer toda a estrutura repetidamente, aumentando o tempo de execução.</p>
             <p>Por outro lado, a BTree se mostra mais eficiente nessa operação, pois cada nó armazena várias chaves. Com isso, as remoções não exigem reorganizações frequentes da árvore, o que contribui para um desempenho mais estável e eficiente nesse cenário.
 
             </p>
             <h5>REMOVE ONE</h5>
-            <p>tem que ver splaytree</p>
-            <p>Diferentemente da operação da remoção de todos os elementos, a repetição de elementos na TreeMap diminui seu tempo de execução na operação de remover apenas um elemento, isso pois sua altura é menor e a mesma chave não será removida várias vezes.</p>
+            <p>Diferentemente da operação da remoção de todos os elementos, a repetição de elementos na TreeMap e na SplayTree diminui seu tempo de execução na operação de remover apenas um elemento, isso pois sua altura é menor e a mesma chave não será removida várias vezes.</p>
             <p>Já na BTree, a justificativa se mantém: como vários valores podem ser armazenados em um mesmo nó, a remoção continua sendo eficiente e exige pouca ou nenhuma reorganização da estrutura.</p>
-
+            <p>Entretanto, a Splay Tree apresenta uma tendência pior que as outras, pois antes de remover um elemento, ela promove esse nó para a raiz. Ademais, quando os elementos são inseridos de forma ordenada, a árvore apresentará um comportamento de linha reta, ou seja, a sua altura será O(n), e quando for feita a remoção aleatória de um elemento da Splay Tree, existem chances de cairmos no pior casoo elemento nas últimas posições). Tanto na TreeMap quanto na SplayTree, devido a haver apenas elementos não repetidos, a altura da árvore será maior e a busca por um elemento aleatório levará mais tempo.</p>
+            <p>Apesar de a BTree estar melhor, a diferença é ínfima entre as estruturas.</p>
+            
             <h5>SEARCH ALL</h5>
             <p>Na busca por todos os elementos de uma estrutura de dados, a presença de valores repetidos favorece fortemente a Splay Tree, já que sua estrutura foi projetada exatamente para explorar padrões de acesso repetidos. Isso acontece graças ao splaying, que move elementos frequentemente acessados para posições próximas à raiz, reduzindo o tempo médio de acesso em cenários com repetições. </p>
             <p>Além disso, a Splay Tree também é eficiente com dados ordenados. Nesses casos, ela tende a se reorganizar como uma lista ligada ordenada (semelhante a um array), como mostrado na imagem. Com isso, quanto mais buscas são realizadas, mais os nós seguintes estarão perto da raiz por estarem em sequência.Por outro lado, quando os dados estão desordenados, essa vantagem se perde. Isso porque não há garantia de que o próximo nó a ser buscado será favorecido pelo splaying anterior, ou seja, a árvore não "se prepara" para a próxima busca, e por isso tende a cair em casos piores com mais frequência. </p>
             <img src="imagens/splaytreeOrder.png" alt="SplayTree Ordenado" height="300" class="imagem-centralizada">
 
             <h5>SEARCH ONE</h5>
-            <p>Para a operação de busca de apenas um elemento, a SplayTree se beneficia dos elementos repetidos, pois existem 100 cópias do mesmo valor na árvore, logo é mais rápido encontrá-lo do que se existisse apenas um valor ali dentro. É importante ressaltar que a reorganização da SplayTree de sempre definir como raiz o último elemento acessado não está ajudando no tempo de execução dessa operação, pois estamos buscando apenas 1 elemento. Já a TreeMap está melhor nos dados com repetição, pois nestes ela guarda menos nós (apenas 10 mil), enquanto que sem repetição ela guarda muitos nós (1 milhão).</p>
-        </section>
+        <p>
+          Para a operação de busca de apenas um elemento, a SplayTree também se beneficia dos elementos repetidos, visto que ela não adiciona um dado que já existe na estrutura. É importante destacar que a maneira que os testes estão setados desfavorecem a SplayTree, já que a cada iteração a árvore é resetada, o que tira o principal benefício da estrutura, que é deixar os elementos mais acessados mais no topo, próximos a raíz. Então toda vez que ela busca um elemento repetido ela tem todo o trabalho de encontrar e se reorganizar novamente.
+          </p>
+          <p>
+            A TreeMap está melhor nos dados com repetição, pois, assim como a SplayTree ela guarda menos nós (apenas 10 mil), enquanto que sem repetição ela guarda muitos nós (1 milhão).
+          </p>
+          </section>
 
         <section id="conclusao">
             <h2>Conclusão</h2>
             <p>Os testes de tempo de execução comprovaram uma precisão satisfatória, no entanto, o mesmo não pode ser dito dos resultados da memória, a qual o JMH não obteve bons resultados de precisão, portanto, os dados da memória foram desconsiderados para a análise. </p>
             <p>As estruturas analisadas apresentaram desempenhos condizentes com suas respectivas implementações, no geral, SplayTree e TreeMap acabaram se saindo melhor na maioria dos testes com repetição, com poucas exceções, pois as implementações utilizadas nessa análise não aceitavam nós repetidos, tornando a altura delas consideravelmente menor. </p>
-            <p>Os testes constataram que a SplayTree não é a melhor escolha para lidar com um grande volume de dados, uma vez que suas operações são baseadas em colocar o elemento acessado(seja para remoção, busca ou inserção) na raiz, por meio de rotações. O que torna as operações básicas mais custosas comparadas às outras estruturas.</p>
+            <p>Os testes constataram que a SplayTree não é a melhor escolha para lidar com um grande volume de dados, uma vez que suas operações são baseadas em colocar o elemento acessado(seja para remoção, busca ou inserção) na raiz, por meio de rotações. O que torna as operações básicas mais custosas comparadas às outras estruturas. Isso reforça que, embora seja útil em cenários específicos (como caches ou listas de prioridades onde poucos elementos são frequentemente acessados), ela não escala tão bem quanto outras árvores, como TreeMap ou BTree, em cenários mais genéricos ou com grandes volumes de dados.</p>
             <p>Por outro lado, a TreeMap tende a ter desempenho superior nas operações fundamentais, realizando um número menor de rotações para manter o balanceamento da árvore. Como resultado, tende a ser uma escolha mais eficiente e estável para as operações que escolhemos. Contudo, a implementação do Java da TreeMap ainda não preserva os elementos repetidos dos arquivos de entrada.</p>
             <p>Dessa forma, para preservar integralmente cada elemento, mesmo em casos de repetição, a Btree mostrou-se a opção mais adequada para trabalhar com grandes dados em situações mais genéricas, pois garante a manutenção do conjunto de dados original e oferece desempenho estável e eficiente em situações mais gerais, exatamente conforme seu propósito de design.</p>
         </section>
