@@ -30,19 +30,19 @@
 
         <section id="intro">
             <h2>Introdução</h2>
-            <p>Este <em>GitHub Pages</em> contém a entrega do <strong>Grupo 5</strong>, formado por: <strong>Anthony Willy Miranda Pereira</strong>, <strong>Maria Eduarda Viana Cordeiro dos Santos</strong>, <strong>Matheus Adiel Medeiros Lima de Oliveira</strong>, <strong>Natan Hugo Carvalho Evangelista</strong> e <strong>Tamires Santiago Oliveira</strong>, na disciplina <strong>Estruturas de Dados e Algoritmos (EDA/LEDA)</strong>, sob orientação do <strong>Professor João Arthur Brunet</strong>, na <strong>Universidade Federal de Campina Grande (UFCG)</strong>.</p>
-            <p>O trabalho tem como objetivo comparar o desempenho de diferentes estruturas de árvore, como <strong>B-Tree</strong>, <strong>Splay Tree</strong> e <strong>TreeMap (Java)</strong>, utilizando a ferramenta <strong>JMH (Java Microbenchmark Harness)</strong> para <em>benchmarks</em> de desempenho. Para simular diferentes cenários de uso, foram utilizados <strong>scripts em Python</strong> para geração automática de cargas de dados, e, após os testes, foi realizada uma análise detalhada para entender os fatores que influenciaram o desempenho de cada estrutura.</p>
+            <p>Este <i>GitHub Pages</i> contém a entrega do <strong>Grupo 5</strong>, formado por: <strong>Anthony Willy Miranda Pereira</strong>, <strong>Maria Eduarda Viana Cordeiro dos Santos</strong>, <strong>Matheus Adiel Medeiros Lima de Oliveira</strong>, <strong>Natan Hugo Carvalho Evangelista</strong> e <strong>Tamires Santiago Oliveira</strong>, na disciplina <strong>Estruturas de Dados e Algoritmos (EDA/LEDA)</strong>, sob orientação do <strong>Professor João Arthur Brunet</strong>, na <strong>Universidade Federal de Campina Grande (UFCG)</strong>.</p>
+            <p>O trabalho tem como objetivo comparar o desempenho de diferentes estruturas de árvore, como <strong>B-Tree</strong>, <strong>Splay Tree</strong> e <strong>TreeMap (Java)</strong>, utilizando a ferramenta <strong>JMH (Java Microbenchmark Harness)</strong> para <i>benchmarks</i> de desempenho. Para simular diferentes cenários de uso, foram utilizados <strong>scripts em Python</strong> para geração automática de cargas de dados, e, após os testes, foi realizada uma análise detalhada para entender os fatores que influenciaram o desempenho de cada estrutura.</p>
 
         </section>
 
         <section id="metodologia">
             <h2>Metodologia Geral</h2>
-            <p>Considerando as diversas estruturas de dados avançadas que não são abordadas na disciplina de Estrutura de Dados na Universidade Federal de Campina Grande (UFCG), o objetivo deste projeto é analisar, comparar e catalogar estas estruturas em Java:</p>
+            <p>Considerando as diversas estruturas de dados avançadas que não são abordadas na disciplina de Estrutura de Dados na Universidade Federal de Campina Grande (UFCG), o objetivo deste projeto é analisar, comparar e catalogar estas estruturas em <i>Java</i>:</p>
 
             <ul>
-              <li><em>B-Tree</em></li>
-              <li><em>TreeMap</em></li>
-              <li><em>Splay Tree</em></li>
+              <li><i>B-Tree</i></li>
+              <li><i>TreeMap</i></li>
+              <li><i>Splay Tree</i></li>
             </ul>
             
             <p>Para a análise, comparamos os seguintes aspectos:</p>
@@ -52,11 +52,26 @@
               <li>Tempo de leitura, escrita e acesso de apenas um elemento;</li>
             </ul>
             
-            <p>Para medir com precisão o tempo de execução das operações, utilizamos o <em>JMH</em> (<em>Java Microbenchmarking Harness</em>), uma ferramenta especializada em microbenchmarks para <em>Java</em>. Com ela, conseguimos avaliar o desempenho das operações descritas anteriormente de forma confiável.</p>
-            <p>Durante os testes, o <em>JMH</em> executa o método de benchmark repetidamente ao longo de um intervalo de tempo pré-definido, neste projeto, 5 segundos por iteração. Ao final desse período, é calculada uma média do tempo necessário para a execução da operação. Se a operação for pesada demais para ser concluída dentro desses 5 segundos, o <em>JMH</em> ainda a executa até o fim, registrando o tempo de uma única execução.</p>
-            <p>Para garantir maior precisão nos resultados, mesmo em operações mais custosas, estipulamos um mínimo de 50 iterações por <em>benchmark</em>. Ao final, é calculada a média do tempo de execução considerando essas 50 iterações. A titulo de informação adicionamos a velocidade de alocação de mémoria por segundo de cada operação, porém não é foco do estudo e não será aprofundado.</p>
-            <p>As cargas são geradas utilizando a biblioteca <em>random</em> do <em>Python</em> com uma <em>seed</em> (número qualquer que escolhemos). O <em>script</em> gera as cargas na pasta <em>data</em> em um arquivo .csv de apenas uma coluna de dados sintéticos. São gerados 4 arquivos: um de dados ordenados e com repetições, ordenados sem repetições, desordenados com repetição e sem repetição. Cada arquivo tem 10⁶ dados sintéticos.</p>
-            <p>Os testes de estresse da máquina foram executados no terminal em uma máquina do LCC da UFCG, usando diferentes cargas nas três estrutura, variando entre 10⁵ e 10⁸, observando os erros de memória e o tempo de execução. Portanto, foi chegada à conclusão de que para as três estruturas, 10⁶ possibilitou um bom tempo de execução com uma boa quantidade de elementos.</p>
+            <p>Para medir com precisão o tempo de execução das operações, utilizamos o <i>JMH (Java Microbenchmarking Harness)</i>, uma ferramenta especializada em microbenchmarks para aplicações <i>Java</i>. Essa ferramenta permite avaliar de forma confiável o desempenho das operações previamente descritas, repetindo-as durante um intervalo de tempo determinado neste projeto, 5 segundos por iteração.</p>
+            <p>Ao final de cada iteração, o <i>JMH</i> calcula a média do tempo necessário para a execução da operação. Mesmo que a operação seja muito custosa e não finalize diversas vezes dentro do intervalo, o <i>JMH</i> ainda a executa ao menos uma vez, registrando o tempo dessa execução. Para garantir maior precisão, configuramos 5 forks com 10 iterações cada, totalizando 50 iterações por benchmark. Cada iteração executa o método o máximo de vezes possível em 5 segundos, e ao final, é registrada a média dos tempos obtidos.</p>
+            <p>Além disso, incluímos a métrica de alocação de memória por segundo, embora ela não seja o foco deste estudo e, por isso, não será analisada em profundidade.</p>
+            <p>Para configurar os benchmarks, utilizamos diversas anotações do <i>JMH</i>:</p>
+            <li>@State(Scope.Thread): define o escopo de execução como sendo por thread, ou seja, cada thread de benchmark possui sua própria instância do estado, o que evita interferência entre execuções concorrentes.</li>
+            <li>@Fork(5)</i>: o benchmark é repetido 5 vezes em um ambiente limpo, garantindo resultados mais estáveis e independentes.</li>
+            <li>@Measurement(iterations = 10, time = 5, timeUnit = TimeUnit.SECONDS): cada fork executa 10 iterações de 5 segundos.</li>
+            <li>@Warmup(iterations = 5, time = 5, timeUnit = TimeUnit.SECONDS): o sistema realiza 5 iterações de aquecimento antes da medição, descartando seus resultados, o que ajuda a estabilizar o ambiente de execução.</li>
+            <li>@BenchmarkMode(Mode.AverageTime): indica que o resultado será apresentado como a média do tempo de execução.</li>
+            <li>@OutputTimeUnit(TimeUnit.NANOSECONDS): define que o tempo será registrado em nanosegundos, embora os resultados tenham sido convertidos para milissegundos nas tabelas e gráficos para facilitar a análise.</li>
+            <li>@Setup: define a preparação do ambiente antes de cada benchmark. No nosso caso, iniciamos diferentes versões das estruturas (por exemplo, uma árvore vazia e outra cheia) para permitir testes variados, como inserção em árvore vazia ou em árvore já populada.</li>
+            <p>Outro ponto importante é a presença do método "Baseline" em cada benchmark. Esse método serve como referência e executa uma operação mínima ou nula (por exemplo, apenas retornar um valor fixo). Ele permite comparar a sobrecarga introduzida pela infraestrutura do benchmark com o tempo real das operações testadas, ajudando a identificar possíveis interferências.</p>
+            <p>Também utilizamos a classe <i>Blackhole</i>, fornecida pelo <i>JMH</i>, para evitar que o compilador <i>Java</i> otimize excessivamente o código. Por exemplo, se uma operação de busca retorna um valor que não é utilizado, o compilador poderia removê-la por considerar que seu resultado não tem efeito. O <i>Blackhole</i> "consome" esses retornos, garantindo que a operação seja de fato executada, preservando a fidelidade dos resultados.</p>
+            <p>As cargas de dados foram geradas com a biblioteca <i>random</i> do <i>Python</i>, utilizando uma seed para garantir reprodutibilidade. O script gera arquivos .csv com 10⁶ valores sintéticos em uma única coluna. Foram produzidos quatro tipos de arquivos:</p>
+            <li>ordenado com repetição</li>
+            <li>ordenado sem repetição</li>
+            <li>desordenado com repetição</li>
+            <li>desordenado sem repetição</li>
+            <p>Os testes de estresse foram realizados em uma máquina do LCC da UFCG via terminal, utilizando diferentes cargas nas três estruturas. As quantidades de dados variaram de 10⁵ a 10⁸ elementos. Observou-se que 10⁶ elementos representou um bom equilíbrio entre tempo de execução e volume de dados, sendo o valor adotado nos benchmarks finais.</p>
+
 
         </section>
 
