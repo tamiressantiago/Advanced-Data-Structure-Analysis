@@ -342,7 +342,11 @@
 
         <section id="conclusao">
             <h2>Conclusão</h2>
-            <p>Concluir</p>
+            <p>Os testes de tempo de execução comprovaram uma precisão satisfatória, no entanto, o mesmo não pode ser dito dos resultados da memória, a qual o JMH não obteve bons resultados de precisão, portanto, os dados da memória foram desconsiderados para a análise. </p>
+            <p>As estruturas analisadas apresentaram desempenhos condizentes com suas respectivas implementações, no geral, SplayTree e TreeMap acabaram se saindo melhor na maioria dos testes com repetição, com poucas exceções, pois as implementações utilizadas nessa análise não aceitavam nós repetidos, tornando a altura delas consideravelmente menor. </p>
+            <p>Os testes constataram que a SplayTree não é a melhor escolha para lidar com um grande volume de dados, uma vez que suas operações são baseadas em colocar o elemento acessado(seja para remoção, busca ou inserção) na raiz, por meio de rotações. O que torna as operações básicas mais custosas comparadas às outras estruturas.</p>
+            <p>Por outro lado, a TreeMap apresenta desempenho superior nas operações fundamentais, realizando um número menor de rotações para manter o balanceamento da árvore. Como resultado, tende a ser uma escolha mais eficiente e estável para as operações que escolhemos. Contudo, a implementação do Java da TreeMap ainda não preserva os elementos repetidos dos arquivos de entrada.</p>
+            <p>Dessa forma, para preservar integralmente cada elemento, mesmo em casos de repetição, a Btree mostrou-se a opção mais adequada para trabalhar com grandes dados em situações mais genéricas, pois garante a manutenção do conjunto de dados original e oferece desempenho estável e eficiente em situações mais gerais, exatamente conforme seu propósito de design.</p>
         </section>
 
         <section id="creditos">
