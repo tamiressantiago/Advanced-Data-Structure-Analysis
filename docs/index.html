@@ -65,10 +65,12 @@
             <p>Outro ponto importante é a presença do método "Baseline" em cada benchmark. Esse método serve como referência e executa uma operação mínima ou nula (por exemplo, apenas retornar um valor fixo). Ele permite comparar a sobrecarga introduzida pela infraestrutura do benchmark com o tempo real das operações testadas, ajudando a identificar possíveis interferências.</p>
             <p>Também utilizamos a classe <i>Blackhole</i>, fornecida pelo <i>JMH</i>, para evitar que o compilador <i>Java</i> otimize excessivamente o código. Por exemplo, se uma operação de busca retorna um valor que não é utilizado, o compilador poderia removê-la por considerar que seu resultado não tem efeito. O <i>Blackhole</i> "consome" esses retornos, garantindo que a operação seja de fato executada, preservando a fidelidade dos resultados.</p>
             <p>As cargas de dados foram geradas com a biblioteca <i>random</i> do <i>Python</i>, utilizando uma seed para garantir reprodutibilidade. O script gera arquivos .csv com 10⁶ valores sintéticos em uma única coluna. Foram produzidos quatro tipos de arquivos:</p>
-            <li>Ordenado com repetição</li>
-            <li>Ordenado sem repetição</li>
-            <li>Desordenado com repetição</li>
-            <li>Desordenado sem repetição</li>
+            <ul style="margin-top: 0; padding-left: 20px; list-style-position: inside;">
+              <li>Ordenado com repetição</li>
+              <li>Ordenado sem repetição</li>
+              <li>Desordenado com repetição</li>
+              <li>Desordenado sem repetição</li>
+            </ul>
             <p>Os testes de estresse foram realizados em uma máquina do LCC da UFCG via terminal, utilizando diferentes cargas nas três estruturas. As quantidades de dados variaram de 10⁵ a 10⁸ elementos. Observou-se que 10⁶ elementos representou um bom equilíbrio entre tempo de execução e volume de dados, sendo o valor adotado nos benchmarks finais.</p>
 
 
